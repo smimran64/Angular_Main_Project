@@ -1,0 +1,60 @@
+{
+  "hotel": [
+    {
+      "id": "9d08",
+      "name": "Sayeman Beach Resort",
+      "image": "https://images.trvl-media.com/lodging/10000000/9870000/9861700/9861697/6fcb4fc2.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+      "address": " Marine Drive, Road, Cox's Bazar 4700",
+      "rating": "4.5",
+      "location": {
+        "id": "685a",
+        "locationName": "Cox's Bazar"
+      }
+    },
+    {
+      "id": "ce8e",
+      "name": "Faruque Ahmed",
+      "image": "https://images.trvl-media.com/lodging/10000000/9870000/9861700/9861697/6fcb4fc2.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+      "address": " Marine Drive, Road, Cox's Bazar 4700",
+      "rating": "4.5",
+      "location": {
+        "id": "0687",
+        "locationName": "Dhaka"
+      }
+    },
+    {
+      "id": "b2fa",
+      "name": "Faruque Ahmed",
+      "image": "https://images.trvl-media.com/lodging/10000000/9870000/9861700/9861697/6fcb4fc2.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+      "address": " Marine Drive, Road, Cox's Bazar 4700",
+      "rating": "4.5",
+      "location": {
+        "id": "0687",
+        "locationName": "Dhaka"
+      }
+    }
+  ],
+  "location": [
+    {
+      "id": "0687",
+      "locationName": "Dhaka"
+    },
+    {
+      "id": "685a",
+      "locationName": "Cox's Bazar"
+    },
+    {
+      "id": "ed13",
+      "locationName": "Sylhet"
+    },
+    {
+      "id": "6847",
+      "locationName": "Gazipur"
+    }
+  ],
+  "room": [
+    {
+      "id": "5750"
+    }
+  ]
+}

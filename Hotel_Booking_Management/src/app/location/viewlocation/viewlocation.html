@@ -1,0 +1,34 @@
+<div class="container">
+
+    <h1 class="text-center my-2">All Location</h1>
+
+    <table class="table striped">
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Location Name</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let l of locations ">
+                <td>{{l.id}}</td>
+                <td>{{l.locationName}}</td>
+
+                <td>
+                    <button class="btn btn-primary" (click)="getLocationById(l.id)">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteLocation(l.id)">Delete</button>
+
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* body {
+            background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+           
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+        } */
+
+        .form-container {
+            background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 80%;
+            align-items: center;
+            background-position: center; 
+            
+            
+            
+        }
+
+        .form-title {
+            color: #f5fdf6;
+            /* Warning color (orange) */
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-custom {
+            background: linear-gradient(45deg, #6a1b9a, #ab47bc);
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(45deg, #ab47bc, #ce93d8);
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #6a1b9a;
+            box-shadow: 0 0 0 0.2rem rgba(106, 27, 154, 0.25);
+        }
+
+        .input-group-text {
+            background: #6a1b9a;
+            color: white;
+            border: none;
+        }
+
+        .form-control,
+        .form-select {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2 class="form-title">Add New Hotel Room</h2>
+
+        <form [formGroup]="roomForm" (ngSubmit)="AddRoom()">
+            <div>
+                <div class="mb-3">
+                    <label for="imageUrl" class="form-label text-white">Image</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-image"></i></span>
+                        <input type="url" class="form-control" id="image" formControlName="image"
+                            placeholder="Enter image URL" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="roomType" class="form-label text-white">Room Type</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-bed"></i></span>
+                        <input type="text" class="form-control" id="roomtype" placeholder="Enter room type"
+                            formControlName="roomtype" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="adults" class="form-label text-white">Adults</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="number" class="form-control" id="adults" min="1" placeholder="Number of adults"
+                                formControlName="adults" autocomplete="off" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="children" class="form-label text-white">Children</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-child"></i></span>
+                            <input type="number" class="form-control" id="children" min="0" formControlName="children"
+                                placeholder="Number of children" autocomplete="off" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label text-white">Price ($)</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                        <input type="text" class="form-control" id="price" placeholder="Enter price" autocomplete="off"
+                            formControlName="price" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label text-white"><i class="fas fa-hotel"></i>Hotel Name</label>
+                    <div class="input-group">
+                        <select class="form-select" id="hotel" formControlName="name" autocomplete="off" required>
+                            <option value="" disabled selected>Select hotel</option>
+                            <option *ngFor=" let h of hotels" [ngValue]="h.name">{{h.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button type="button" class="btn btn-custom"><i class="fas fa-save me-2" (click)="AddRoom()"></i>Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelector('.btn-custom').addEventListener('click', () => {
+            const roomData = {
+                image: document.getElementById('imageUrl').value,
+                roomtype: document.getElementById('roomType').value,
+                adults: parseInt(document.getElementById('adults').value),
+                children: parseInt(document.getElementById('children').value),
+                price: document.getElementById('price').value,
+                hotel: {
+                    name: document.getElementById('hotelName').value
+                }
+            };
+            console.log('Room Data:', roomData);
+            // Add your form submission logic here
+        });
+    </script>
+</body>
+
+</html>

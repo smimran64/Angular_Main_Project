@@ -1,0 +1,43 @@
+<div class="container">
+
+    <h1 class="text-center my-2">All Hotel</h1>
+
+    <table class="table striped">
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Address</th>
+                <th>Rating</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let h of hotels ">
+                <td>{{ h.id }}</td>
+                <td>{{ h.name }}</td>
+                <td><img [src]="h.image" alt="{{ h.name }}" width="100"></td>
+                <td>{{ h.address }}</td>
+                <td>{{ h.rating }}</td>
+                <td>{{ h.location.locationName }}</td>
+
+
+                <td>
+                    <button class="btn btn-primary" (click)="getHotelById(h.id)">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteHotel(h.id)">Delete</button>
+
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

@@ -1,0 +1,68 @@
+<div class="container my-3">
+    <div class="bg-success text-center">
+        <h1 class="jumborton">Add Hotel</h1>
+    </div>
+    <!--    start form-->
+    <form [formGroup]="formGroup">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" formControlName="name" placeholder="Hotel Name">
+            </div>
+
+            <div class="col-md-6">
+                <label for="exampleInputEmail1" class="form-label">Image</label>
+                <input type="text" class="form-control" id="image" formControlName="image">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="exampleInputEmail1" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" formControlName="address">
+            </div>
+
+            <div class="col-md-6">
+                <label for="exampleInputEmail1" class="form-label">Ratings</label>
+                <input type="text" class="form-control" id="rating" formControlName="rating">
+            </div>
+        </div>
+        <div class="row">
+           
+                <div class="col-md-6">
+                    <label for="location" class="form-label">Location</label>
+                    <select id="location" name="location" class="form-select" formControlName="location"
+                        [compareWith]="compareLocation">
+                        <option *ngFor="let loc of locations" [ngValue]="loc">{{ loc.locationName }}</option>
+                    </select>
+                </div>
+            </div>
+       
+
+
+
+        <!-- <div class="col-md-6">
+                <label for="location" class="form-label">Location</label>
+                <select id="location" formControlName="location" class="form-select" [(ngModel)]="hotel.location"
+                    [compareWith]="compareLocation">
+                    <option *ngFor="let loc of locations" [ngValue]="loc">{{ loc.locationName }}</option>
+                </select>
+            </div> -->
+
+
+
+
+        <div class="row mt-3 text-center">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success text-center" (click)="Addhotel()">Save</button>
+
+            </div>
+
+            <div class="col-md-6">
+                <button type="reset" class="btn btn-danger text-center">Reset</button>
+
+            </div>
+        </div>
+    </form>
+
+    <!--end form    -->
+</div>
