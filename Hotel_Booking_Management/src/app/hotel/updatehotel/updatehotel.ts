@@ -55,7 +55,7 @@ export class Updatehotel implements OnInit {
   onSubmit(): void {
     this.hotelService.updateHotel(this.id, this.hotel).subscribe({
 
-      next: (res) => this.router.navigate([''], res),
+      next: (res) => this.router.navigate(['']),
       error: (err) => console.error('Update failed', err)
     });
 

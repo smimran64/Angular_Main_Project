@@ -10,7 +10,7 @@
 
             <!-- Right form -->
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="loginForm">
 
                     <!-- Social login buttons -->
                     <div
@@ -47,7 +47,7 @@
 
                     <!-- Password input -->
                     <div class="form-outline mb-3">
-                        <input type="password" id="passwordInput" class="form-control form-control-lg"
+                        <input type="password" id="password" class="form-control form-control-lg"
                             placeholder="Enter password" formControlName="password">
                         <label class="form-label" for="passwordInput">Password</label>
                         <!-- Inline validation -->

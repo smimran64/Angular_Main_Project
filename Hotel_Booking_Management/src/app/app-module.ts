@@ -11,14 +11,16 @@ import { Updatehotel } from './hotel/updatehotel/updatehotel';
 import { Addlocation } from './location/addlocation/addlocation';
 import { Viewlocation } from './location/viewlocation/viewlocation';
 import { Updatelocation } from './location/updatelocation/updatelocation';
-import { Addroom } from './room/addroom/addroom';
-import { Viewallroom } from './room/viewallroom/viewallroom';
-import { Updateroom } from './room/updateroom/updateroom';
+
 import { Login } from './auth/login/login';
 import { Logout } from './auth/logout/logout';
 import { Registrationform } from './auth/registrationform/registrationform';
 import { Userprofile } from './profile/userprofile/userprofile';
 import { Adminprofile } from './profile/adminprofile/adminprofile';
+import { Addroom } from './room/addroom/addroom';
+import { Viewallroom } from './room/viewallroom/viewallroom';
+import { Home } from './home/home';
+import { HotelDetails } from './hotel/hotel-details/hotel-details';
 
 
 @NgModule({
@@ -30,14 +32,16 @@ import { Adminprofile } from './profile/adminprofile/adminprofile';
     Addlocation,
     Viewlocation,
     Updatelocation,
-    Addroom,
-    Viewallroom,
-    Updateroom,
+   
     Login,
     Logout,
     Registrationform,
     Userprofile,
-    Adminprofile
+    Adminprofile,
+    Addroom,
+    Viewallroom,
+    Home,
+    HotelDetails
    
   ],
   imports: [
@@ -52,7 +56,8 @@ import { Adminprofile } from './profile/adminprofile/adminprofile';
     provideClientHydration(withEventReplay()),
     provideHttpClient(
       withFetch()
-    )
+    ),
+
   ],
   bootstrap: [App]
 })

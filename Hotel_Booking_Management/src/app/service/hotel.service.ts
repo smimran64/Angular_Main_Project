@@ -8,47 +8,30 @@ import { Hotel } from '../model/hotel.model';
 })
 export class HotelService {
 
-  baseUrl: string = 'http://localhost:3000/hotel';
+  private apiUrl = 'http://localhost:3000/hotels'; 
 
   constructor(private http: HttpClient) { }
 
+  getAllHotels(): Observable<Hotel[]> {
+    return this.http.get<Hotel[]>(this.apiUrl);
+  }
 
-  getAllHotel(): Observable<any> {
+  getHotelById(id: string): Observable<Hotel> {
+    return this.http.get<Hotel>(`${this.apiUrl}/${id}`);
+  }
 
-    return this.http.get(this.baseUrl);
+  saveHotel(hotel: Hotel): Observable<Hotel> {
+    return this.http.post<Hotel>(this.apiUrl, hotel);
+  }
+
+  updateHotel(id: string, hotel: Hotel): Observable<Hotel> {
+    return this.http.put<Hotel>(`${this.apiUrl}/${id}`, hotel);
+  }
+
+  deleteHotel(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
 
-  saveHotel(hotel: Hotel): Observable<any> {
-    return this.http.post(`${this.baseUrl}`, hotel);
-  }
 
-
-  deleteHotel(id: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
-  }
-
-
-  updateHotel(id: string, hotel: Hotel): Observable<any> {
-    console.log(hotel);
-    return this.http.put(this.baseUrl + '/' + id, hotel);
-
-  }
-
-  getHotelById(id: string): Observable<any> {
-    return this.http.get(this.baseUrl + '/' + id);
-
-  }
-
-  getAllHotelforRoom(): Observable<Hotel[]> {
-    return this.http.get<Hotel[]>(this.baseUrl)
-      .pipe(
-        catchError(this.handleError)
-      )
-  }
-
-  private handleError(error: any) {
-    console.error('An error occurred:', error);
-    return throwError(() => new Error('test'));
-  }
 }

@@ -1,43 +1,23 @@
-<div class="container">
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">All Hotels</h2>
 
-    <h1 class="text-center my-2">All Hotel</h1>
-
-    <table class="table striped">
-
-        <thead>
-
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Address</th>
-                <th>Rating</th>
-                <th>Location</th>
-                <th>Actions</th>
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            <tr *ngFor="let h of hotels ">
-                <td>{{ h.id }}</td>
-                <td>{{ h.name }}</td>
-                <td><img [src]="h.image" alt="{{ h.name }}" width="100"></td>
-                <td>{{ h.address }}</td>
-                <td>{{ h.rating }}</td>
-                <td>{{ h.location.locationName }}</td>
-
-
-                <td>
-                    <button class="btn btn-primary" (click)="getHotelById(h.id)">Edit</button>
-                    <button class="btn btn-danger" (click)="deleteHotel(h.id)">Delete</button>
-
-                </td>
-            </tr>
-
-        </tbody>
-
-    </table>
-
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let hotel of hotels">
+      <div class="card h-100 shadow">
+        <img [src]="hotel.image" class="card-img-top" alt="Hotel Image" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ hotel.name }}</h5>
+          <p class="card-text">
+            <strong>Address:</strong> {{ hotel.address }}<br>
+            <strong>Rating:</strong> {{ hotel.rating }}<br>
+            <strong>Location:</strong> {{ getLocationName(hotel.location) }}
+          </p>
+        </div>
+        <div class="card-footer text-end">
+          <button class="btn btn-primary btn-sm m-2" >View</button>
+          <button class="btn btn-danger btn-sm m-2" >Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

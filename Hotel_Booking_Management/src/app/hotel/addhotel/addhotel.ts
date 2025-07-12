@@ -1,11 +1,11 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Hotel } from '../../model/hotel.model';
-import { FormBuilder, FormGroup, } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import { HotelService } from '../../service/hotel.service';
 import { Router } from '@angular/router';
 import { LocationService } from '../../service/location.service';
-import { forkJoin } from 'rxjs';
 import { Location } from '../../model/location.model';
+
 
 @Component({
   selector: 'app-addhotel',
@@ -13,104 +13,69 @@ import { Location } from '../../model/location.model';
   templateUrl: './addhotel.html',
   styleUrl: './addhotel.css'
 })
-export class Addhotel implements OnInit { 
+export class Addhotel implements OnInit {
 
-  hotels: Hotel[] = [];
   formGroup!: FormGroup;
-  hotel: Hotel = new Hotel();
   locations: Location[] = [];
-
+  hotels: Hotel =new Hotel();
 
   constructor(
     private hotelService: HotelService,
+    private locationService: LocationService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private cdr: ChangeDetectorRef,
-    private locationService: LocationService
-
-  ) { }
-
-
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-
+    // ✅ Your form control: location is a string, not an object
     this.formGroup = this.formBuilder.group({
-
-      name: [''],
-      image: [''],
-      address: [''],
-      rating: [''],
-      location: this.formBuilder.group({
-        id: [''],
-        locationName: ['']
-      })
-
+      name: ['', Validators.required],
+      image: ['', Validators.required],
+      address: ['', Validators.required],
+      rating: ['', Validators.required],
+      location: ['', Validators.required] // ✅ keep it simple
     });
 
-    this.loadData();
-    this. loadHotel();
+    this.loadLocations();
+
   }
 
-  loadData(): void {
-
-    forkJoin({
-      locations: this.locationService.getAllLocation(),
-      hotels: this.hotelService.getAllHotel()
-    }).subscribe({
-
-      next: ({ locations, hotels }) => {
-
-
-        this.locations = locations;
-        this.hotels = hotels;
-        this.cdr.markForCheck();
+  // ✅ Load all locations to show in <select>
+  loadLocations(): void {
+    this.locationService.getAllLocation().subscribe({
+      next: (locations) => {
+        this.locations = locations;        
+        console.log( this.locations);
       },
-
-      error: err => {
-
-        console.error('Error Data Loading');
-      }
+      error: (err) => console.error('Error loading locations', err)
     });
-
   }
 
-  Addhotel(): void {
+  // ✅ Save hotel with locationId only
+  addHotel(): void {
+    if (this.formGroup.invalid) {
+      console.error('Form invalid');
+      return;
+    }
+
     const hotel: Hotel = { ...this.formGroup.value };
+    console.log('Saving hotel:', hotel);
 
     this.hotelService.saveHotel(hotel).subscribe({
-
       next: (res) => {
-
-        console.log("Hotel Saved", res);
+        console.log('Hotel saved', res);
         this.formGroup.reset();
-        this.loadHotel();
-        this.router.navigate(['']);
+      
+        this.router.navigate(['/viewhotel']);
         this.cdr.markForCheck();
       },
-
-      error: (error) => {
-
-        console.error("Error saving hotel", error);
+      error: (err) => {
+        console.error('Error saving hotel', err);
       }
     });
   }
-
-  loadHotel() {
-    this.hotelService.getAllHotel().subscribe({
-      next: res => {
-        this.hotels = res;
-      },
-      error: error => {
-        console.log(error);
-      }
-    });
-  }
-  compareLocation(l1: Location, l2: Location): boolean {
-
-    return l1 && l2 ? l1.id === l2.id : l1 === l2;
-
-
-  }
+  
 
 }
 

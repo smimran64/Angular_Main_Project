@@ -14,83 +14,47 @@ import { Location } from '../../model/location.model';
 })
 export class Viewallhotel implements OnInit {
 
-  hotels: Hotel[]=[];
-  locations: Location []=[];
+  hotels: Hotel[] = [];
+  locations: Location[] = [];   // Optional if you want to map locationId to locationName
 
   constructor(
     private hotelService: HotelService,
-    private cdr: ChangeDetectorRef,
-    private router: Router,
-    private locationService: LocationService
-  
+    private locationService: LocationService // Optional
   ) { }
 
   ngOnInit(): void {
-
-    this.loadData();
-  }  
-
-  loadData():void{
-
-    forkJoin({
-      locations : this.locationService.getAllLocation(),
-      hotels: this.hotelService.getAllHotel()
-    }).subscribe({
-
-      next : ({locations, hotels}) =>{
-
-
-        this.locations = locations;
-        this.hotels = hotels;
-        this.cdr.markForCheck();
-      },
-
-      error: err => {
-
-        console.error('Error Data Loading');
-      }
-    });
-
-  }
-  
-
-  deleteHotel(id: string): void {
-
-    this.hotelService.deleteHotel(id).subscribe({
-      next: () => {
-
-        this.cdr.reattach();
-        this.loadData();
-        this.cdr.markForCheck();
-        // this.loadAllHotels();
-      },
-      error: (err) => {
-        console.log(err);
-      }
-
-    });
+    this.loadHotels();
+    this.loadLocations(); // Optional if you want names
   }
 
-
-
-  getHotelById(id: string): void {
-
-    this.hotelService.getHotelById(id).subscribe({
+  loadHotels(): void {
+    this.hotelService.getAllHotels().subscribe({
       next: (res) => {
-
-        console.log(res)
-        console.log("Data get Successfully");
-        this.router.navigate(['/updatehotel', id]);
-
+        this.hotels = res;
+        console.log('Hotels:', this.hotels);
       },
-
       error: (err) => {
-
-        console.log(err);
+        console.error('Error loading hotels', err);
       }
-
     });
-
   }
 
+  // ✅ OPTIONAL: Load locations to map ID -> Name
+  loadLocations(): void {
+    this.locationService.getAllLocation().subscribe({
+      next: (res) => {
+        this.locations = res;
+        console.log('Locations:', this.locations);
+      },
+      error: (err) => {
+        console.error('Error loading locations', err);
+      }
+    });
+  }
+
+  // ✅ Helper to get location name by ID
+  getLocationName(locationId: string): string {
+    const loc = this.locations.find(loc => loc.id === locationId);
+    return loc ? loc.locationName : 'Unknown';
+  }
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { RoomService } from '../../service/room.service';
-import { HotelService } from '../../service/hotel.service';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { Hotel } from '../../model/hotel.model';
 import { RoomModel } from '../../model/room.model';
+import { HotelService } from '../../service/hotel.service';
+import { RoomService } from '../../service/room.service';
 
 @Component({
   selector: 'app-viewallroom',
@@ -10,38 +10,38 @@ import { RoomModel } from '../../model/room.model';
   templateUrl: './viewallroom.html',
   styleUrl: './viewallroom.css'
 })
-export class Viewallroom  implements OnInit{
+export class Viewallroom {
 
-  rooms: any;
-  hotels: any;
+
+  hotels: Hotel[] = [];
+  rooms: RoomModel[] = [];
+  selectedHotelId: string = '';
 
   constructor(
-    private roomService: RoomService,
     private hotelService: HotelService,
-    private router: Router
-  ){}
+    private roomService: RoomService
+  ) {}
+
   ngOnInit(): void {
-    this.rooms = this.roomService.getAllRoom();
-    this.hotels = this.hotelService.getAllHotelforRoom();
-
-
-
+    this.loadHotels();
   }
 
-  deleteRoom(id:string){
-    this.roomService.deleteRoom(id).subscribe({
-      next: (res)=> {
-        this.rooms = this.roomService.getAllRoom();
-        this.router.navigate(['viewroom']);
-      },
-      error: (err)=>{
-        console.log(err);
-      }
-    })
+  loadHotels() {
+    this.hotelService.getAllHotels().subscribe({
+      next: (data) => this.hotels = data,
+      error: (err) => console.error(err)
+    });
   }
 
-  editRoom(id:RoomModel):void{
-    this.router.navigate(['updateroom']);  
+  onHotelChange() {
+    if (this.selectedHotelId) {
+      this.roomService.getRoomsByHotelId(this.selectedHotelId).subscribe({
+        next: (data) => this.rooms = data,
+        error: (err) => console.error(err)
+      });
+    } else {
+      this.rooms = [];
+    }
   }
 
 }

@@ -1,10 +1,10 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { RoomModel } from '../../model/room.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { RoomService } from '../../service/room.service';
-import { Router } from '@angular/router';
-import { HotelService } from '../../service/hotel.service';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Hotel } from '../../model/hotel.model';
+import { RoomService } from '../../service/room.service';
+import { HotelService } from '../../service/hotel.service';
+import { Router } from '@angular/router';
+import { RoomModel } from '../../model/room.model';
 
 @Component({
   selector: 'app-addroom',
@@ -12,98 +12,62 @@ import { Hotel } from '../../model/hotel.model';
   templateUrl: './addroom.html',
   styleUrl: './addroom.css'
 })
-export class Addroom implements OnInit {
+export class Addroom {
 
-  rooms: RoomModel[] = [];
-  hotels: Hotel[] = [];
+
   roomForm!: FormGroup;
-  room: RoomModel = new RoomModel();
+  hotels: Hotel[] = [];
 
   constructor(
+    private fb: FormBuilder,
     private roomService: RoomService,
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private cdr: ChangeDetectorRef,
-    private hotelService: HotelService
+    private hotelService: HotelService,
+    private router: Router
+  ) {}
 
-  ) { }
   ngOnInit(): void {
-
-    this.loadHotel();
-     this.loadRoom();
-
-    this.roomForm = this.formBuilder.group({
-
-      roomtype: [''],
-      adults: [''],
-      children: [''],
-      price: [''],
-      image: [''],
-
-      hotel: this.formBuilder.group({
-
-        id: [''],
-        name: ['']
-
-      })
+    this.roomForm = this.fb.group({
+      image: ['', Validators.required],
+      roomtype: ['', Validators.required],
+      adults: [0, [Validators.required, Validators.min(1)]],
+      children: [0, [Validators.required, Validators.min(0)]],
+      price: [0, [Validators.required, Validators.min(0)]],
+      hotel: ['', Validators.required]  // holds hotel ID
     });
 
-    this.roomForm.get('hotel')?.get('name')?.valueChanges.subscribe(name => {
-      const selectedHotel = this.hotels.find(loc => loc.name === name);
-
-      if (selectedHotel) {
-        this.roomForm.patchValue({ hotel: selectedHotel });
-      }
-    });
-
+    this.loadHotels();
   }
 
-  loadHotel() {
-
-    this.hotelService.getAllHotelforRoom().subscribe({
-
-      next: res => {
-        this.hotels = res;
+  loadHotels(): void {
+    this.hotelService.getAllHotels().subscribe({
+      next: (data) => {
+        this.hotels = data;
       },
-
-      error: err => {
-        console.log(err);
+      error: (err) => {
+        console.error('Error loading hotels:', err);
       }
-    })
+    });
   }
 
-  AddRoom() {
-     const room : RoomModel = { ...this.roomForm.value };
-    this.roomService.addRoom(this.room).subscribe({
+  addRoom(): void {
+    if (this.roomForm.invalid) {
+      this.roomForm.markAllAsTouched();
+      return;
+    }
 
+    const newRoom: RoomModel = {
+      ...this.roomForm.value
+    };
+
+    this.roomService.addRoom(newRoom).subscribe({
       next: (res) => {
-  
-        this.roomForm.reset();
-        this.router.navigate(['viewroom']);
-        this.cdr.markForCheck();
-
+        console.log('Room added:', res);
+        this.router.navigate(['/roomview']); // Change route as needed
       },
-      error: err => {
-        console.log(err);
+      error: (err) => {
+        console.error('Error adding room:', err);
       }
     });
   }
-
-  loadRoom(){
-    this.roomService.getAllRoom().subscribe({
-      next: (res)=>{
-
-        this.rooms = res;
-      },
-      error: (err)=>{
-        console.log(err);
-      }
-    })
-  }
-
 
 }
-
-
-
-

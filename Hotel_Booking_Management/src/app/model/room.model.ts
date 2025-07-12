@@ -7,8 +7,5 @@ export class RoomModel {
     adults!: number;
     children!: number;
     price!: number;
-    hotel!: {
-        id: string;
-        name: string;
-    };
+    hotel!: string;  // as room Id  
 }

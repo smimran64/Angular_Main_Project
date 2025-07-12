@@ -1,1 +1,36 @@
-<p>viewallroom works!</p>
+<div class="container my-4">
+  <h2>View Rooms by Hotel</h2>
+
+  <!-- Hotel Dropdown -->
+  <div class="mb-4">
+    <label for="hotelSelect" class="form-label">Select Hotel:</label>
+    <select
+      id="hotelSelect"
+      class="form-select"
+      [(ngModel)]="selectedHotelId"
+      (change)="onHotelChange()"
+    >
+      <option value="">-- Select Hotel --</option>
+      <option *ngFor="let hotel of hotels" [value]="hotel.id">
+        {{ hotel.name }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Rooms Cards -->
+  <div class="row">
+    <div *ngFor="let room of rooms" class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img [src]="room.image" class="card-img-top" alt="Room Image" />
+        <div class="card-body">
+          <h5 class="card-title">{{ room.roomtype }}</h5>
+          <p class="card-text">
+            Adults: {{ room.adults }}<br />
+            Children: {{ room.children }}<br />
+            Price: ${{ room.price }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

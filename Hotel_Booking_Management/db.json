@@ -1,37 +1,52 @@
 {
-  "hotel": [
+  "hotels": [
     {
       "id": "9d08",
       "name": "Sayeman Beach Resort",
-      "image": "https://images.trvl-media.com/lodging/10000000/9870000/9861700/9861697/6fcb4fc2.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+      "image": "https://tinyurl.com/37vdtr5s",
       "address": " Marine Drive, Road, Cox's Bazar 4700",
       "rating": "4.5",
-      "location": {
-        "id": "685a",
-        "locationName": "Cox's Bazar"
-      }
+      "location": "685a"
     },
     {
-      "id": "ce8e",
-      "name": "Faruque Ahmed",
-      "image": "https://images.trvl-media.com/lodging/10000000/9870000/9861700/9861697/6fcb4fc2.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
-      "address": " Marine Drive, Road, Cox's Bazar 4700",
-      "rating": "4.5",
-      "location": {
-        "id": "0687",
-        "locationName": "Dhaka"
-      }
+      "id": "59b8",
+      "name": "D'more Sajek Valley Hotel & Resort",
+      "image": "https://tinyurl.com/42wk42z3",
+      "address": "Rului Para, Sajek Valley",
+      "rating": "*****",
+      "location": "e65d"
     },
     {
-      "id": "b2fa",
-      "name": "Faruque Ahmed",
-      "image": "https://images.trvl-media.com/lodging/10000000/9870000/9861700/9861697/6fcb4fc2.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
-      "address": " Marine Drive, Road, Cox's Bazar 4700",
-      "rating": "4.5",
-      "location": {
-        "id": "0687",
-        "locationName": "Dhaka"
-      }
+      "id": "a090",
+      "name": "Best western heritage",
+      "image": "https://tinyurl.com/3zvej7nk",
+      "address": "Heritage Hotel, 173-01 Bypass, Road Kolatoli Rd, 4700",
+      "rating": "4.8",
+      "location": "685a"
+    },
+    {
+      "id": "8f86",
+      "name": "InterContinental Dhaka by IHG",
+      "image": "https://tinyurl.com/3wufy9yv",
+      "address": "G, 1 Minto Rd, 1000",
+      "rating": "4.8",
+      "location": "0687"
+    },
+    {
+      "id": "7032",
+      "name": "Grand Sylhet Hotel & Resort",
+      "image": "https://tinyurl.com/yezfsfzj",
+      "address": "Khadimnagar Union Parishad, Airport Rd",
+      "rating": "4.8",
+      "location": "ed13"
+    },
+    {
+      "id": "5e95",
+      "name": "Sarah Resort",
+      "image": "https://tinyurl.com/m9ahk4s3",
+      "address": " Malipara - Digirchala Rd, 1742",
+      "rating": "4.8",
+      "location": "6847"
     }
   ],
   "location": [
@@ -50,15 +65,114 @@
     {
       "id": "6847",
       "locationName": "Gazipur"
-    }
-  ],
-  "room": [
+    },
     {
-      "id": "5750"
+      "id": "e65d",
+      "locationName": "Rangamati"
     }
   ],
-
-  "user":[{
-    
-  }]
+  "rooms": [
+    {
+      "id": "9c0f",
+      "image": "https://tinyurl.com/3s6bppaj",
+      "roomtype": "Delux",
+      "adults": 4,
+      "children": 5,
+      "price": 12000,
+      "hotel": "9d08"
+    },
+    {
+      "id": "32b3",
+      "image": "https://tinyurl.com/yaxzaprj",
+      "roomtype": "Single",
+      "adults": 5,
+      "children": 1,
+      "price": 15000,
+      "hotel": "9d08"
+    },
+    {
+      "id": "3c68",
+      "image": "https://tinyurl.com/wxrr8s6b",
+      "roomtype": "Delux",
+      "adults": 2,
+      "children": 2,
+      "price": 15000,
+      "hotel": "59b8"
+    },
+    {
+      "id": "31ca",
+      "image": "https://tinyurl.com/34fr96ax",
+      "roomtype": "Premium",
+      "adults": 4,
+      "children": 3,
+      "price": 20000,
+      "hotel": "59b8"
+    },
+    {
+      "id": "602e",
+      "image": "https://tinyurl.com/24n7efv2",
+      "roomtype": "Family",
+      "adults": 6,
+      "children": 5,
+      "price": 18000,
+      "hotel": "9d08"
+    },
+    {
+      "id": "4438",
+      "image": "https://tinyurl.com/5arrjphp",
+      "roomtype": "Double",
+      "adults": 6,
+      "children": 4,
+      "price": 15000,
+      "hotel": "a090"
+    },
+    {
+      "id": "9bcd",
+      "image": "https://tinyurl.com/fdb3ynyv",
+      "roomtype": "Double Delux",
+      "adults": 3,
+      "children": 2,
+      "price": 25000,
+      "hotel": "8f86"
+    },
+    {
+      "id": "bfab",
+      "image": "https://tinyurl.com/4f2y7bv8",
+      "roomtype": "Single",
+      "adults": 2,
+      "children": 2,
+      "price": 8000,
+      "hotel": "7032"
+    },
+    {
+      "id": "3520",
+      "image": "https://tinyurl.com/z2nzc6eh",
+      "roomtype": "Double Delux",
+      "adults": 4,
+      "children": 4,
+      "price": 15000,
+      "hotel": "5e95"
+    }
+  ],
+  "user": [
+    {
+      "id": "6e7e"
+    },
+    {
+      "id": "4e0a",
+      "name": "CM Rejaul Karim",
+      "email": "reja@gmail.com",
+      "password": "1234",
+      "photo": "****",
+      "role": "user"
+    },
+    {
+      "id": "222d",
+      "name": "Mohammad Imran Hossain",
+      "email": "imranhss@gmail.com",
+      "password": "1234",
+      "photo": "https://tinyurl.com/3u75y2yt",
+      "role": "user"
+    }
+  ]
 }

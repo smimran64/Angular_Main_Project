@@ -6,15 +6,7 @@ export class Hotel {
     image!: string;
     address!: string;
     rating!: string;
-
-    location!: {
-
-        id: string;
-        locationName: string;
-
-
-    }
-
+    location!: string; // This will store the locationId
 
 
 }

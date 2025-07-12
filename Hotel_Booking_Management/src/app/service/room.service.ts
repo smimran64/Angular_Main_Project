@@ -10,7 +10,7 @@ export class RoomService {
 
 
 
-   baseUrl: string = 'http://localhost:3000/room';
+  baseUrl: string = 'http://localhost:3000/rooms';
 
   constructor(private http: HttpClient) { }
 
@@ -25,15 +25,15 @@ export class RoomService {
     return this.http.post(`${this.baseUrl}`, room);
   }
 
-  
+
   deleteRoom(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
 
-  updateRoom(id : string,room: RoomModel): Observable<any> {
+  updateRoom(id: string, room: RoomModel): Observable<any> {
     console.log(room);
-    return this.http.put(this.baseUrl + '/' +  id,room);
+    return this.http.put(this.baseUrl + '/' + id, room);
 
   }
 
@@ -41,4 +41,8 @@ export class RoomService {
     return this.http.get(this.baseUrl + '/' + id);
 
   }
+  getRoomsByHotelId(hotelId: string): Observable<RoomModel[]> {
+    return this.http.get<RoomModel[]>(`${this.baseUrl}?hotel=${hotelId}`);
+  }
+
 }
