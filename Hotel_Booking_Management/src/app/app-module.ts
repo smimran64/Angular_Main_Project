@@ -14,6 +14,11 @@ import { Updatelocation } from './location/updatelocation/updatelocation';
 import { Addroom } from './room/addroom/addroom';
 import { Viewallroom } from './room/viewallroom/viewallroom';
 import { Updateroom } from './room/updateroom/updateroom';
+import { Login } from './auth/login/login';
+import { Logout } from './auth/logout/logout';
+import { Registrationform } from './auth/registrationform/registrationform';
+import { Userprofile } from './profile/userprofile/userprofile';
+import { Adminprofile } from './profile/adminprofile/adminprofile';
 
 
 @NgModule({
@@ -27,7 +32,12 @@ import { Updateroom } from './room/updateroom/updateroom';
     Updatelocation,
     Addroom,
     Viewallroom,
-    Updateroom
+    Updateroom,
+    Login,
+    Logout,
+    Registrationform,
+    Userprofile,
+    Adminprofile
    
   ],
   imports: [
