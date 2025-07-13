@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RoomModel } from '../model/room.model';
 
@@ -12,7 +12,11 @@ export class RoomService {
 
   baseUrl: string = 'http://localhost:3000/rooms';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+  
+  
+  ) { }
 
 
   getAllRoom(): Observable<any> {
@@ -43,6 +47,7 @@ export class RoomService {
   }
   getRoomsByHotelId(hotelId: string): Observable<RoomModel[]> {
     return this.http.get<RoomModel[]>(`${this.baseUrl}?hotel=${hotelId}`);
+
   }
 
 }

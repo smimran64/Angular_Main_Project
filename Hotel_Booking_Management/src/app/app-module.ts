@@ -21,6 +21,8 @@ import { Addroom } from './room/addroom/addroom';
 import { Viewallroom } from './room/viewallroom/viewallroom';
 import { Home } from './home/home';
 import { HotelDetails } from './hotel/hotel-details/hotel-details';
+import { Addbooking } from './booking/addbooking/addbooking';
+import { Viewallbooking } from './booking/viewallbooking/viewallbooking';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { HotelDetails } from './hotel/hotel-details/hotel-details';
     Addroom,
     Viewallroom,
     Home,
-    HotelDetails
+    HotelDetails,
+    Addbooking,
+    Viewallbooking
    
   ],
   imports: [

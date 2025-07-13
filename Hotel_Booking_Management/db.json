@@ -177,9 +177,6 @@
   ],
   "user": [
     {
-      "id": "6e7e"
-    },
-    {
       "id": "4e0a",
       "name": "CM Rejaul Karim",
       "email": "reja@gmail.com",
@@ -192,7 +189,7 @@
       "name": "Mohammad Imran Hossain",
       "email": "imranhss@gmail.com",
       "password": "1234",
-      "photo": "https://tinyurl.com/3u75y2yt",
+      "photo": "https://avatars.githubusercontent.com/u/21266856?v=4",
       "role": "user"
     },
     {
@@ -203,5 +200,9 @@
       "photo": "https://tinyurl.com/2w55y3xt",
       "role": "user"
     }
-  ]
+  ],
+
+  "bookings":[{
+    
+  }]
 }
