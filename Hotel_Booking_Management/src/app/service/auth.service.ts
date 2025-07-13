@@ -11,7 +11,6 @@ import { AuthResponse } from '../model/authresponse.model';
 export class AuthService {
 
   private currentUserSubject: BehaviorSubject<User | null>;
-
   private currentUser$: Observable<User | null>;
 
   private baseUrl: string = 'http://localhost:3000/user';
@@ -91,7 +90,7 @@ export class AuthService {
 
       catchError(error => {
 
-        console.error('Login failed', error);
+        console.log('Login failed', error);
         throw error;
 
       })

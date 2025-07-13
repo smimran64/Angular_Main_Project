@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
@@ -19,7 +19,9 @@ export class Login {
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) { }
+  ) {  }
+    
+
 
   ngOnInit(): void {
 
@@ -33,36 +35,52 @@ export class Login {
   }
 
   onSubmit(): void {
-    if (this.loginForm.invalid) {
-      this.errorMessage = 'Please fill in all required fields correctly.';
+    if (this.loginForm.invalid) {  
+
+      this.errorMessage = 'Please fill in all required fields correctly';
+
       return;
-    }
 
-    const userDetails = {...this.loginForm.value};
+      }    
 
+    const userDetails = this.loginForm.value;
     this.authService.login(userDetails).subscribe({
+
       next: (res) => {
+
         console.log('Login successful', res);
+
         this.authService.storeToken(res.token);
+
         const role = this.authService.getUserRole();
-        console.log('User role:', role);
+        
+        console.log('User role:',role);  
+
         if (role === 'user') {
-          this.router.navigate(['userprofile']);
+
+          this.router.navigate(['/userprofile']);
         }
         else if (role === 'admin') {
-          this.router.navigate(['admin']);
+          this.router.navigate(['/admin']);
         }
+        else if (role === 'hotel') {
+          this.router.navigate(['/hotel']);
+        }
+
         else {
           this.errorMessage = 'Invalid user role';
         }
+
         this.loginForm.reset();
       },
 
       error: (err) => {
-        console.error('Login failed', err);
+        console.log('Login failed', err);
         this.errorMessage = 'Invalid email or password. Please try again.';
       }
     })
+
+  
   }
 
 }

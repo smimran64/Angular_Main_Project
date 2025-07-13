@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { RoomModel } from '../model/room.model';
 import { HotelService } from '../service/hotel.service';
 import { RoomService } from '../service/room.service';
@@ -27,7 +27,8 @@ export class Home {
     private hotelService: HotelService,
     private roomService: RoomService,
     private locationService: LocationService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -81,6 +82,8 @@ export class Home {
 
   viewHotel(hotel: Hotel) {
   this.router.navigate(['/hotel-details', hotel.id]);
+
+
 }
 
 }

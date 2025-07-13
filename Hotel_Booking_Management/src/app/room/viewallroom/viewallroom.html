@@ -4,12 +4,7 @@
   <!-- Hotel Dropdown -->
   <div class="mb-4">
     <label for="hotelSelect" class="form-label">Select Hotel:</label>
-    <select
-      id="hotelSelect"
-      class="form-select"
-      [(ngModel)]="selectedHotelId"
-      (change)="onHotelChange()"
-    >
+    <select id="hotelSelect" class="form-select" [(ngModel)]="selectedHotelId" (change)="onHotelChange()">
       <option value="">-- Select Hotel --</option>
       <option *ngFor="let hotel of hotels" [value]="hotel.id">
         {{ hotel.name }}
@@ -29,6 +24,10 @@
             Children: {{ room.children }}<br />
             Price: ${{ room.price }}
           </p>
+        </div>
+        <div class="card-footer text-end">
+          <button class="btn btn-primary btn-sm m-2">Edit</button>
+          <button class="btn btn-danger btn-sm m-2">Delete</button>
         </div>
       </div>
     </div>

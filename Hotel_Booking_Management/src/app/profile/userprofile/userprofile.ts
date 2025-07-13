@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './userprofile.html',
   styleUrl: './userprofile.css'
 })
-export class Userprofile implements OnInit {
+export class Userprofile {
 
   user: User | null = null;
   private subscription: Subscription = new Subscription();

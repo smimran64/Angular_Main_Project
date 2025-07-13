@@ -47,6 +47,14 @@
       "address": " Malipara - Digirchala Rd, 1742",
       "rating": "4.8",
       "location": "6847"
+    },
+    {
+      "id": "48a9",
+      "name": "Sunset serenity resort",
+      "image": "https://tinyurl.com/yc2ejj2x",
+      "address": "Bangla Boss Road, St. Martin's Island, Teknaf 4762",
+      "rating": "4.5",
+      "location": "6063"
     }
   ],
   "location": [
@@ -69,6 +77,10 @@
     {
       "id": "e65d",
       "locationName": "Rangamati"
+    },
+    {
+      "id": "6063",
+      "locationName": "Saint Martin"
     }
   ],
   "rooms": [
@@ -152,6 +164,15 @@
       "children": 4,
       "price": 15000,
       "hotel": "5e95"
+    },
+    {
+      "id": "5759",
+      "image": "https://tinyurl.com/3x654kmp",
+      "roomtype": "Primium",
+      "adults": 3,
+      "children": 4,
+      "price": 20000,
+      "hotel": "48a9"
     }
   ],
   "user": [
@@ -172,6 +193,14 @@
       "email": "imranhss@gmail.com",
       "password": "1234",
       "photo": "https://tinyurl.com/3u75y2yt",
+      "role": "user"
+    },
+    {
+      "id": "7c94",
+      "name": "Faruque Ahmed",
+      "email": "faruque@gmail.com",
+      "password": "22800",
+      "photo": "https://tinyurl.com/2w55y3xt",
       "role": "user"
     }
   ]

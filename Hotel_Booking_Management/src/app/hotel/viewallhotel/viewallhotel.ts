@@ -1,9 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { HotelService } from '../../service/hotel.service';
 import { Hotel } from '../../model/hotel.model';
-import { Router } from '@angular/router';
 import { LocationService } from '../../service/location.service';
-import { forkJoin } from 'rxjs';
 import { Location } from '../../model/location.model';
 
 @Component({
@@ -19,7 +17,9 @@ export class Viewallhotel implements OnInit {
 
   constructor(
     private hotelService: HotelService,
-    private locationService: LocationService // Optional
+    private locationService: LocationService, // Optional
+    private cdr: ChangeDetectorRef
+   
   ) { }
 
   ngOnInit(): void {
@@ -57,4 +57,22 @@ export class Viewallhotel implements OnInit {
     const loc = this.locations.find(loc => loc.id === locationId);
     return loc ? loc.locationName : 'Unknown';
   }
+
+ deleteHotel(id: string): void{
+
+  this.hotelService.deleteHotel(id).subscribe({
+
+    next: ()=>{
+      console.log('Hotel Successfully deleted');
+      this.loadHotels();
+      this.cdr.reattach();
+      this.cdr.markForCheck();
+    },
+
+    error: (err)=>{
+
+      console.log('Delete Eooro!!!')
+    }
+  })
+ }
 }

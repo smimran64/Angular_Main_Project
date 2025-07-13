@@ -13,7 +13,7 @@ export class UserprofileService {
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,    
   ) { }
 
   getUserProfile(): Observable<User | null> {
