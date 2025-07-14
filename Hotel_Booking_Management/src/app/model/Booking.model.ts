@@ -12,7 +12,7 @@ export class BookingModel {
     adults!: number;
     children!: number;
     checkin!:string;
-    checkOut!: string;
+    checkout!: string;
     advanceamount!: number;
     totalamount!: number;
     dueamount!: number
