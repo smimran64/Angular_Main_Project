@@ -55,6 +55,30 @@
       "address": "Bangla Boss Road, St. Martin's Island, Teknaf 4762",
       "rating": "4.5",
       "location": "6063"
+    },
+    {
+      "id": "b2be",
+      "name": "Dhaka Regency Hotel & Resort",
+      "image": "https://tinyurl.com/yff4868v",
+      "address": "Airport Rd, Dhaka 1229",
+      "rating": "4.5",
+      "location": "0687"
+    },
+    {
+      "id": "5d2b",
+      "name": "Hotel Sarina Dhaka",
+      "image": "https://tinyurl.com/34y3b9zr",
+      "address": "Plot #27 Road No. 17, Dhaka 1213",
+      "rating": "4.5",
+      "location": "0687"
+    },
+    {
+      "id": "731d",
+      "name": "Jol Torongo (Army Welfare Trust Rest House)",
+      "image": "https://tinyurl.com/y23rdnsa",
+      "address": "Laboni Beach Rd, Cox's Bazar 4700",
+      "rating": "4.8",
+      "location": "685a"
     }
   ],
   "location": [
@@ -173,6 +197,87 @@
       "children": 4,
       "price": 20000,
       "hotel": "48a9"
+    },
+    {
+      "id": "79cb",
+      "image": "https://tinyurl.com/39xa8e3c",
+      "roomtype": "Double",
+      "adults": 2,
+      "children": 2,
+      "price": 18000,
+      "hotel": "8f86"
+    },
+    {
+      "id": "ceb4",
+      "image": "https://tinyurl.com/4xteean5",
+      "roomtype": "Suit",
+      "adults": 2,
+      "children": 2,
+      "price": 20000,
+      "hotel": "59b8"
+    },
+    {
+      "id": "7d72",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5NXJk-qQbSkclDjdvQ_sylwxLIXZkkWnxzFCRZy8kD5sAq1Ce6JO2m_BF8GMn-4Q6wSw&usqp=CAU",
+      "roomtype": "Delux",
+      "adults": 10,
+      "children": 5,
+      "price": 22000,
+      "hotel": "b2be"
+    },
+    {
+      "id": "9f1c",
+      "image": "https://tinyurl.com/mwzemwwm",
+      "roomtype": "Presidential",
+      "adults": 10,
+      "children": 5,
+      "price": 30000,
+      "hotel": "b2be"
+    },
+    {
+      "id": "13b4",
+      "image": "https://tinyurl.com/45msm5c9",
+      "roomtype": "Suit",
+      "adults": 10,
+      "children": 4,
+      "price": 25000,
+      "hotel": "b2be"
+    },
+    {
+      "id": "e268",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/b2/af/43/room.jpg?w=900&h=500&s=1",
+      "roomtype": "Premium",
+      "adults": 10,
+      "children": 6,
+      "price": 21000,
+      "hotel": "5d2b"
+    },
+    {
+      "id": "ffb3",
+      "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/27858889.jpg?k=3f2c42b282a92bd076dd5946f981d032502c99385d8864afb09fab13b70a50ec&o=&hp=1",
+      "roomtype": "King",
+      "adults": 11,
+      "children": 6,
+      "price": 30000,
+      "hotel": "5d2b"
+    },
+    {
+      "id": "7203",
+      "image": "https://tinyurl.com/bddrtz87",
+      "roomtype": "Single",
+      "adults": 5,
+      "children": 1,
+      "price": 10000,
+      "hotel": "731d"
+    },
+    {
+      "id": "f60e",
+      "image": "https://tinyurl.com/2xyn7u69",
+      "roomtype": "Double Delux",
+      "adults": 10,
+      "children": 4,
+      "price": 20000,
+      "hotel": "731d"
     }
   ],
   "user": [
@@ -201,8 +306,9 @@
       "role": "user"
     }
   ],
-
-  "bookings":[{
-    
-  }]
+  "bookings": [
+    {
+      "id": "5b10"
+    }
+  ]
 }

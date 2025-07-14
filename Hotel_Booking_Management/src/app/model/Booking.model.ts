@@ -11,6 +11,8 @@ export class BookingModel {
     address!: string;
     adults!: number;
     children!: number;
+    checkin!:string;
+    checkOut!: string;
     advanceamount!: number;
     totalamount!: number;
     dueamount!: number
