@@ -1,0 +1,39 @@
+<div class="container my-4">
+    <h2 style="text-align: center;">Edit Room</h2>
+    <form *ngIf="room.id">
+        <div class="mb-3">
+            <label>Image URL</label>
+            <input type="text" class="form-control" [(ngModel)]="room.image"> />
+        </div>
+
+        <div class="mb-3">
+            <label>Room Type</label>
+            <input type="text" class="form-control" [(ngModel)]="room.roomtype" />
+        </div>
+
+        <div class="mb-3">
+            <label>Adults</label>
+            <input type="number" class="form-control"[(ngModel)]="room.adults" />
+        </div>
+
+        <div class="mb-3">
+            <label>Children</label>
+            <input type="number" class="form-control" [(ngModel)]="room.children" />
+        </div>
+
+        <div class="mb-3">
+            <label>Price</label>
+            <input type="number" class="form-control" [(ngModel)]="room.price" />
+        </div>
+
+        <div class="mb-3">
+            <label>Hotel</label>
+            <select class="form-select" formControlName="hotel" [(ngModel)]="room.hotel" [compareWith]="compareHotel">
+                <option value="" disabled>Select Hotel</option>
+                <option *ngFor="let h of hotels" [value]="h.id">{{ h.name }}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success" (click)="onSubmit()">Save</button>
+    </form>
+</div>

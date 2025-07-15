@@ -15,6 +15,7 @@ import { Addroom } from './room/addroom/addroom';
 import { Viewallroom } from './room/viewallroom/viewallroom';
 import { Home } from './home/home';
 import { HotelDetails } from './hotel/hotel-details/hotel-details';
+import { Updateroom } from './room/updateroom/updateroom';
 
 const routes: Routes = [
   {path: '',component: Home},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'updatelocation/:id',component: Updatelocation},
   {path:'addroom', component: Addroom},
   {path: 'roomview', component: Viewallroom},
+  {path: 'updateroom/:id', component:Updateroom},
   // {path: 'updateroom/:id', component: Updateroom},
   {path: 'reg', component: Registrationform},
   {path: 'login', component: Login},

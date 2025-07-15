@@ -23,6 +23,7 @@ import { Home } from './home/home';
 import { HotelDetails } from './hotel/hotel-details/hotel-details';
 import { Addbooking } from './booking/addbooking/addbooking';
 import { Viewallbooking } from './booking/viewallbooking/viewallbooking';
+import { Updateroom } from './room/updateroom/updateroom';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { Viewallbooking } from './booking/viewallbooking/viewallbooking';
     Home,
     HotelDetails,
     Addbooking,
-    Viewallbooking
+    Viewallbooking,
+    Updateroom
    
   ],
   imports: [

@@ -1,1 +1,92 @@
-<p>addbooking works!</p>
+<div class="container">
+
+    <div>
+        <h1 style="text-align: center;">Booking Form</h1>
+    </div>
+
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="username" class="form-label"><i class="fas fa-user"></i> Username</label>
+                <input id="username" type="text" class="form-control" placeholder="Enter username" name="username"
+                    required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="location" class="form-label"><i class="fas fa-map-marker-alt"></i> Location
+                    Name:</label>
+                <input id="location" type="text" class="form-control" placeholder="location" name="location" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="username" class="form-label"><i class="fas fa-user"></i> Hotel Name</label>
+                <input id="hotel" type="text" class="form-control" placeholder="hotel name" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="location" class="form-label"><i class="fas fa-map-marker-alt"></i> Room Type
+                    Name:</label>
+                <input id="roomtype" type="text" class="form-control" placeholder="roomtype" name="roomtype" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label for="checkindate" class="form-label"><i class="fas fa-calendar-alt"></i> Check-in
+                    Date</label>
+                <input id="checkindate" type="date" class="form-control" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="checkoutdate" class="form-label"><i class="fas fa-calendar-alt"></i> Check-out
+                    Date</label>
+                <input id="checkoutdate" type="date" class="form-control" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="username" class="form-label"><i class="fas fa-user"></i> Contract Person</label>
+                <input id="name" type="text" class="form-control" placeholder="Enter contractpersonname"
+                    name="contractpersonname" required>
+            </div>
+            <div class="col-md-6">
+                <label for="username" class="form-label"><i class="fas fa-user"></i> Cell</label>
+                <input id="cell" type="text" class="form-control" placeholder="cell" name="cell" required>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-md-6">
+                <label for="totalprice" class="form-label"><i class="fas fa-dollar-sign"></i> Advance
+                    Amount</label>
+                <input id="totalprice" type="number" class="form-control" placeholder="0.00" readonly>
+            </div>
+            <div class="col-md-6">
+                <label for="totalprice" class="form-label"><i class="fas fa-dollar-sign"></i> Total
+                    Price</label>
+                <input id="totalprice" type="number" class="form-control" placeholder="0.00" readonly>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-md-6">
+                <label for="totalprice" class="form-label"><i class="fas fa-dollar-sign"></i> Due Amount</label>
+                <input id="totalprice" type="number" class="form-control" placeholder="0.00" readonly>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </div>
+
+
+        <div class="alert alert-success mt-3" role="alert" style="display: none;">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-check-circle"></i> Booking completed successfully!</h5>
+            </div>
+        </div>
+    </form>
+</div>

@@ -3,6 +3,7 @@ import { HotelService } from '../../service/hotel.service';
 import { Hotel } from '../../model/hotel.model';
 import { LocationService } from '../../service/location.service';
 import { Location } from '../../model/location.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewallhotel',
@@ -18,8 +19,9 @@ export class Viewallhotel implements OnInit {
   constructor(
     private hotelService: HotelService,
     private locationService: LocationService, // Optional
-    private cdr: ChangeDetectorRef
-   
+    private cdr: ChangeDetectorRef,
+    private router: Router
+
   ) { }
 
   ngOnInit(): void {
@@ -58,21 +60,39 @@ export class Viewallhotel implements OnInit {
     return loc ? loc.locationName : 'Unknown';
   }
 
- deleteHotel(id: string): void{
+  deleteHotel(id: string): void {
 
-  this.hotelService.deleteHotel(id).subscribe({
+    this.hotelService.deleteHotel(id).subscribe({
 
-    next: ()=>{
-      console.log('Hotel Successfully deleted');
-      this.loadHotels();
-      this.cdr.reattach();
-      this.cdr.markForCheck();
-    },
+      next: () => {
+        console.log('Hotel Successfully deleted');
+        this.loadHotels();
+        this.cdr.reattach();
+        this.cdr.markForCheck();
+      },
 
-    error: (err)=>{
+      error: (err) => {
 
-      console.log('Delete Eooro!!!')
-    }
-  })
- }
+        console.log('Delete Eooro!!!')
+      }
+    })
+  }
+
+  getHotelById(id: string): void {
+
+    this.hotelService.getHotelById(id).subscribe({
+      next: (res) => {
+
+        console.log(res);
+        this.router.navigate(['updatehotel', id])
+      },
+
+      error: (err) => {
+        console.log(err);
+      }
+
+    })
+
+
+  }
 }
