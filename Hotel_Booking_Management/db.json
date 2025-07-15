@@ -79,6 +79,14 @@
       "address": "Laboni Beach Rd, Cox's Bazar 4700",
       "rating": "4.8",
       "location": "685a"
+    },
+    {
+      "id": "662d",
+      "name": " Hotel Noorjahan Grand",
+      "image": "https://tinyurl.com/2zvuxea2",
+      "address": "Waves 1 Dargah Gate, Sylhet 3100",
+      "rating": "4.5",
+      "location": "ed13"
     }
   ],
   "location": [
@@ -317,7 +325,20 @@
   ],
   "bookings": [
     {
-      "id": "5b10"
+      "id": "8d10",
+      "hotelname": "InterContinental Dhaka by IHG",
+      "roomtype": "Double Delux",
+      "location": "Dhaka",
+      "contractpersonname": "dsfdsfs",
+      "cell": "4456465465",
+      "address": "gfhghgf",
+      "adults": 3,
+      "children": 2,
+      "checkin": "2025-07-19",
+      "checkout": "2025-07-22",
+      "advanceamount": 5000,
+      "totalamount": 75000,
+      "dueamount": 70000
     }
   ]
 }

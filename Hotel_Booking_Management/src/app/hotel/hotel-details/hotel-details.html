@@ -19,21 +19,24 @@
 
   <h3>Rooms</h3>
   <div class="row">
-    <div *ngFor="let room of rooms" class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img [src]="room.image" class="card-img-top" alt="Room Image" />
-        <div class="card-body">
-          <h5 class="card-title">{{ room.roomtype }}</h5>
-          <p class="card-text">
-            Adults: {{ room.adults }} <br />
-            Children: {{ room.children }} <br />
-            Price: ${{ room.price }}
-          </p>
-        </div>
+  <div *ngFor="let room of rooms" class="col-md-4 mb-4">
+    <div class="card h-100">
+      <img [src]="room.image" class="card-img-top" alt="Room Image" />
+      <div class="card-body">
+        <h5 class="card-title">{{ room.roomtype }}</h5>
+        <p class="card-text">
+          Adults: {{ room.adults }} <br />
+          Children: {{ room.children }} <br />
+          Price: ${{ room.price }}
+        </p>
+        <button class="btn btn-primary w-100" (click)="bookRoom(room)"> 
+          Book Now
+        </button>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- Loading or not found -->
 <div *ngIf="!hotel && !loading" class="text-center my-5">

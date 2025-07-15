@@ -16,6 +16,8 @@ import { Viewallroom } from './room/viewallroom/viewallroom';
 import { Home } from './home/home';
 import { HotelDetails } from './hotel/hotel-details/hotel-details';
 import { Updateroom } from './room/updateroom/updateroom';
+import { BookingModel } from './model/Booking.model';
+import { Addbooking } from './booking/addbooking/addbooking';
 
 const routes: Routes = [
   {path: '',component: Home},
@@ -34,6 +36,7 @@ const routes: Routes = [
   {path: 'logout', component: Logout},
   {path: 'userprofile', component: Userprofile},
   {path: 'hotel-details/:id', component: HotelDetails},
+  {path: 'booking/:id', component: Addbooking},
 ];
 
 @NgModule({

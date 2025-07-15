@@ -1,9 +1,11 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Hotel } from '../../model/hotel.model';
 import { RoomModel } from '../../model/room.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HotelService } from '../../service/hotel.service';
 import { RoomService } from '../../service/room.service';
+import { LocationService } from '../../service/location.service';
+import { BookingModel } from '../../model/Booking.model';
 
 @Component({
   selector: 'app-hotel-details',
@@ -22,7 +24,9 @@ export class HotelDetails {
     private route: ActivatedRoute,
     private hotelService: HotelService,
     private roomService: RoomService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router,
+    private locationService: LocationService
   ) { }
 
   ngOnInit(): void {
@@ -64,6 +68,13 @@ export class HotelDetails {
       }
     });
   }
+
+
+ bookRoom(room: RoomModel): void {
+  console.log('Booking room:', room);
+  this.router.navigate(['/booking', room.id]);
+}
+
 
 
 }
