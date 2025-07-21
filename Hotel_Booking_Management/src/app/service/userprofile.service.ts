@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { Observable, of } from 'rxjs';
 import { User } from '../model/user.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +14,7 @@ export class UserprofileService {
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService,    
+    private authService: AuthService
   ) { }
 
   getUserProfile(): Observable<User | null> {
@@ -28,4 +29,11 @@ export class UserprofileService {
     return this.http.put<User>(`${this.baseUrl}/${user.id}`, user);
 
   }
+
+  getUserProfileById(id: string): Observable<any> {
+
+    return this.http.get(this.baseUrl + '/' + id);
+  }
+
+
 }

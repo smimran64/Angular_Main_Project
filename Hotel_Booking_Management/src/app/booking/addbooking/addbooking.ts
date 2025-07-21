@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { BookingModel } from '../../model/Booking.model';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { RoomService } from '../../service/room.service';
@@ -8,6 +8,10 @@ import { Location } from '../../model/location.model';
 import { Hotel } from '../../model/hotel.model';
 import { RoomModel } from '../../model/room.model';
 import { Bookingservice } from '../../service/bookingservice';
+import { UserprofileService } from '../../service/userprofile.service';
+import { User } from '../../model/user.model';
+import { AuthService } from '../../service/auth.service';
+import { LocalStorageService } from '../../service/localstorage.service';
 
 @Component({
   selector: 'app-addbooking',
@@ -17,6 +21,7 @@ import { Bookingservice } from '../../service/bookingservice';
 })
 export class Addbooking {
 
+  user: User | null = null;
   booking: BookingModel = new BookingModel();
   loading = true;
   roomPrice = 0; // Add this to your class
@@ -27,18 +32,26 @@ export class Addbooking {
     private hotelService: HotelService,
     private locationService: LocationService,
     private bookingService: Bookingservice,
-    private router:Router
+    private router: Router,
+    private cdr: ChangeDetectorRef,   
+    private userAuthService: AuthService,
+    private localStorageService: LocalStorageService
   ) { }
 
 
   ngOnInit(): void {
+    this.loadUserDetails();
     const roomId = this.route.snapshot.paramMap.get('id');
     if (roomId) {
       this.loadRoomDetails(roomId);
+
+
     } else {
       console.error('Room ID not provided!');
       this.loading = false;
     }
+
+
   }
 
   loadRoomDetails(roomId: string): void {
@@ -47,11 +60,13 @@ export class Addbooking {
         this.booking.roomtype = room.roomtype;
         this.booking.adults = room.adults;
         this.booking.children = room.children;
+        this.booking.roomimage = room.image;
 
         this.roomPrice = room.price; // Store price separately
         this.booking.totalamount = room.price; // Default for 1 night
 
         this.loadHotelDetails(room.hotel);
+
       },
 
     });
@@ -62,6 +77,8 @@ export class Addbooking {
       next: (hotel: Hotel) => {
         console.log('Hotel:', hotel);
         this.booking.hotelname = hotel.name;
+
+
 
         this.loadLocationDetails(hotel.location);
       },
@@ -78,6 +95,7 @@ export class Addbooking {
         console.log('Location:', location);
         this.booking.location = location.locationName;
         this.loading = false;
+        this.cdr.markForCheck();
       },
       error: (err) => {
         console.error('Error loading location', err);
@@ -86,34 +104,59 @@ export class Addbooking {
     });
   }
 
+  loadUserDetails(): void {
+    this.user = this.userAuthService.getUserProfileFromStorage();
+    if (this.user) {
+      this.booking.userid = this.user.id;
+    }
+  }
+
 
 
   submitBooking(): void {
-    // Optional: simple validation
+    // justify the form
     if (!this.booking.contractpersonname || !this.booking.cell || !this.booking.checkin || !this.booking.checkout) {
-      alert('Please fill all required fields!');
+      alert('Please fill the all required field!');
       return;
     }
 
-    // Calculate due amount again just to be safe
+    // to calculate due amount
     this.calculateDueAmount();
 
     console.log('Booking to save:', this.booking);
 
-    // Call your booking service to save the booking
+    // to booking service
     this.bookingService.createBooking(this.booking).subscribe({
       next: (response) => {
         console.log('Booking saved successfully:', response);
-        alert('Booking confirmed!');
-        // Optionally, navigate to a confirmation page
-        this.router.navigate(['/booking-success']);
+
+        // ✅ Notification localStorage 
+        const notifications = this.localStorageService.getItem('bookingNotifications') || [];
+
+        notifications.push({
+
+          contractPerson: this.booking.contractpersonname,
+          hotelName: this.booking.hotelname,
+          location: this.booking.location,
+          userId: this.booking.userid,
+          totalAmount: this.booking.totalamount,
+          time: new Date().toLocaleString()
+        });
+
+
+        this.localStorageService.setItem('bookingNotifications', notifications);
+
+
+        // 🔸 redirect user
+        this.router.navigate(['bookingpdf']);
       },
       error: (err) => {
         console.error('Error saving booking:', err);
-        alert('Failed to save booking. Please try again.');
+        alert('Booking Cannot Completed');
       }
     });
   }
+
 
 
 

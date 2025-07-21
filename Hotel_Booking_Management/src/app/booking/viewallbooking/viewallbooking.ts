@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Hotel } from '../../model/hotel.model';
+import { BookingModel } from '../../model/Booking.model';
+import { HotelService } from '../../service/hotel.service';
+import { Bookingservice } from '../../service/bookingservice';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewallbooking',
@@ -8,4 +13,62 @@ import { Component } from '@angular/core';
 })
 export class Viewallbooking {
 
+
+  hotels: Hotel[] = [];
+  bookings: BookingModel[] = [];
+  selectedHotelId: string = '';
+
+ 
+
+
+  constructor(
+    private hotelService: HotelService,
+    private bookingService: Bookingservice,
+    private router: Router,
+    private cdr: ChangeDetectorRef
+    
+
+
+  ) { }
+
+  ngOnInit(): void {
+   
+    this.loadHotels();
+  }
+
+
+  loadHotels() {
+    this.hotelService.getAllHotels().subscribe({
+      next: (data) =>{
+        this.hotels = data;
+        this.cdr.markForCheck();
+
+
+      } ,
+      error: (err) =>{
+
+        console.error(err);
+      }
+    });
+  }
+
+  OnHotelChange() {
+    if (this.selectedHotelId) {
+      this.bookingService.getBookingByHotelId(this.selectedHotelId).subscribe({
+        next: (data) => {
+          this.bookings = data;
+          this.cdr.markForCheck();
+        },
+        error: (err) => {          
+          console.error(err);
+        }
+      });
+    } else {
+      this.bookings = [];
+    }
+  }
 }
+
+
+
+

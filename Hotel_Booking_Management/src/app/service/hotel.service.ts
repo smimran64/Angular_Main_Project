@@ -32,6 +32,12 @@ export class HotelService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
+   //for hotel admin Profile 
+  
+    getHotelByUserId(userId: string): Observable<Hotel[]> {
+      return this.http.get<Hotel[]>(`${this.apiUrl}?userid=${userId}`);
+    }
+
 
 
 }

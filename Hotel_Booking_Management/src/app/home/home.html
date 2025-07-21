@@ -5,11 +5,7 @@
     <!-- Location Dropdown -->
     <div class="col-md-5">
       <label for="locationSelect" class="form-label">Select Location:</label>
-      <select
-        id="locationSelect"
-        class="form-select"
-        [(ngModel)]="searchLocationId"
-      >
+      <select id="locationSelect" class="form-select" [(ngModel)]="searchLocationId">
         <option value="">-- All Locations --</option>
         <option *ngFor="let loc of locations" [value]="loc.id">
           {{ loc.locationName }}
@@ -20,13 +16,7 @@
     <!-- Guests -->
     <div class="col-md-4">
       <label for="guestsInput" class="form-label">Number of Guests:</label>
-      <input
-        id="guestsInput"
-        type="number"
-        class="form-control"
-        [(ngModel)]="searchGuests"
-        min="1"
-      />
+      <input id="guestsInput" type="number" class="form-control" [(ngModel)]="searchGuests" min="1" />
     </div>
 
     <!-- Search Button -->

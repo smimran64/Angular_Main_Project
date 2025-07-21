@@ -61,10 +61,10 @@ export class Login {
           this.router.navigate(['/userprofile']);
         }
         else if (role === 'admin') {
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/adminprofile']);
         }
-        else if (role === 'hotel') {
-          this.router.navigate(['/hotel']);
+        else if (role === 'hoteladmin') {
+          this.router.navigate(['/hoteladminprofile']);
         }
 
         else {

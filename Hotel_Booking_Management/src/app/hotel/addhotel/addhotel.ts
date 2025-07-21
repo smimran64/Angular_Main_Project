@@ -5,6 +5,8 @@ import { HotelService } from '../../service/hotel.service';
 import { Router } from '@angular/router';
 import { LocationService } from '../../service/location.service';
 import { Location } from '../../model/location.model';
+import { AuthService } from '../../service/auth.service';
+import { User } from '../../model/user.model';
 
 
 @Component({
@@ -18,30 +20,35 @@ export class Addhotel implements OnInit {
   formGroup!: FormGroup;
   locations: Location[] = [];
   hotels: Hotel =new Hotel();
+   user: User | null = null;
 
   constructor(
     private hotelService: HotelService,
     private locationService: LocationService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private userAuthService: AuthService
   ) {}
 
   ngOnInit(): void {
-    // ✅ Your form control: location is a string, not an object
+    //  Your form control: location is a string, not an object
     this.formGroup = this.formBuilder.group({
       name: ['', Validators.required],
       image: ['', Validators.required],
       address: ['', Validators.required],
       rating: ['', Validators.required],
-      location: ['', Validators.required] // ✅ keep it simple
+      location: ['', Validators.required],
+      userid:['',Validators.required]
+       
     });
 
     this.loadLocations();
+    this.loadUserDetails();
 
   }
 
-  // ✅ Load all locations to show in <select>
+  // Load all locations to show in <select>
   loadLocations(): void {
     this.locationService.getAllLocation().subscribe({
       next: (locations) => {
@@ -52,7 +59,7 @@ export class Addhotel implements OnInit {
     });
   }
 
-  // ✅ Save hotel with locationId only
+  //  Save hotel with locationId only
   addHotel(): void {
     if (this.formGroup.invalid) {
       console.error('Form invalid');
@@ -74,6 +81,14 @@ export class Addhotel implements OnInit {
         console.error('Error saving hotel', err);
       }
     });
+  }
+
+
+   loadUserDetails(): void {
+    this.user = this.userAuthService.getUserProfileFromStorage();
+    if (this.user) {
+      this.hotels.userid = this.user.id;
+    }
   }
   
 

@@ -82,8 +82,8 @@
     },
     {
       "id": "662d",
-      "name": " Hotel Noorjahan Grand",
-      "image": "https://tinyurl.com/2zvuxea2",
+      "name": "Hotel Noorjahan Grand",
+      "image": "https://tinyurl.com/bdhyvmt6",
       "address": "Waves 1 Dargah Gate, Sylhet 3100",
       "rating": "4.5",
       "location": "ed13"
@@ -208,7 +208,7 @@
     },
     {
       "id": "79cb",
-      "image": "https://tinyurl.com/39xa8e3c",
+      "image": "https://tinyurl.com/yb2mtadm",
       "roomtype": "Double",
       "adults": 2,
       "children": 2,
@@ -217,7 +217,7 @@
     },
     {
       "id": "ceb4",
-      "image": "https://tinyurl.com/4xteean5",
+      "image": "https://tinyurl.com/yc2m6uze",
       "roomtype": "Suit",
       "adults": 2,
       "children": 2,
@@ -295,15 +295,24 @@
       "children": 4,
       "price": 15000,
       "hotel": "5e95"
+    },
+    {
+      "id": "3355",
+      "image": "https://tinyurl.com/3na8puka",
+      "roomtype": "Delux",
+      "adults": 4,
+      "children": 2,
+      "price": 10000,
+      "hotel": "662d"
     }
   ],
   "user": [
     {
       "id": "4e0a",
-      "name": "CM Rejaul Karim",
-      "email": "reja@gmail.com",
+      "name": "Atikul Islam",
+      "email": "atik@gmail.com",
       "password": "1234",
-      "photo": "****",
+      "photo": "https://tinyurl.com/5a9zp5k6",
       "role": "user"
     },
     {
@@ -316,29 +325,75 @@
     },
     {
       "id": "7c94",
-      "name": "Faruque Ahmed",
-      "email": "faruque@gmail.com",
+      "name": "Md. Eiasin Prodhan",
+      "email": "eiasin@gmail.com",
       "password": "22800",
-      "photo": "https://tinyurl.com/2w55y3xt",
-      "role": "user"
+      "photo": "https://tinyurl.com/3fhsn3b4",
+      "role": "hoteladmin"
+    },
+    {
+      "id": "9e79",
+      "name": "Muhammad Imran Mia",
+      "email": "mr.t.imran11@gmail.com",
+      "password": "1234",
+      "photo": "https://tinyurl.com/5yd3wjd7",
+      "role": "admin"
     }
   ],
   "bookings": [
     {
-      "id": "8d10",
+      "id": "61c0",
+      "userid": "4e0a",
+      "roomimage": "https://tinyurl.com/yb2mtadm",
       "hotelname": "InterContinental Dhaka by IHG",
-      "roomtype": "Double Delux",
+      "roomtype": "Double",
       "location": "Dhaka",
-      "contractpersonname": "dsfdsfs",
-      "cell": "4456465465",
-      "address": "gfhghgf",
-      "adults": 3,
+      "contractpersonname": "Atikul Islam",
+      "cell": "01571407696",
+      "address": "Bhola",
+      "adults": 2,
       "children": 2,
+      "checkin": "2025-07-18",
+      "checkout": "2025-07-21",
+      "advanceamount": 24000,
+      "totalamount": 54000,
+      "dueamount": 30000
+    },
+    {
+      "id": "e5c1",
+      "userid": "4e0a",
+      "roomimage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/b2/af/43/room.jpg?w=900&h=500&s=1",
+      "hotelname": "Hotel Sarina Dhaka",
+      "roomtype": "Premium",
+      "location": "Dhaka",
+      "contractpersonname": "Atikul Islam",
+      "cell": "01571407696",
+      "address": "Dhaka",
+      "adults": 10,
+      "children": 6,
       "checkin": "2025-07-19",
-      "checkout": "2025-07-22",
-      "advanceamount": 5000,
-      "totalamount": 75000,
-      "dueamount": 70000
+      "checkout": "2025-07-21",
+      "advanceamount": 22000,
+      "totalamount": 42000,
+      "dueamount": 20000
+    },
+    {
+      "id": "278a",
+      "userid": "4e0a",
+      "roomimage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/b2/af/43/room.jpg?w=900&h=500&s=1",
+      "hotelname": "Hotel Sarina Dhaka",
+      "roomtype": "Premium",
+      "location": "Dhaka",
+      "contractpersonname": "Atikul Islam",
+      "cell": "01571407696",
+      "address": "Dhaka",
+      "adults": 10,
+      "children": 6,
+      "checkin": "2025-07-19",
+      "checkout": "2025-07-21",
+      "advanceamount": 22000,
+      "totalamount": 42000,
+      "dueamount": 20000
     }
   ]
 }

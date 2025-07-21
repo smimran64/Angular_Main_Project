@@ -33,6 +33,7 @@ export class Viewallhotel implements OnInit {
     this.hotelService.getAllHotels().subscribe({
       next: (res) => {
         this.hotels = res;
+        this.cdr.markForCheck();
         console.log('Hotels:', this.hotels);
       },
       error: (err) => {
@@ -41,11 +42,12 @@ export class Viewallhotel implements OnInit {
     });
   }
 
-  // ✅ OPTIONAL: Load locations to map ID -> Name
+  // OPTIONAL: Load locations to map ID -> Name
   loadLocations(): void {
     this.locationService.getAllLocation().subscribe({
       next: (res) => {
         this.locations = res;
+        this.cdr.markForCheck();
         console.log('Locations:', this.locations);
       },
       error: (err) => {
@@ -54,7 +56,7 @@ export class Viewallhotel implements OnInit {
     });
   }
 
-  // ✅ Helper to get location name by ID
+  //  Helper to get location name by ID
   getLocationName(locationId: string): string {
     const loc = this.locations.find(loc => loc.id === locationId);
     return loc ? loc.locationName : 'Unknown';
@@ -84,6 +86,7 @@ export class Viewallhotel implements OnInit {
       next: (res) => {
 
         console.log(res);
+        this.cdr.markForCheck();
         this.router.navigate(['updatehotel', id])
       },
 

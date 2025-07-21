@@ -3,6 +3,8 @@
 export class BookingModel {
 
     id!: string;
+    userid!: string;
+    roomimage!: string;
     hotelname!: string;
     roomtype!: string;
     location!: string;
@@ -11,7 +13,7 @@ export class BookingModel {
     address!: string;
     adults!: number;
     children!: number;
-    checkin!:string;
+    checkin!: string;
     checkout!: string;
     advanceamount!: number;
     totalamount!: number;

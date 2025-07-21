@@ -8,14 +8,14 @@ import { BookingModel } from '../model/Booking.model';
 })
 export class Bookingservice {
 
-  baseUrl: string ='http://localhost:3000/bookings';
+  baseUrl: string = 'http://localhost:3000/bookings';
 
 
   constructor(
     private http: HttpClient
   ) { }
 
-   viewAllBooking(): Observable<any> {
+  viewAllBooking(): Observable<any> {
 
     return this.http.get(this.baseUrl);
   }
@@ -45,6 +45,17 @@ export class Bookingservice {
   submitBooking(bookingData: any): Observable<any> {
 
     return this.http.post(this.baseUrl, bookingData);
-    
+
+  }
+
+  getBookingByHotelId(hotelId: string): Observable<BookingModel[]> {
+    return this.http.get<BookingModel[]>(`${this.baseUrl}?hotel=${hotelId}`);
+
+  }
+
+  //for userprofile 
+
+  getBookingsByUserId(userId: string): Observable<BookingModel[]> {
+    return this.http.get<BookingModel[]>(`${this.baseUrl}?userid=${userId}`);
   }
 }

@@ -1,1 +1,90 @@
-<p>adminprofile works!</p>
+<style>
+    .cover-photo {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 1rem 1rem 0 0;
+        border: 1px solid #0f0f0f;
+    }
+
+    .admin-picture {
+        width: 200px;
+        height: 200px;
+        border: 4px solid white;
+        border-radius: 0.75rem;
+        object-fit: cover;
+        position: absolute;
+        bottom: 13%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        z-index: 20;
+        display: block;
+    }
+
+    .container {
+        background: #ffffff;
+        border-radius: 1rem;
+        overflow: hidden;
+        max-width: 90%;
+        margin: 1rem auto;
+    }
+
+    body {
+        background: #ffffff;
+    }
+</style>
+
+<div class="flex items-start justify-center py-4" *ngIf="user">
+    <div class="container w-full shadow-2xl">
+
+        <!-- ✅ Cover Photo & Centered Overlapping Profile -->
+        <div class="cover-photo-wrapper mx-6 mt-6">
+            <img class="cover-photo" src="https://tinyurl.com/r2nrb4rk" alt="Hotel Cover" />
+            <img class="admin-picture" [src]="user.photo || 'https://tinyurl.com/53y4p9x6'" alt="Profile Picture" />
+        </div>
+
+        <!-- ✅ Admin Info -->
+        <div class="text-center mt-16 px-6" style="margin-top: 5%;">
+            <h1 class="text-3xl font-semibold text-gray-800">{{ user.name }}</h1>
+            <h4>Super Admin</h4>
+            <h6>
+                Dedicated to providing top-quality hospitality experiences. Let's make every guest feel at home!
+            </h6>
+        </div>
+
+        <!-- Admin Details -->
+        <div class="mt-6 px-6" style="padding: 3%; background-color: rgb(145, 167, 84);">
+            <h2 class="text-xl font-semibold text-gray-800 mb-2" style="text-align: center;"><u>Admin Information</u></h2>
+            <div class="bg-slate-100 rounded-lg p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <h4>Email:</h4>
+                    <p class="text-gray-800 font-medium">{{ user.email }}</p>
+                </div>
+                <div>
+                    <h4>Contact Number:</h4>
+                    <p class="text-gray-800 font-medium">+880 1571407696</p>
+                </div>
+                <div>
+                    <h4>Address:</h4>
+                    <p class="text-gray-800 font-medium">228,Borvat Mosque road, lalbagh</p>
+                </div>
+                <div>
+                    <h4>Location:</h4>
+                    <p class="text-gray-800 font-medium">Dhaka, Bangladesh</p>
+                </div>
+                <div>
+                    <h4>Started:</h4>
+                    <p class="text-gray-800 font-medium">March 2025</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="mt-6 text-center mb-8">
+            <button class="bg-indigo-500 text-white px-6 py-2 rounded-full hover:bg-indigo-600 transition duration-200">
+                Edit Profile
+            </button>
+        </div>
+    </div>
+</div>

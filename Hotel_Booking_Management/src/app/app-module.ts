@@ -24,6 +24,12 @@ import { HotelDetails } from './hotel/hotel-details/hotel-details';
 import { Addbooking } from './booking/addbooking/addbooking';
 import { Viewallbooking } from './booking/viewallbooking/viewallbooking';
 import { Updateroom } from './room/updateroom/updateroom';
+import { Bookingalert } from './booking/bookingalert/bookingalert';
+import { Hoteladminprofile } from './profile/hoteladminprofile/hoteladminprofile';
+import { Bookingpdffile } from './booking/bookingpdffile/bookingpdffile';
+import { Navbar } from './layout/navbar/navbar';
+import { Footer } from './layout/footer/footer';
+import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/about-hotel-booking-system';
 
 
 @NgModule({
@@ -47,7 +53,13 @@ import { Updateroom } from './room/updateroom/updateroom';
     HotelDetails,
     Addbooking,
     Viewallbooking,
-    Updateroom
+    Updateroom,
+    Bookingalert,
+    Hoteladminprofile,
+    Bookingpdffile,
+    Navbar,
+    Footer,
+    AboutHotelBookingSystem
    
   ],
   imports: [

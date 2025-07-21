@@ -1,0 +1,256 @@
+<style>
+    .navbar {
+        background: linear-gradient(90deg, #5e2bff, #8a4bff);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-brand {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #fff !important;
+        text-transform: uppercase;
+    }
+
+    .nav-link {
+        color: #fff !important;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        color: #ffd60a !important;
+        transform: translateY(-2px);
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown-menu {
+        background: linear-gradient(135deg, #a691ee, #b89fe7);
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-item {
+        color: #fff !important;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-item:hover {
+        background: #ffd60a;
+        color: #5e2bff !important;
+        transition: all 0.3s ease;
+    }
+
+    /* Sign In/Sign Up Button Styles */
+    .auth-link {
+        color: #08e713 !important;
+        font-weight: 600;
+        padding: 8px 15px;
+        border-radius: 20px;
+        margin-left: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .auth-link:hover {
+        background: #ffd60a;
+        color: #5e2bff !important;
+        animation: bounce 0.6s ease;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+    }
+
+    .overlay.active {
+        display: block;
+    }
+
+
+    /* Header Styles with Animation */
+    .header {
+        background: linear-gradient(135deg, #175279, #a8ca4a);
+        padding: 100px 0;
+        text-align: center;
+        border-bottom: 5px solid #13110b;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945') no-repeat center center/cover;
+        opacity: 0.3;
+        animation: slide 20s infinite;
+        z-index: 0;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(-50px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .header>* {
+        position: relative;
+        z-index: 1;
+    }
+
+    .header h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(252, 246, 246, 0.986);
+    }
+
+    .header p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 20px auto;
+    }
+
+    /* Button Styles */
+    .btn-custom {
+        background: linear-gradient(45deg, #ff006e, #ffbe0b);
+        color: #fff;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+        background: linear-gradient(45deg, #ffbe0b, #ff006e);
+        transform: scale(1.05);
+    }
+</style>
+
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">HBMS</a>
+        <button class="navbar-toggler" type="button" id="sidebarToggle">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href=""> <img src="https://tinyurl.com/2eza99x9" width="25" class="me-2" alt="home-icon"> Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="hotelDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Hotels
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="hotelDropdown">
+
+                        <li><a class="dropdown-item" href="addhotel">Add Hotel</a></li>
+                        <li><a class="dropdown-item" href="viewhotel">View All Hotel</a></li>
+                        <li><a class="dropdown-item" href="#">Awards</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="roomsDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-bed me-1"></i> Rooms
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="roomsDropdown">
+                        
+                        <li><a class="dropdown-item" href="addroom">Add Room</a></li>
+                           
+                        <li><a class="dropdown-item" href="roomview">View All Room By Hotel</a></li>
+                        <li><a class="dropdown-item" href="#">Family Suite</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+
+                   
+                    <a class="nav-link dropdown-toggle" href="#" id="locationDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        
+                        <i class="fas fa-map-marker-alt me-1"></i> Locations
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="locationDropdown">
+                        <li><a class="dropdown-item" href="addlocation">Add Location</a></li>
+                        <li><a class="dropdown-item" href="viewlocation">View All Location</a></li>
+                        <li><a class="dropdown-item" href="#">Sylhet</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="locationDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-map-marker-alt me-1"></i> Bookings
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="locationDropdown">
+                        <li><a class="dropdown-item" href="viewallbooking">View All Bookings</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="locationDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-map-marker-alt me-1"></i> Profile
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="locationDropdown">
+                        <li><a class="dropdown-item" href="userprofile">User Profile</a></li>
+                        <li><a class="dropdown-item" href="hoteladminprofile">Hotel Admin Profile</a></li>
+                        <li><a class="dropdown-item" href="adminprofile">Admin Profile</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/bookingalert"><i class="fas fa-envelope me-1"></i> Notifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link auth-link" href="login"><i class="fas fa-sign-in-alt me-1"></i> Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link auth-link" href="logout"><i class="fas fa-user-plus me-1"></i> Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="header" id="home">
+    <div class="container">
+        <h1>Welcome to Luxury Hotel</h1>
+        <p style="color: #fff;">Indulge in a world-class hospitality experience with our exquisite accommodations
+            and services.</p>
+        <!-- <a href="#rooms" class="btn btn-custom">Explore Rooms</a> -->
+    </div>
+</header>

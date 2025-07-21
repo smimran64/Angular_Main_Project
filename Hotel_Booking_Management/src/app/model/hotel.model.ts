@@ -2,6 +2,7 @@
 export class Hotel {
 
     id!: string;
+    userid!: string;
     name!: string;
     image!: string;
     address!: string;

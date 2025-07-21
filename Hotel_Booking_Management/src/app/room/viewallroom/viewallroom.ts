@@ -39,12 +39,23 @@ export class Viewallroom {
   onHotelChange() {
     if (this.selectedHotelId) {
       this.roomService.getRoomsByHotelId(this.selectedHotelId).subscribe({
-        next: (data) => this.rooms = data,
-        error: (err) => console.error(err)
+        next: (data) => {
+          this.rooms = data,
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+
+          console.error(err)
+
+        }
+
       });
-    } else {
+
+    }
+    else {
       this.rooms = [];
     }
+
   }
 
   loadRoom(): void {
@@ -54,7 +65,8 @@ export class Viewallroom {
       next: (res) => {
 
         this.rooms = res;
-        console.log('rooms', this.rooms)
+        console.log('rooms', this.rooms);
+        this.cdr.markForCheck();
       },
       error: (err) => {
 

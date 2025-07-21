@@ -11,7 +11,7 @@ import { AuthResponse } from '../model/authresponse.model';
 export class AuthService {
 
   private currentUserSubject: BehaviorSubject<User | null>;
-  private currentUser$: Observable<User | null>;
+  public currentUser$: Observable<User | null>;
 
   private baseUrl: string = 'http://localhost:3000/user';
 
@@ -199,5 +199,18 @@ export class AuthService {
     }
 
     return null;
+  }
+
+  isAdmin():boolean{
+    return this.getUserRole()==='admin';
+  }
+
+  isHotelAdmin():boolean{
+
+    return this.getUserRole()==='hoteladmin';
+  }
+
+  isUser():boolean{
+   return this.getUserRole()==='user';
   }
 }

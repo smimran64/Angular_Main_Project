@@ -1,10 +1,13 @@
 <div class="container mt-4">
-  <h2 class="mb-4 text-center">All Hotels</h2>
+  <div class="jumbotron" style="background-color: gray;">
+    <h2 class="mb-4 text-center">All Hotels</h2>
+  </div>
+  
 
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4" style="border: 1px;">
     <div class="col" *ngFor="let hotel of hotels">
-      <div class="card h-100 shadow">
-        <img [src]="hotel.image" class="card-img-top" alt="Hotel Image" style="height: 200px; object-fit: cover;">
+      <div class="card h-100 shadow" style="padding: 3%; background-color: burlywood; border-color: black;">
+        <img [src]="hotel.image" class="card-img-top " alt="Hotel Image">
         <div class="card-body">
           <h5 class="card-title">{{ hotel.name }}</h5>
           <p class="card-text">
