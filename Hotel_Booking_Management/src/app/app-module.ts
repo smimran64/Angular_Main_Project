@@ -26,7 +26,7 @@ import { Viewallbooking } from './booking/viewallbooking/viewallbooking';
 import { Updateroom } from './room/updateroom/updateroom';
 import { Bookingalert } from './booking/bookingalert/bookingalert';
 import { Hoteladminprofile } from './profile/hoteladminprofile/hoteladminprofile';
-import { Bookingpdffile } from './booking/bookingpdffile/bookingpdffile';
+
 import { Navbar } from './layout/navbar/navbar';
 import { Footer } from './layout/footer/footer';
 import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/about-hotel-booking-system';
@@ -41,7 +41,7 @@ import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/abo
     Addlocation,
     Viewlocation,
     Updatelocation,
-   
+
     Login,
     Logout,
     Registrationform,
@@ -56,11 +56,11 @@ import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/abo
     Updateroom,
     Bookingalert,
     Hoteladminprofile,
-    Bookingpdffile,
+
     Navbar,
     Footer,
     AboutHotelBookingSystem
-   
+
   ],
   imports: [
     BrowserModule,

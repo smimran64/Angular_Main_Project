@@ -26,7 +26,7 @@ export class Logout implements OnInit {
 
     this.authService.logout();
     this.authService.removeUserDetails();
-    this.router.navigate(['login']);
+    this.router.navigate(['']);
 
 
   }

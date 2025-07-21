@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { BookingModel } from '../../model/Booking.model';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { RoomService } from '../../service/room.service';
@@ -12,6 +12,8 @@ import { UserprofileService } from '../../service/userprofile.service';
 import { User } from '../../model/user.model';
 import { AuthService } from '../../service/auth.service';
 import { LocalStorageService } from '../../service/localstorage.service';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-addbooking',
@@ -26,6 +28,10 @@ export class Addbooking {
   loading = true;
   roomPrice = 0; // Add this to your class
 
+
+
+  @ViewChild('pdfContent', { static: false }) pdfContent!: ElementRef;
+
   constructor(
     private route: ActivatedRoute,
     private roomService: RoomService,
@@ -33,7 +39,7 @@ export class Addbooking {
     private locationService: LocationService,
     private bookingService: Bookingservice,
     private router: Router,
-    private cdr: ChangeDetectorRef,   
+    private cdr: ChangeDetectorRef,
     private userAuthService: AuthService,
     private localStorageService: LocalStorageService
   ) { }
@@ -146,9 +152,11 @@ export class Addbooking {
 
         this.localStorageService.setItem('bookingNotifications', notifications);
 
+         this.generateBookingPDF();
+
 
         // 🔸 redirect user
-        this.router.navigate(['bookingpdf']);
+     //   this.router.navigate(['bookingpdf']);
       },
       error: (err) => {
         console.error('Error saving booking:', err);
@@ -196,6 +204,27 @@ export class Addbooking {
     console.log(`Total: ${total}, Advance: ${advance}, Due: ${this.booking.dueamount}`);
   }
 
+  
+
+  generateBookingPDF(): void {
+  const element = this.pdfContent.nativeElement;
+
+  html2canvas(element, { scale: 2 }).then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+
+    // Debug base64 prefix
+    console.log('Image data starts with:', imgData.slice(0, 30)); // should be "data:image/png;base64"
+
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('booking-details.pdf');
+  }).catch(error => {
+    console.error('Error generating canvas:', error);
+  });
+}
 
 
 

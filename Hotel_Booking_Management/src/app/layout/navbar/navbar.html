@@ -170,7 +170,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href=""> <img src="https://tinyurl.com/2eza99x9" width="25" class="me-2" alt="home-icon"> Home</a>
+                    <a class="nav-link" href="home"> <img src="https://tinyurl.com/2eza99x9" width="25" class="me-2"
+                            alt="home-icon"> Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="hotelDropdown" role="button"
@@ -178,10 +179,13 @@
                         Hotels
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="hotelDropdown">
-
-                        <li><a class="dropdown-item" href="addhotel">Add Hotel</a></li>
-                        <li><a class="dropdown-item" href="viewhotel">View All Hotel</a></li>
-                        <li><a class="dropdown-item" href="#">Awards</a></li>
+                        <ng-container *ngIf="userRole ==='hoteladmin'">
+                            <li><a class="dropdown-item" href="addhotel">Add Hotel</a></li>
+                        </ng-container>
+                        <ng-container *ngIf="userRole ==='admin'">
+                            <li><a class="dropdown-item" href="viewhotel">View All Hotel</a></li>
+                            <li><a class="dropdown-item" href="#">Awards</a></li>
+                        </ng-container>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -190,35 +194,40 @@
                         <i class="fas fa-bed me-1"></i> Rooms
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="roomsDropdown">
-                        
-                        <li><a class="dropdown-item" href="addroom">Add Room</a></li>
-                           
-                        <li><a class="dropdown-item" href="roomview">View All Room By Hotel</a></li>
-                        <li><a class="dropdown-item" href="#">Family Suite</a></li>
+                        <ng-container *ngIf="userRole ==='hoteladmin'">
+                            <li><a class="dropdown-item" href="addroom">Add Room</a></li>
+                        </ng-container>
+                        <ng-container *ngIf="userRole=== 'admin' || userRole ==='hoteladmin'">
+                            <li><a class="dropdown-item" href="roomview">View All Room By Hotel</a></li>
+                            <li><a class="dropdown-item" href="#">Family Suite</a></li>
+                        </ng-container>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
 
-                   
-                    <a class="nav-link dropdown-toggle" href="#" id="locationDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        
-                        <i class="fas fa-map-marker-alt me-1"></i> Locations
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="locationDropdown">
-                        <li><a class="dropdown-item" href="addlocation">Add Location</a></li>
-                        <li><a class="dropdown-item" href="viewlocation">View All Location</a></li>
-                        <li><a class="dropdown-item" href="#">Sylhet</a></li>
-                    </ul>
-                </li>
+                <ng-container *ngIf="userRole ==='admin'">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="locationDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-map-marker-alt me-1"></i> Locations</a>
+                        <ul class="dropdown-menu" aria-labelledby="locationDropdown">
+                            <li><a class="dropdown-item" href="addlocation">Add Location</a></li>
+                            <li><a class="dropdown-item" href="viewlocation">View All Location</a></li>
+                            <li><a class="dropdown-item" href="#">Sylhet</a></li>
+                        </ul>
+                    </li>
+                </ng-container>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="locationDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-map-marker-alt me-1"></i> Bookings
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="locationDropdown">
-                        <li><a class="dropdown-item" href="viewallbooking">View All Bookings</a></li>
-                    </ul>
+                    <ng-container *ngIf="userRole ==='admin'">
+                        <ul class="dropdown-menu" aria-labelledby="locationDropdown">
+                            <li><a class="dropdown-item" href="viewallbooking">View All Bookings</a></li>
+                        </ul>
+                    </ng-container>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="locationDropdown" role="button"
@@ -226,16 +235,24 @@
                         <i class="fas fa-map-marker-alt me-1"></i> Profile
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="locationDropdown">
-                        <li><a class="dropdown-item" href="userprofile">User Profile</a></li>
-                        <li><a class="dropdown-item" href="hoteladminprofile">Hotel Admin Profile</a></li>
-                        <li><a class="dropdown-item" href="adminprofile">Admin Profile</a></li>
+                        <ng-container *ngIf="userRole ==='user'">
+                            <li><a class="dropdown-item" routerLink="userprofile">User Profile</a></li>
+                        </ng-container>
+                        <ng-container *ngIf="userRole ==='hoteladmin'">
+                            <li><a class="dropdown-item" routerLink="hoteladminprofile">Hotel Admin Profile</a></li>
+                        </ng-container>
+                        <ng-container *ngIf="userRole ==='admin'">
+                            <li><a class="dropdown-item" routerLink="adminprofile">Admin Profile</a></li>
+                        </ng-container>
                     </ul>
                 </li>
+                <ng-container *ngIf="userRole ==='admin'">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/bookingalert"><i class="fas fa-envelope me-1"></i> Notifications</a>
+                    </li>
+                </ng-container>
                 <li class="nav-item">
-                    <a class="nav-link" href="/bookingalert"><i class="fas fa-envelope me-1"></i> Notifications</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link auth-link" href="login"><i class="fas fa-sign-in-alt me-1"></i> Sign In</a>
+                    <a class="nav-link auth-link" href=""><i class="fas fa-sign-in-alt me-1"></i> Sign In</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link auth-link" href="logout"><i class="fas fa-user-plus me-1"></i> Sign Up</a>
