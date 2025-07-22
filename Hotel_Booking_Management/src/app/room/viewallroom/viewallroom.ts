@@ -31,8 +31,14 @@ export class Viewallroom {
 
   loadHotels() {
     this.hotelService.getAllHotels().subscribe({
-      next: (data) => this.hotels = data,
-      error: (err) => console.error(err)
+      next: (data) => {
+        this.hotels = data;
+        this.cdr.markForCheck();
+
+      },
+      error: (err) => {
+        console.error(err);
+      }
     });
   }
 

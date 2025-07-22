@@ -39,8 +39,13 @@ export class Home {
 
   loadLocations() {
     this.locationService.getAllLocation().subscribe({
-      next: (data) => (this.locations = data),
-      error: (err) => console.error(err)
+      next: (data) => {
+        (this.locations = data);
+        this.cdr.markForCheck();
+      },
+      error: (err) =>{
+         console.error(err);
+      }
     });
   }
 
@@ -49,6 +54,7 @@ export class Home {
       next: (data) => {
         this.hotels = data;
         this.filteredHotels = data;
+        this.cdr.markForCheck();
       },
       error: (err) => console.error(err)
     });
@@ -58,6 +64,7 @@ export class Home {
     this.roomService.getAllRoom().subscribe({
       next: (data) => {
         this.rooms = data;
+        this.cdr.markForCheck();
       },
       error: (err) => console.error(err)
     });
