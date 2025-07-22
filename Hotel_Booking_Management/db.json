@@ -87,6 +87,15 @@
       "address": "Waves 1 Dargah Gate, Sylhet 3100",
       "rating": "4.5",
       "location": "ed13"
+    },
+    {
+      "id": "1039",
+      "name": "Bottom Hill Palace Hotel",
+      "image": "https://tinyurl.com/yc5uydmt",
+      "address": "Waves 1/E, Dargah Gate, Sylhet 3100",
+      "rating": "4.5",
+      "location": "ed13",
+      "userid": "7c94"
     }
   ],
   "location": [
@@ -181,7 +190,7 @@
     },
     {
       "id": "bfab",
-      "image": "https://tinyurl.com/4f2y7bv8",
+      "image": "https://tinyurl.com/4wk46bzw",
       "roomtype": "Single",
       "adults": 2,
       "children": 2,
@@ -284,12 +293,12 @@
       "roomtype": "Double Delux",
       "adults": 10,
       "children": 4,
-      "price": 20000,
+      "price": 12000,
       "hotel": "731d"
     },
     {
       "id": "1e63",
-      "image": "https://tinyurl.com/p4cyumxd",
+      "image": "https://tinyurl.com/2dfnwzkc",
       "roomtype": "King",
       "adults": 5,
       "children": 4,
@@ -304,6 +313,132 @@
       "children": 2,
       "price": 10000,
       "hotel": "662d"
+    },
+    {
+      "id": "8527",
+      "image": "https://tinyurl.com/ypbpdk8s",
+      "roomtype": "Delux",
+      "adults": 2,
+      "children": 2,
+      "price": 7500,
+      "hotel": "a090"
+    },
+    {
+      "id": "1fb2",
+      "image": "https://tinyurl.com/4zc7dec3",
+      "roomtype": "Premium",
+      "adults": 4,
+      "children": 2,
+      "price": 15000,
+      "hotel": "a090"
+    },
+    {
+      "id": "4c24",
+      "image": "https://tinyurl.com/edvze3s5",
+      "roomtype": "Premium",
+      "adults": 2,
+      "children": 2,
+      "price": 18000,
+      "hotel": "8f86"
+    },
+    {
+      "id": "bfd4",
+      "image": "https://tinyurl.com/y6sv8wbf",
+      "roomtype": "Delux",
+      "adults": 2,
+      "children": 2,
+      "price": 15000,
+      "hotel": "7032"
+    },
+    {
+      "id": "5678",
+      "image": "https://tinyurl.com/2ventrt2",
+      "roomtype": "Premium",
+      "adults": 2,
+      "children": 2,
+      "price": 17000,
+      "hotel": "7032"
+    },
+    {
+      "id": "ee80",
+      "image": "https://tinyurl.com/2v22n8mz",
+      "roomtype": "Single",
+      "adults": 2,
+      "children": 0,
+      "price": 12000,
+      "hotel": "5e95"
+    },
+    {
+      "id": "e581",
+      "image": "https://tinyurl.com/4udk39wk",
+      "roomtype": "King",
+      "adults": 4,
+      "children": 2,
+      "price": 22000,
+      "hotel": "48a9"
+    },
+    {
+      "id": "9706",
+      "image": "https://tinyurl.com/u7d7y2zk",
+      "roomtype": "Delux",
+      "adults": 2,
+      "children": 2,
+      "price": 15000,
+      "hotel": "48a9"
+    },
+    {
+      "id": "2f1f",
+      "image": "https://tinyurl.com/sj7a3dk9",
+      "roomtype": "Delux",
+      "adults": 2,
+      "children": 2,
+      "price": 15000,
+      "hotel": "5d2b"
+    },
+    {
+      "id": "9877",
+      "image": "https://tinyurl.com/26f9uahu",
+      "roomtype": "Premium",
+      "adults": 2,
+      "children": 2,
+      "price": 15000,
+      "hotel": "731d"
+    },
+    {
+      "id": "2772",
+      "image": "https://tinyurl.com/bjfsjktm",
+      "roomtype": "Premium",
+      "adults": 2,
+      "children": 2,
+      "price": 15000,
+      "hotel": "662d"
+    },
+    {
+      "id": "f61e",
+      "image": "https://tinyurl.com/mvwyv9ra",
+      "roomtype": "Single",
+      "adults": 2,
+      "children": 0,
+      "price": 8000,
+      "hotel": "662d"
+    },
+    {
+      "id": "2668",
+      "image": "https://tinyurl.com/5afmtmjk",
+      "roomtype": "Delux",
+      "adults": 2,
+      "children": 1,
+      "price": 12000,
+      "hotel": "1039"
+    },
+    {
+      "id": "76c8",
+      "image": "https://tinyurl.com/4u29b5ke",
+      "roomtype": "Single",
+      "adults": 2,
+      "children": 0,
+      "price": 7000,
+      "hotel": "1039"
     }
   ],
   "user": [
@@ -610,6 +745,24 @@
       "advanceamount": 10000,
       "totalamount": 30000,
       "dueamount": 20000
+    },
+    {
+      "id": "b22d",
+      "userid": "4e0a",
+      "roomimage": "https://tinyurl.com/4f2y7bv8",
+      "hotelname": "Grand Sylhet Hotel & Resort",
+      "roomtype": "Single",
+      "location": "Sylhet",
+      "contractpersonname": "Atikul Islam",
+      "cell": "01571407696",
+      "address": "Bhola",
+      "adults": 2,
+      "children": 2,
+      "checkin": "2025-07-22",
+      "checkout": "2025-07-24",
+      "advanceamount": 6000,
+      "totalamount": 16000,
+      "dueamount": 10000
     }
   ]
 }

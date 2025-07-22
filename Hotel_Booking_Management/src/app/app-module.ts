@@ -26,10 +26,10 @@ import { Viewallbooking } from './booking/viewallbooking/viewallbooking';
 import { Updateroom } from './room/updateroom/updateroom';
 import { Bookingalert } from './booking/bookingalert/bookingalert';
 import { Hoteladminprofile } from './profile/hoteladminprofile/hoteladminprofile';
-
 import { Navbar } from './layout/navbar/navbar';
 import { Footer } from './layout/footer/footer';
 import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/about-hotel-booking-system';
+
 
 
 @NgModule({
@@ -59,7 +59,9 @@ import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/abo
 
     Navbar,
     Footer,
-    AboutHotelBookingSystem
+    AboutHotelBookingSystem,
+    
+
 
   ],
   imports: [
