@@ -1,0 +1,55 @@
+
+    .fixed-section {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #d1fae5;
+        padding: 1%;
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    .cover-wrapper {
+        position: relative;
+    }
+
+    .cover-photo {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 1rem 1rem 0 0;
+        border: 1px solid #0f0f0f;
+    }
+
+    .profile-picture {
+        width: 180px;
+        height: 180px;
+        border: 4px solid white;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        bottom: -90px;
+        left: 2rem;
+        background: white;
+        z-index: 20;
+    }
+
+    .scrollable-section {
+        max-height: 400px;
+        overflow-y: auto;
+        background: #ffffff;
+        padding: 1.5rem;
+        border-radius: 0 0 1rem 1rem;
+    }
+
+    .container {
+        background: #ffffff;
+        border-radius: 1rem;
+        overflow: hidden;
+        max-width: 90%;
+        margin: 1rem auto;
+        padding-top: 4%;
+    }
+
+    body {
+        background: #ffffff;
+    }

@@ -1,51 +1,56 @@
-<div class="container my-4">
-    <h2>Add Room</h2>
-    <form [formGroup]="roomForm">
-        <div class="mb-3">
-            <label>Image URL</label>
-            <input type="text" class="form-control" formControlName="image" />
-        </div>
+<div class="spa-form-bg">
+    <div class="spa-form-container">
+        <!-- your form code here... -->
+        <div class="container my-4">
+            <h2>Add Room</h2>
+            <form [formGroup]="roomForm">
+                <div class="mb-3">
+                    <label>Image URL</label>
+                    <input type="text" class="form-control" formControlName="image" />
+                </div>
 
-        <div class="mb-3">
-            <label>Room Type</label>
-            <input type="text" class="form-control" formControlName="roomtype" />
-        </div>
+                <div class="mb-3">
+                    <label>Room Type</label>
+                    <input type="text" class="form-control" formControlName="roomtype" />
+                </div>
 
-        <div class="mb-3">
-            <label>Adults</label>
-            <input type="number" class="form-control" formControlName="adults" />
-        </div>
+                <div class="mb-3">
+                    <label>Adults</label>
+                    <input type="number" class="form-control" formControlName="adults" />
+                </div>
 
-        <div class="mb-3">
-            <label>Children</label>
-            <input type="number" class="form-control" formControlName="children" />
-        </div>
+                <div class="mb-3">
+                    <label>Children</label>
+                    <input type="number" class="form-control" formControlName="children" />
+                </div>
 
-        <div class="mb-3">
-            <label>Price</label>
-            <input type="number" class="form-control" formControlName="price" />
-        </div>
+                <div class="mb-3">
+                    <label>Price</label>
+                    <input type="number" class="form-control" formControlName="price" />
+                </div>
 
-        <div class="mb-3">
-            <label>Hotel</label>
-            <select class="form-select" formControlName="hotel">
-                <option value="" disabled>Select Hotel</option>
-                <option *ngFor="let h of hotels" [value]="h.id">{{ h.name }}</option>
-            </select>
-        </div>
+                <div class="mb-3">
+                    <label>Hotel</label>
+                    <select class="form-select" formControlName="hotel">
+                        <option value="" disabled>Select Hotel</option>
+                        <option *ngFor="let h of hotels" [value]="h.id">{{ h.name }}</option>
+                    </select>
+                </div>
 
 
-        <div class="row mt-3 text-center">
-            <div class="col-md-6">
-                <button type="submit" class="btn btn-success" (click)="addRoom()">
-                    Save
-                </button>
-            </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-danger">
-                    Reset
-                </button>
-            </div>
+                <div class="row mt-3 text-center">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-success" (click)="addRoom()">
+                            Save
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-danger">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>

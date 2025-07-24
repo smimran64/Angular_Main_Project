@@ -17,6 +17,7 @@ export class BookingModel {
     checkout!: string;
     advanceamount!: number;
     totalamount!: number;
-    dueamount!: number
+    dueamount!: number;
+    hotelid!:string;
 
 }

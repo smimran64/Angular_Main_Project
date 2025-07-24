@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HotelService } from '../../service/hotel.service';
 import { RoomService } from '../../service/room.service';
 import { LocationService } from '../../service/location.service';
-import { BookingModel } from '../../model/Booking.model';
+
 
 @Component({
   selector: 'app-hotel-details',

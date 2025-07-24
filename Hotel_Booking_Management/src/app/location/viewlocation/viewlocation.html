@@ -1,34 +1,29 @@
 <div class="container">
 
-    <h1 class="text-center my-2">All Location</h1>
+    <h1 class="text-center mb-4 text-primary fw-bold">All Locations</h1>
 
-    <table class="table striped">
-
-        <thead>
-
+    <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
             <tr>
-                <th>ID</th>
-                <th>Location Name</th>
-                <th>Actions</th>
+                <th scope="col" style="width: 10%;">ID</th>
+                <th scope="col" style="width: 60%;">Location Name</th>
+                <th scope="col" style="width: 30%;">Actions</th>
             </tr>
-
         </thead>
-
         <tbody>
-
-            <tr *ngFor="let l of locations ">
-                <td>{{l.id}}</td>
-                <td>{{l.locationName}}</td>
-
+            <tr *ngFor="let l of locations">
+                <td>{{ l.id }}</td>
+                <td>{{ l.locationName }}</td>
                 <td>
-                    <button class="btn btn-primary" (click)="getLocationById(l.id)">Edit</button>
-                    <button class="btn btn-danger" (click)="deleteLocation(l.id)">Delete</button>
-
+                    <button class="btn btn-sm btn-outline-primary me-2" (click)="getLocationById(l.id)">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="deleteLocation(l.id)">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </button>
                 </td>
             </tr>
-
         </tbody>
-
     </table>
 
 </div>

@@ -25,6 +25,8 @@ import { AdminGuard } from './guards/admin-guard';
 import { HotelAdminGuard } from './guards/hoteladmin-guard';
 import { UserGuard } from './guards/user-guard';
 import { AdminHotelAdminGuard } from './guards/adminhoteladmin-guard';
+import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/about-hotel-booking-system';
+import { ViewAllUsers } from './view-all-users/view-all-users';
 
 
 
@@ -32,25 +34,35 @@ import { AdminHotelAdminGuard } from './guards/adminhoteladmin-guard';
 
 const routes: Routes = [
   {path: 'home',component: Home, canActivate:[AllGuard]},
-  {path: 'viewhotel',component: Viewallhotel, canActivate:[AdminGuard]},
+
+  {path: 'viewhotel',component: Viewallhotel, canActivate:[AdminHotelAdminGuard]},
   {path: 'addhotel', component: Addhotel, canActivate:[HotelAdminGuard]},
   {path: 'updatehotel/:id',component: Updatehotel, canActivate:[HotelAdminGuard]},
+
   {path:'addlocation',component:Addlocation, canActivate:[AdminGuard]},
   {path: 'viewlocation',component:Viewlocation, canActivate:[AdminGuard]},
   {path: 'updatelocation/:id',component: Updatelocation, canActivate:[AdminGuard]},
+
   {path:'addroom', component: Addroom , canActivate:[HotelAdminGuard]},
   {path: 'roomview', component: Viewallroom , canActivate:[AdminHotelAdminGuard]},
   {path: 'updateroom/:id', component:Updateroom , canActivate:[HotelAdminGuard]},  
+
   {path: 'reg', component: Registrationform},
-  {path: '', component: Login},
+  {path: 'login', component: Login},
   {path: 'logout', component: Logout},
+
   {path: 'userprofile', component: Userprofile, canActivate:[UserGuard]},
   {path: 'hoteladminprofile', component: Hoteladminprofile, canActivate:[HotelAdminGuard]},
   {path: 'adminprofile', component: Adminprofile, canActivate:[AdminGuard]},
+
   {path: 'hotel-details/:id', component: HotelDetails},
   {path: 'booking/:id', component: Addbooking},
   {path:'viewallbooking',component:Viewallbooking, canActivate:[AdminGuard]},
+
   {path:'bookingalert',component:Bookingalert, canActivate:[AdminGuard]},
+  {path:'',component:AboutHotelBookingSystem},
+  {path:'viewallusers',component:ViewAllUsers,canActivate:[AdminGuard] }
+ 
  
 ];
 

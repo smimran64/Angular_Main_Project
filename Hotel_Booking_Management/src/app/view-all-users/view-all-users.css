@@ -1,0 +1,99 @@
+/* Background wrapper with animation */
+.user-page-background {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #1f1c2c, #928dab, #1f1c2c, #0f2027);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 15s ease infinite;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding-top: 60px;
+
+}
+
+/* Dark overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 15, 0.6);
+    z-index: 1;
+}
+
+/* Content sits on top of overlay */
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+/* Custom dropdown */
+.custom-dropdown {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid #6c63ff;
+    background-color: #f1f1f1;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.custom-dropdown:hover {
+    background-color: #e8e8e8;
+    border-color: #4b49ac;
+}
+
+.custom-dropdown:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.3);
+}
+
+/* User card styling */
+.user-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    border: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(253, 251, 251, 0.986);
+    transition: transform 0.3s ease;
+    color: #f1f1f1;
+
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+}
+
+/* User image styling */
+.user-img {
+    object-fit: cover;
+    border: 4px solid #fff;
+    transition: transform 0.3s ease;
+}
+
+.user-img:hover {
+    transform: scale(1.08);
+}
+
+/* Animation for background */
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.card-body p.text-muted {
+    color: white !important;
+}

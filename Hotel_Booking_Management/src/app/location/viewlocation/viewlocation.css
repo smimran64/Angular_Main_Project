@@ -1,0 +1,14 @@
+.container {
+    max-width: 700px;
+    margin-top: 5%;
+    
+}
+
+table.table thead tr th {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+button.btn-sm {
+    min-width: 90px;
+}

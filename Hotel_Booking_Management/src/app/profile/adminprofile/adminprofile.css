@@ -1,0 +1,135 @@
+/* Container and General */
+body {
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    background: #ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
+    max-width: 90%;
+    margin: 1rem auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding-top: 4%;
+}
+
+/* Cover Photo */
+.cover-photo-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.cover-photo {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+    border: 1px solid #0f0f0f;
+    display: block;
+}
+
+/* Admin Picture (Overlapping Profile) */
+.admin-picture {
+    position: absolute;
+    top: 97%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25vw;
+    max-width: 200px;
+    aspect-ratio: 1;
+    border: 4px solid white;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    background: white;
+    z-index: 20;
+}
+
+/* Text Centered Content */
+.text-center {
+    text-align: center;
+    margin-top: 6%;
+    padding: 1rem;
+}
+
+.text-center h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.text-center h4 {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.text-center h6 {
+    font-weight: 400;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Admin Details */
+.admin-details {
+    margin-top: 2rem;
+    padding: 3%;
+    background-color: rgb(145, 167, 84);
+}
+
+.admin-details h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.details-grid {
+    background-color: #f1f5f9;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.details-grid div h4 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.details-grid div p {
+    font-weight: 500;
+    color: #333;
+}
+
+@media screen and (min-width: 640px) {
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Edit Button */
+.edit-button {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.edit-button button {
+    background-color: #4f46e5;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button button:hover {
+    background-color: #4338ca;
+}

@@ -54,6 +54,7 @@ export class Addhotel implements OnInit {
       next: (locations) => {
         this.locations = locations;        
         console.log( this.locations);
+        this.cdr.markForCheck();
       },
       error: (err) => console.error('Error loading locations', err)
     });

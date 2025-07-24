@@ -58,7 +58,7 @@ export class Login {
 
         if (role === 'user') {
 
-          this.router.navigate(['/userprofile']);
+          this.router.navigate(['/home']);
         }
         else if (role === 'admin') {
           this.router.navigate(['/adminprofile']);

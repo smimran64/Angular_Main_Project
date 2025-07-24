@@ -1,0 +1,91 @@
+/* Background */
+.spa-form-bg {
+    background: linear-gradient(135deg, #2c003e, #8f0d5b);
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.spa-form-container {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    color: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Title */
+.form-title {
+    text-align: center;
+    font-family: 'Cursive', sans-serif;
+    font-size: 28px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #eee;
+    font-weight: 500;
+}
+
+/* Inputs and Selects */
+input.form-control,
+select.form-select {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgb(14, 13, 13);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    transition: background 0.3s ease;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+input:focus,
+select:focus {
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+    box-shadow: none;
+}
+
+/* Buttons */
+.btn-success,
+.btn-danger {
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .spa-form-container {
+        padding: 20px;
+    }
+
+    .btn-success,
+    .btn-danger {
+        font-size: 14px;
+    }
+}

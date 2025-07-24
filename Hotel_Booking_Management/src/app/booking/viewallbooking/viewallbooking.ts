@@ -18,7 +18,7 @@ export class Viewallbooking {
   bookings: BookingModel[] = [];
   selectedHotelId: string = '';
 
- 
+
 
 
   constructor(
@@ -26,26 +26,24 @@ export class Viewallbooking {
     private bookingService: Bookingservice,
     private router: Router,
     private cdr: ChangeDetectorRef
-    
+
 
 
   ) { }
 
   ngOnInit(): void {
-   
+
     this.loadHotels();
   }
 
 
   loadHotels() {
     this.hotelService.getAllHotels().subscribe({
-      next: (data) =>{
+      next: (data) => {
         this.hotels = data;
         this.cdr.markForCheck();
-
-
-      } ,
-      error: (err) =>{
+      },
+      error: (err) => {
 
         console.error(err);
       }
@@ -54,12 +52,13 @@ export class Viewallbooking {
 
   OnHotelChange() {
     if (this.selectedHotelId) {
-      this.bookingService.getBookingByHotelId(this.selectedHotelId).subscribe({
+      this.bookingService.viewAllBooking().subscribe({
         next: (data) => {
-          this.bookings = data;
+          this.bookings = data.filter( b => b.hotelid === this.selectedHotelId);
+          console.log('Manually filtered bookings:', this.bookings);
           this.cdr.markForCheck();
         },
-        error: (err) => {          
+        error: (err) => {
           console.error(err);
         }
       });
@@ -67,6 +66,7 @@ export class Viewallbooking {
       this.bookings = [];
     }
   }
+
 }
 
 

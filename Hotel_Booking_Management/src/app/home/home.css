@@ -1,0 +1,122 @@
+/* Container */
+.container.my-4 {
+    background-color: #f8f9fa;
+    /* light grey */
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Heading */
+h2 {
+    color: #333;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Search form background */
+.row.g-3.align-items-end.mb-4 {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels */
+label.form-label {
+    color: #555;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Inputs and selects */
+input.form-control,
+select.form-select {
+    border-radius: 8px;
+    border: 1.5px solid #ced4da;
+    transition: border-color 0.3s ease;
+}
+
+input.form-control:focus,
+select.form-select:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    outline: none;
+}
+
+/* Search button */
+button.btn-success {
+    background-color: #4a90e2;
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(74, 144, 226, 0.4);
+}
+
+button.btn-success:hover {
+    background-color: #357ABD;
+    box-shadow: 0 6px 12px rgba(53, 122, 189, 0.6);
+}
+
+/* Hotels card container */
+.row[style*="background-color"] {
+    background-color: #ffffff !important;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Card styling */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Card body */
+.card-body {
+    color: #444;
+}
+
+/* Card title */
+.card-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+/* Card text */
+.card-text {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Card footer */
+.card-footer {
+    background: transparent;
+    border-top: none;
+    text-align: center;
+}
+
+/* View button */
+.card-footer .btn-primary {
+    background-color: #4a90e2;
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.4);
+}
+
+.card-footer .btn-primary:hover {
+    background-color: #357ABD;
+    box-shadow: 0 6px 14px rgba(53, 122, 189, 0.6);
+}

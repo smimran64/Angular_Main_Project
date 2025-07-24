@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Hotel } from '../model/hotel.model';
+import { BookingModel } from '../model/Booking.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelService {
 
-  private apiUrl = 'http://localhost:3000/hotels'; 
+  private apiUrl = 'http://localhost:3000/hotels';
 
   constructor(private http: HttpClient) { }
 
@@ -32,11 +33,11 @@ export class HotelService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-   //for hotel admin Profile 
-  
-    getHotelByUserId(userId: string): Observable<Hotel[]> {
-      return this.http.get<Hotel[]>(`${this.apiUrl}?userid=${userId}`);
-    }
+  //for hotel admin Profile 
+
+  getHotelByUserId(userId: string): Observable<Hotel[]> {
+    return this.http.get<Hotel[]>(`${this.apiUrl}?userid=${userId}`);
+  }
 
 
 

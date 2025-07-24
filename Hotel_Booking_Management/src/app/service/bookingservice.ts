@@ -15,9 +15,9 @@ export class Bookingservice {
     private http: HttpClient
   ) { }
 
-  viewAllBooking(): Observable<any> {
+  viewAllBooking(): Observable<BookingModel[]> {
 
-    return this.http.get(this.baseUrl);
+    return this.http.get<BookingModel[]>(this.baseUrl);
   }
 
   createBooking(booking: BookingModel): Observable<BookingModel> {
@@ -58,4 +58,6 @@ export class Bookingservice {
   getBookingsByUserId(userId: string): Observable<BookingModel[]> {
     return this.http.get<BookingModel[]>(`${this.baseUrl}?userid=${userId}`);
   }
+  
+
 }

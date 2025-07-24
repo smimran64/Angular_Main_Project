@@ -1,24 +1,27 @@
-<div class="container mt-4">
-  <div class="jumbotron" style="background-color: gray;">
-    <h2 class="mb-4 text-center">All Hotels</h2>
+<div class="container">
+  <div class="jumbotron bg-primary text-white py-4 rounded-3 shadow-sm">
+    <h2 class="mb-4 text-center fw-bold">All Hotels</h2>
   </div>
-  
 
-  <div class="row row-cols-1 row-cols-md-3 g-4" style="border: 1px;">
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
     <div class="col" *ngFor="let hotel of hotels">
-      <div class="card h-100 shadow" style="padding: 3%; background-color: rgb(56, 101, 228); border-color: black;">
-        <img [src]="hotel.image" class="card-img-top " alt="Hotel Image">
+      <div class="card h-100 shadow-sm hotel-card">
+        <img [src]="hotel.image" class="card-img-top" alt="Hotel Image" />
         <div class="card-body">
-          <h5 class="card-title">{{ hotel.name }}</h5>
+          <h5 class="card-title fw-bold">{{ hotel.name }}</h5>
+          <p class="card-text mb-1">
+            <strong>Address:</strong> {{ hotel.address }}
+          </p>
+          <p class="card-text mb-1">
+            <strong>Rating:</strong> {{ hotel.rating }} ⭐
+          </p>
           <p class="card-text">
-            <strong>Address:</strong> {{ hotel.address }}<br>
-            <strong>Rating:</strong> {{ hotel.rating }}<br>
             <strong>Location:</strong> {{ getLocationName(hotel.location) }}
           </p>
         </div>
-        <div class="card-footer text-end">
-          <button class="btn btn-primary btn-sm m-2" (click)="getHotelById(hotel.id)">Edit</button>
-          <button class="btn btn-danger btn-sm m-2" (click)="deleteHotel(hotel.id)">Delete</button>
+        <div class="card-footer bg-white d-flex justify-content-end gap-2">
+          <button class="btn btn-outline-primary btn-sm" (click)="getHotelById(hotel.id)">Edit</button>
+          <button class="btn btn-outline-danger btn-sm" (click)="deleteHotel(hotel.id)">Delete</button>
         </div>
       </div>
     </div>

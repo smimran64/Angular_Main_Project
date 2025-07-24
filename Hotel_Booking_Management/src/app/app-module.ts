@@ -29,6 +29,7 @@ import { Hoteladminprofile } from './profile/hoteladminprofile/hoteladminprofile
 import { Navbar } from './layout/navbar/navbar';
 import { Footer } from './layout/footer/footer';
 import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/about-hotel-booking-system';
+import { ViewAllUsers } from './view-all-users/view-all-users';
 
 
 
@@ -60,6 +61,7 @@ import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/abo
     Navbar,
     Footer,
     AboutHotelBookingSystem,
+    ViewAllUsers,
     
 
 

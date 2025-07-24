@@ -83,6 +83,7 @@ export class Addbooking {
       next: (hotel: Hotel) => {
         console.log('Hotel:', hotel);
         this.booking.hotelname = hotel.name;
+        this.booking.hotelid = hotel.id;
 
 
 

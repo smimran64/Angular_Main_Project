@@ -1,106 +1,125 @@
 <div class="container my-4" *ngIf="!loading">
-    <h2>Add Booking</h2>
+  <h2> Booking Form</h2>
 
-    <form (ngSubmit)="submitBooking()">
+  <form (ngSubmit)="submitBooking()">
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Room Image Url</label>
+        <input class="form-control" type="text" [(ngModel)]="booking.roomimage" name="hotelimage" readonly />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Hotel Name</label>
+        <input class="form-control" type="text" [(ngModel)]="booking.hotelname" name="hotelname" readonly />
+      </div>
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Room Image Url</label>
-            <input class="form-control" type="text" [(ngModel)]="booking.roomimage" name="hotelimage" readonly />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Hotel Name</label>
-            <input class="form-control" type="text" [(ngModel)]="booking.hotelname" name="hotelname" readonly />
-        </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Room Type</label>
+        <input class="form-control" type="text" [(ngModel)]="booking.roomtype" name="roomtype" readonly />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Room Type</label>
-            <input class="form-control" type="text" [(ngModel)]="booking.roomtype" name="roomtype" readonly />
-        </div>
+      <div class="col-md-6">
+        <label class="form-label">Location</label>
+        <input class="form-control" type="text" [(ngModel)]="booking.location" name="location" readonly />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Adults</label>
+        <input class="form-control" type="text" [(ngModel)]="booking.adults" name="adults" readonly />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Children</label>
+        <input class="form-control" type="text" [(ngModel)]="booking.children" name="children" readonly />
+      </div>
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Location</label>
-            <input class="form-control" type="text" [(ngModel)]="booking.location" name="location" readonly />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Adults</label>
-            <input class="form-control" type="text" [(ngModel)]="booking.adults" name="adults" readonly />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Children</label>
-            <input class="form-control" type="text" [(ngModel)]="booking.children" name="children" readonly />
-        </div>
+    <!-- User input fields -->
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Contact Person Name</label>
+        <input class="form-control" type="text" [(ngModel)]="booking.contractpersonname" name="contractpersonname" />
+      </div>
 
-        <!-- User input fields -->
-        <div class="mb-3">
-            <label class="form-label">Contact Person Name</label>
-            <input class="form-control" type="text" [(ngModel)]="booking.contractpersonname"
-                name="contractpersonname" />
-        </div>
+      <div class="col-md-6">
+        <label class="form-label">Cell</label>
+        <input class="form-control" type="text" [(ngModel)]="booking.cell" name="cell" />
+      </div>
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Cell</label>
-            <input class="form-control" type="text" [(ngModel)]="booking.cell" name="cell" />
-        </div>
+    <div class="mb-3">
+      <label class="form-label">Address</label>
+      <textarea class="form-control" [(ngModel)]="booking.address" name="address"></textarea>
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Address</label>
-            <textarea class="form-control" [(ngModel)]="booking.address" name="address"></textarea>
-        </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Check-in Date</label>
+        <input class="form-control" type="date" [(ngModel)]="booking.checkin" name="checkin"
+          (change)="calculateTotalAmount()" />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Check-in Date</label>
-            <input class="form-control" type="date" [(ngModel)]="booking.checkin" name="checkin"
-                (change)="calculateTotalAmount()" />
-        </div>
+      <div class="col-md-6">
+        <label class="form-label">Check-out Date</label>
+        <input class="form-control" type="date" [(ngModel)]="booking.checkout" name="checkout"
+          (change)="calculateTotalAmount()" />
+      </div>
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Check-out Date</label>
-            <input class="form-control" type="date" [(ngModel)]="booking.checkout" name="checkout"
-                (change)="calculateTotalAmount()" />
-        </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Total Amount</label>
+        <input class="form-control" type="number" [(ngModel)]="booking.totalamount" name="totalamount" readonly />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Total Amount</label>
-            <input class="form-control" type="number" [(ngModel)]="booking.totalamount" name="totalamount" readonly />
-        </div>
+      <div class="col-md-6">
+        <label class="form-label">Advance Amount</label>
+        <input class="form-control" type="number" [(ngModel)]="booking.advanceamount" name="advanceamount"
+          (input)="calculateDueAmount()" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Due Amount</label>
+        <input class="form-control" type="number" [(ngModel)]="booking.dueamount" name="dueamount" readonly />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Advance Amount</label>
-            <input class="form-control" type="number" [(ngModel)]="booking.advanceamount" name="advanceamount"
-                (input)="calculateDueAmount()" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Due Amount</label>
-            <input class="form-control" type="number" [(ngModel)]="booking.dueamount" name="dueamount" readonly />
-        </div>
-
-        <div *ngIf="user">
-            <label class="form-label">User ID</label>
-            <input class="form-control" type="text" [(ngModel)]="booking.userid" name="userid" readonly/>
-        </div>
-
-        <div *ngIf="user">
-            <label class="form-label">User Name</label>
-            <input class="form-control" type="text" [value]="user.name" readonly/>
-        </div>
-        <div>
-            
-        </div>
+      <div *ngIf="user" class="col-md-6">
+        <label class="form-label">User ID</label>
+        <input class="form-control" type="text" [(ngModel)]="booking.userid" name="userid" readonly />
+      </div>
+    </div>
 
 
-        <button type="submit" class="btn btn-primary">Save Booking</button>
-    </form>
+    <div class="row">
+      <div *ngIf="user" class="col md 6">
+        <label class="form-label">User Name</label>
+        <input class="form-control" type="text" [value]="user.name" readonly />
+      </div>
+      <div>
+        <div class="col md 6">
+          <label class="form-label">Hotel Id</label>
+          <input class="form-control" type="text" [(ngModel)]="booking.hotelid" name="hotelid" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-primary">Save Booking</button>
+    </div>
+  </form>
 </div>
 
 <div *ngIf="loading" class="text-center my-4">
-    <p>Loading booking details...</p>
+  <p>Loading booking details...</p>
 </div>
 
 
 <!-- Offscreen PDF content -->
 <div style="position: absolute; left: -9999px; top: -9999px;">
-  <div #pdfContent style="background: #fdfdfd; padding: 30px; width: 600px; font-family: Arial, sans-serif; border: 1px solid #ccc;">
+  <div #pdfContent
+    style="background: #fdfdfd; padding: 30px; width: 600px; font-family: Arial, sans-serif; border: 1px solid #ccc;">
     <h1 style="text-align: center; color: #2c3e50; margin-bottom: 30px;">🏨 Hotel Rets</h1>
     <h2 style="text-align: center; color: #34495e; margin-bottom: 40px;">Booking Confirmation</h2>
 
