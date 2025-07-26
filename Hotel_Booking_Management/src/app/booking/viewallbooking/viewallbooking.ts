@@ -54,7 +54,7 @@ export class Viewallbooking {
     if (this.selectedHotelId) {
       this.bookingService.viewAllBooking().subscribe({
         next: (data) => {
-          this.bookings = data.filter( b => b.hotelid === this.selectedHotelId);
+          this.bookings = data.filter( b => b.hotelId === this.selectedHotelId);
           console.log('Manually filtered bookings:', this.bookings);
           this.cdr.markForCheck();
         },

@@ -6,7 +6,8 @@
       "image": "https://tinyurl.com/37vdtr5s",
       "address": " Marine Drive, Road, Cox's Bazar 4700",
       "rating": "4.5",
-      "location": "685a"
+      "locationId": "685a",
+      "userId": "7c94"
     },
     {
       "id": "59b8",
@@ -14,7 +15,8 @@
       "image": "https://tinyurl.com/42wk42z3",
       "address": "Rului Para, Sajek Valley",
       "rating": "*****",
-      "location": "e65d"
+      "locationId": "e65d",
+      "userId": "695d"
     },
     {
       "id": "a090",
@@ -22,7 +24,8 @@
       "image": "https://tinyurl.com/3zvej7nk",
       "address": "Heritage Hotel, 173-01 Bypass, Road Kolatoli Rd, 4700",
       "rating": "4.8",
-      "location": "685a"
+      "locationId": "685a",
+      "userId": "7c94"
     },
     {
       "id": "8f86",
@@ -30,7 +33,8 @@
       "image": "https://tinyurl.com/3wufy9yv",
       "address": "G, 1 Minto Rd, 1000",
       "rating": "4.8",
-      "location": "0687"
+      "locationId": "0687",
+      "userId": "3a7f"
     },
     {
       "id": "7032",
@@ -38,7 +42,8 @@
       "image": "https://tinyurl.com/yezfsfzj",
       "address": "Khadimnagar Union Parishad, Airport Rd",
       "rating": "4.8",
-      "location": "ed13"
+      "locationId": "ed13",
+      "userId": "d111"
     },
     {
       "id": "5e95",
@@ -46,7 +51,8 @@
       "image": "https://tinyurl.com/m9ahk4s3",
       "address": " Malipara - Digirchala Rd, 1742",
       "rating": "4.8",
-      "location": "6847"
+      "locationId": "6847",
+      "userId": "631b"
     },
     {
       "id": "48a9",
@@ -54,7 +60,8 @@
       "image": "https://tinyurl.com/yc2ejj2x",
       "address": "Bangla Boss Road, St. Martin's Island, Teknaf 4762",
       "rating": "4.5",
-      "location": "6063"
+      "locationId": "6063",
+      "userId": "7c94"
     },
     {
       "id": "b2be",
@@ -62,7 +69,8 @@
       "image": "https://tinyurl.com/yff4868v",
       "address": "Airport Rd, Dhaka 1229",
       "rating": "4.5",
-      "location": "0687"
+      "locationId": "0687",
+      "userId": "3a7f"
     },
     {
       "id": "5d2b",
@@ -70,7 +78,8 @@
       "image": "https://tinyurl.com/34y3b9zr",
       "address": "Plot #27 Road No. 17, Dhaka 1213",
       "rating": "4.5",
-      "location": "0687"
+      "locationId": "0687",
+      "userId": "3a7f"
     },
     {
       "id": "731d",
@@ -78,7 +87,8 @@
       "image": "https://tinyurl.com/y23rdnsa",
       "address": "Laboni Beach Rd, Cox's Bazar 4700",
       "rating": "4.8",
-      "location": "685a"
+      "locationId": "685a",
+      "userId": "7c94"
     },
     {
       "id": "662d",
@@ -86,7 +96,8 @@
       "image": "https://tinyurl.com/bdhyvmt6",
       "address": "Waves 1 Dargah Gate, Sylhet 3100",
       "rating": "4.5",
-      "location": "ed13"
+      "locationId": "ed13",
+      "userId": "d111"
     },
     {
       "id": "1039",
@@ -94,8 +105,8 @@
       "image": "https://tinyurl.com/yc5uydmt",
       "address": "Waves 1/E, Dargah Gate, Sylhet 3100",
       "rating": "4.5",
-      "location": "ed13",
-      "userid": "7c94"
+      "locationId": "ed13",
+      "userId": "d111"
     },
     {
       "id": "d23a",
@@ -103,8 +114,8 @@
       "image": "https://tinyurl.com/mw5bpued",
       "address": " Inani Beach, Cox's Bazar - Teknaf Marine Dr, 4750",
       "rating": "4.5",
-      "location": "6063",
-      "userid": "7c94"
+      "locationId": "6063",
+      "userId": "7c94"
     },
     {
       "id": "156f",
@@ -112,8 +123,17 @@
       "image": "https://tinyurl.com/mj65sp25",
       "address": "St. Martin's Island, 4762",
       "rating": "4.5",
-      "location": "6063",
-      "userid": "7c94"
+      "locationId": "6063",
+      "userId": "7c94"
+    },
+    {
+      "id": "4910",
+      "name": "Rajendra eco resort limited",
+      "image": "https://tinyurl.com/yh857j3b",
+      "address": "Bhabanipur 1740, Dhaka - Mymensingh Rd, Mawna",
+      "rating": "4.5",
+      "locationId": "6847",
+      "userId": "631b"
     }
   ],
   "location": [
@@ -144,382 +164,13 @@
   ],
   "rooms": [
     {
-      "id": "9c0f",
-      "image": "https://tinyurl.com/3s6bppaj",
-      "roomtype": "Delux",
-      "adults": 4,
-      "children": 5,
-      "price": 12000,
-      "hotel": "9d08"
-    },
-    {
-      "id": "32b3",
-      "image": "https://tinyurl.com/yaxzaprj",
-      "roomtype": "Single",
-      "adults": 5,
-      "children": 1,
-      "price": 15000,
-      "hotel": "9d08"
-    },
-    {
-      "id": "3c68",
-      "image": "https://tinyurl.com/wxrr8s6b",
-      "roomtype": "Delux",
-      "adults": 2,
-      "children": 2,
-      "price": 15000,
-      "hotel": "59b8"
-    },
-    {
-      "id": "31ca",
-      "image": "https://tinyurl.com/34fr96ax",
-      "roomtype": "Premium",
-      "adults": 4,
-      "children": 3,
-      "price": 20000,
-      "hotel": "59b8"
-    },
-    {
-      "id": "602e",
-      "image": "https://tinyurl.com/24n7efv2",
-      "roomtype": "Family",
-      "adults": 6,
-      "children": 5,
-      "price": 18000,
-      "hotel": "9d08"
-    },
-    {
-      "id": "4438",
-      "image": "https://tinyurl.com/5arrjphp",
-      "roomtype": "Double",
-      "adults": 6,
-      "children": 4,
-      "price": 15000,
-      "hotel": "a090"
-    },
-    {
-      "id": "9bcd",
-      "image": "https://tinyurl.com/fdb3ynyv",
-      "roomtype": "Double Delux",
-      "adults": 3,
-      "children": 2,
-      "price": 25000,
-      "hotel": "8f86"
-    },
-    {
-      "id": "bfab",
-      "image": "https://tinyurl.com/4wk46bzw",
-      "roomtype": "Single",
-      "adults": 2,
-      "children": 2,
-      "price": 8000,
-      "hotel": "7032"
-    },
-    {
-      "id": "3520",
-      "image": "https://tinyurl.com/mub5zmcz",
-      "roomtype": "Double Delux",
-      "adults": 4,
-      "children": 4,
-      "price": 15000,
-      "hotel": "5e95"
-    },
-    {
-      "id": "5759",
-      "image": "https://tinyurl.com/3x654kmp",
-      "roomtype": "Primium",
-      "adults": 3,
-      "children": 4,
-      "price": 20000,
-      "hotel": "48a9"
-    },
-    {
-      "id": "79cb",
-      "image": "https://tinyurl.com/yb2mtadm",
-      "roomtype": "Double",
-      "adults": 2,
-      "children": 2,
-      "price": 18000,
-      "hotel": "8f86"
-    },
-    {
-      "id": "ceb4",
-      "image": "https://tinyurl.com/yc2m6uze",
-      "roomtype": "Suit",
-      "adults": 2,
-      "children": 2,
-      "price": 20000,
-      "hotel": "59b8"
-    },
-    {
-      "id": "7d72",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5NXJk-qQbSkclDjdvQ_sylwxLIXZkkWnxzFCRZy8kD5sAq1Ce6JO2m_BF8GMn-4Q6wSw&usqp=CAU",
-      "roomtype": "Delux",
-      "adults": 10,
-      "children": 5,
-      "price": 22000,
-      "hotel": "b2be"
-    },
-    {
-      "id": "9f1c",
-      "image": "https://tinyurl.com/mwzemwwm",
-      "roomtype": "Presidential",
-      "adults": 10,
-      "children": 5,
-      "price": 30000,
-      "hotel": "b2be"
-    },
-    {
-      "id": "13b4",
-      "image": "https://tinyurl.com/45msm5c9",
-      "roomtype": "Suit",
-      "adults": 10,
-      "children": 4,
-      "price": 25000,
-      "hotel": "b2be"
-    },
-    {
-      "id": "e268",
-      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/b2/af/43/room.jpg?w=900&h=500&s=1",
-      "roomtype": "Premium",
-      "adults": 10,
-      "children": 6,
-      "price": 21000,
-      "hotel": "5d2b"
-    },
-    {
-      "id": "ffb3",
-      "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/27858889.jpg?k=3f2c42b282a92bd076dd5946f981d032502c99385d8864afb09fab13b70a50ec&o=&hp=1",
-      "roomtype": "King",
-      "adults": 11,
-      "children": 6,
-      "price": 30000,
-      "hotel": "5d2b"
-    },
-    {
-      "id": "7203",
-      "image": "https://tinyurl.com/bddrtz87",
-      "roomtype": "Single",
-      "adults": 5,
-      "children": 1,
-      "price": 10000,
-      "hotel": "731d"
-    },
-    {
-      "id": "f60e",
-      "image": "https://tinyurl.com/2xyn7u69",
-      "roomtype": "Double Delux",
-      "adults": 10,
-      "children": 4,
-      "price": 12000,
-      "hotel": "731d"
-    },
-    {
-      "id": "1e63",
-      "image": "https://tinyurl.com/2dfnwzkc",
-      "roomtype": "King",
-      "adults": 5,
-      "children": 4,
-      "price": 15000,
-      "hotel": "5e95"
-    },
-    {
-      "id": "3355",
-      "image": "https://tinyurl.com/3na8puka",
-      "roomtype": "Delux",
-      "adults": 4,
-      "children": 2,
-      "price": 10000,
-      "hotel": "662d"
-    },
-    {
-      "id": "8527",
-      "image": "https://tinyurl.com/ypbpdk8s",
-      "roomtype": "Delux",
-      "adults": 2,
-      "children": 2,
-      "price": 7500,
-      "hotel": "a090"
-    },
-    {
-      "id": "1fb2",
-      "image": "https://tinyurl.com/4wfbttcr",
-      "roomtype": "Premium",
-      "adults": 4,
-      "children": 2,
-      "price": 15000,
-      "hotel": "a090"
-    },
-    {
-      "id": "4c24",
-      "image": "https://tinyurl.com/edvze3s5",
+      "id": "1525",
+      "image": "https://tinyurl.com/9ahsjh75",
       "roomtype": "Premium",
       "adults": 2,
-      "children": 2,
-      "price": 18000,
-      "hotel": "8f86"
-    },
-    {
-      "id": "bfd4",
-      "image": "https://tinyurl.com/y6sv8wbf",
-      "roomtype": "Delux",
-      "adults": 2,
-      "children": 2,
-      "price": 15000,
-      "hotel": "7032"
-    },
-    {
-      "id": "5678",
-      "image": "https://tinyurl.com/2ventrt2",
-      "roomtype": "Premium",
-      "adults": 2,
-      "children": 2,
-      "price": 17000,
-      "hotel": "7032"
-    },
-    {
-      "id": "ee80",
-      "image": "https://tinyurl.com/2v22n8mz",
-      "roomtype": "Single",
-      "adults": 2,
-      "children": 0,
-      "price": 12000,
-      "hotel": "5e95"
-    },
-    {
-      "id": "e581",
-      "image": "https://tinyurl.com/4udk39wk",
-      "roomtype": "King",
-      "adults": 4,
-      "children": 2,
-      "price": 22000,
-      "hotel": "48a9"
-    },
-    {
-      "id": "9706",
-      "image": "https://tinyurl.com/u7d7y2zk",
-      "roomtype": "Delux",
-      "adults": 2,
-      "children": 2,
-      "price": 15000,
-      "hotel": "48a9"
-    },
-    {
-      "id": "2f1f",
-      "image": "https://tinyurl.com/4bd36xby",
-      "roomtype": "Delux",
-      "adults": 2,
-      "children": 2,
-      "price": 15000,
-      "hotel": "5d2b"
-    },
-    {
-      "id": "9877",
-      "image": "https://tinyurl.com/26f9uahu",
-      "roomtype": "Premium",
-      "adults": 2,
-      "children": 2,
-      "price": 15000,
-      "hotel": "731d"
-    },
-    {
-      "id": "2772",
-      "image": "https://tinyurl.com/bjfsjktm",
-      "roomtype": "Premium",
-      "adults": 2,
-      "children": 2,
-      "price": 15000,
-      "hotel": "662d"
-    },
-    {
-      "id": "f61e",
-      "image": "https://tinyurl.com/mvwyv9ra",
-      "roomtype": "Single",
-      "adults": 2,
-      "children": 0,
-      "price": 8000,
-      "hotel": "662d"
-    },
-    {
-      "id": "2668",
-      "image": "https://tinyurl.com/5afmtmjk",
-      "roomtype": "Delux",
-      "adults": 2,
-      "children": 1,
-      "price": 12000,
-      "hotel": "1039"
-    },
-    {
-      "id": "76c8",
-      "image": "https://tinyurl.com/4u29b5ke",
-      "roomtype": "Single",
-      "adults": 2,
-      "children": 0,
-      "price": 7000,
-      "hotel": "1039"
-    },
-    {
-      "id": "55a2",
-      "image": "https://tinyurl.com/5n952cdc",
-      "roomtype": "Premium",
-      "adults": 2,
-      "children": 1,
-      "price": 7000,
-      "hotel": "156f"
-    },
-    {
-      "id": "df25",
-      "image": "https://tinyurl.com/47wm9dzz",
-      "roomtype": "Delux",
-      "adults": 2,
-      "children": 1,
-      "price": 5000,
-      "hotel": "d23a"
-    },
-    {
-      "id": "1336",
-      "image": "https://tinyurl.com/32crhw62",
-      "roomtype": "Premium",
-      "adults": 2,
-      "children": 2,
-      "price": 10000,
-      "hotel": "1039"
-    },
-    {
-      "id": "7e20",
-      "image": "https://tinyurl.com/3a2zmym9",
-      "roomtype": "Premium",
-      "adults": 2,
-      "children": 2,
-      "price": 10000,
-      "hotel": "d23a"
-    },
-    {
-      "id": "d6b6",
-      "image": "https://tinyurl.com/43rm2ur8",
-      "roomtype": "Doble delux",
-      "adults": 3,
       "children": 2,
       "price": 12000,
-      "hotel": "d23a"
-    },
-    {
-      "id": "3b94",
-      "image": "https://tinyurl.com/ynfacvak",
-      "roomtype": "Double",
-      "adults": 2,
-      "children": 0,
-      "price": 4000,
-      "hotel": "156f"
-    },
-    {
-      "id": "0ff6",
-      "image": "https://bynder.onthebeach.co.uk/cdn-cgi/image/width=1400,quality=70,fit=cover,format=auto/m/25d20ba605c94c36/original/Riva-Beach-Resort.jpg",
-      "roomtype": "Suite",
-      "adults": 2,
-      "children": 2,
-      "price": 10000,
-      "hotel": "156f"
+      "hotel": "4910"
     }
   ],
   "user": [
@@ -618,12 +269,28 @@
       "password": "22800",
       "photo": "https://tinyurl.com/3d4pxtxn",
       "role": "hoteladmin"
+    },
+    {
+      "id": "631b",
+      "name": "Abdullah Al Masud",
+      "email": "masud@gmail.com",
+      "password": "22800",
+      "photo": "https://tinyurl.com/29u8xymr",
+      "role": "hoteladmin"
+    },
+    {
+      "id": "695d",
+      "name": "Abu Rayhan",
+      "email": "rayhan@gmail.com",
+      "password": "22800",
+      "photo": "https://tinyurl.com/5643kh4h",
+      "role": "hoteladmin"
     }
   ],
   "bookings": [
     {
       "id": "569b",
-      "userid": "616a",
+      "userId": "616a",
       "roomimage": "https://tinyurl.com/yb2mtadm",
       "hotelname": "InterContinental Dhaka by IHG",
       "roomtype": "Double",
@@ -638,7 +305,7 @@
       "advanceamount": 6000,
       "totalamount": 36000,
       "dueamount": 30000,
-      "hotelid": "8f86"
+      "hotelId": "8f86"
     },
     {
       "id": "6830",

@@ -3,21 +3,21 @@
 export class BookingModel {
 
     id!: string;
-    userid!: string;
+    userId!: string;
     roomimage!: string;
-    hotelname!: string;
-    roomtype!: string;
+    hotelName!: string;
+    roomType!: string;
     location!: string;
-    contractpersonname!: string;
+    contractPersonName!: string;
     cell !: string;
     address!: string;
     adults!: number;
     children!: number;
     checkin!: string;
     checkout!: string;
-    advanceamount!: number;
-    totalamount!: number;
-    dueamount!: number;
-    hotelid!:string;
+    advanceAmount!: number;
+    totalAmount!: number;
+    dueAmount!: number;
+    hotelId!:string;
 
 }

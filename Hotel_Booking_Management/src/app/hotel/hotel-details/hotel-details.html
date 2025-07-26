@@ -13,7 +13,7 @@
       <p>{{ hotel.rating }}</p>
 
       <h4>Location ID:</h4>
-      <p>{{ hotel.location }}</p>
+      <p>{{ hotel.locationId }}</p>
     </div>
   </div>
 
@@ -23,7 +23,7 @@
       <div class="card h-100" style="padding: 5%; border-color: black ; border: width 2px; background-color: rgb(169, 202, 77);">
         <img [src]="room.image" class="card-img-top" alt="Room Image" />
         <div class="card-body">
-          <h5 class="card-title">{{ room.roomtype }}</h5>
+          <h5 class="card-title">{{ room.roomType }}</h5>
           <p class="card-text">
             Adults: {{ room.adults }} <br />
             Children: {{ room.children }} <br />

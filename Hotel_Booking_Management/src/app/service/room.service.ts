@@ -46,7 +46,7 @@ export class RoomService {
 
   }
   getRoomsByHotelId(hotelId: string): Observable<RoomModel[]> {
-    return this.http.get<RoomModel[]>(`${this.baseUrl}?hotel=${hotelId}`);
+    return this.http.get<RoomModel[]>(`${this.baseUrl}?hotelid=${hotelId}`);
 
   }
 

@@ -1,39 +1,49 @@
 <div class="container">
   <div>
-    <h2>View Rooms by Hotel</h2>
-
-    <!-- Hotel Dropdown -->
-    <div class="mb-4">
-      <label for="hotelSelect" class="form-label">Select Hotel:</label>
-      <select id="hotelSelect" class="form-select" [(ngModel)]="selectedHotelId" (change)="onHotelChange()">
+    <h2 class="text-center mb-4">🏨 View Rooms by Hotel</h2>
+    <!-- ✅ Hotel Dropdown: visible for all, conditional disable for hoteladmin -->
+    <div class="mb-4" *ngIf="hotels.length > 0">
+      <label for="hotelSelect" class="form-label">🏢 Select Hotel:</label>
+      <select id="hotelSelect" class="form-select" [(ngModel)]="selectedHotelId" (change)="onHotelChange()"
+        [disabled]="userRole === 'hoteladmin' && hotels.length > 1 ? false : true">
         <option value="">-- Select Hotel --</option>
         <option *ngFor="let hotel of hotels" [value]="hotel.id">
           {{ hotel.name }}
         </option>
       </select>
     </div>
-
-    <!-- Rooms Cards -->
+    <!-- ❗ Message if hoteladmin has no hotel assigned -->
+    <div *ngIf="userRole === 'hoteladmin' && hotels.length === 0" class="text-center text-danger fw-bold mb-4">
+      ⚠️ You are not assigned to any hotel.
+    </div>
+    <!-- ✅ Room Cards -->
     <div class="row">
       <div *ngFor="let room of rooms" class="col-md-4 mb-4">
-        <div class="card h-100" style="padding: 3%; border-color: black; background-color: rgb(128, 77, 170);">
-          <img [src]="room.image" class="card-img-top" alt="Room Image" />
+        <div class="card h-100 shadow"
+          style="padding: 3%; border: 1px solid #444; background-color: rgb(128, 77, 170); color: white;">
+          <img [src]="room.image" class="card-img-top" alt="Room Image" style="max-height: 200px; object-fit: cover;" />
           <div class="card-body">
-            <h5 class="card-title">{{ room.roomtype }}</h5>
+            <h5 class="card-title">{{ room.roomType }}</h5>
             <p class="card-text">
-              Adults: {{ room.adults }}<br />
-              Children: {{ room.children }}<br />
-              Price: ${{ room.price }}
+              👨 Adults: {{ room.adults }}<br />
+              👶 Children: {{ room.children }}<br />
+              💰 Price: ${{ room.price }}
             </p>
-
           </div>
-          <div class="card-footer text-end">
-            <button class="btn btn-primary btn-sm m-2" (click)="getRoomById(room.id)">Edit</button>
-            <button class="btn btn-danger btn-sm m-2" (click)="deleteRoom(room.id)">Delete</button>
+          <div class="card-footer text-end bg-transparent border-top-0">
+            <button class="btn btn-sm btn-light text-dark me-2" (click)="getRoomById(room.id)">
+              ✏️ Edit
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="deleteRoom(room.id)">
+              🗑️ Delete
+            </button>
           </div>
         </div>
       </div>
     </div>
+    <!-- ⚠️ No Rooms Message -->
+    <div *ngIf="rooms.length === 0 && selectedHotelId" class="text-center mt-4 text-danger fw-bold">
+      ⚠️ No rooms found for this hotel.
+    </div>
   </div>
-
 </div>

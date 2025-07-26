@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Hotel } from '../../model/hotel.model';
 import { RoomModel } from '../../model/room.model';
 import { HotelService } from '../../service/hotel.service';
@@ -11,12 +11,14 @@ import { Router } from '@angular/router';
   templateUrl: './viewallroom.html',
   styleUrl: './viewallroom.css'
 })
-export class Viewallroom {
-
+export class Viewallroom implements OnInit {
 
   hotels: Hotel[] = [];
   rooms: RoomModel[] = [];
   selectedHotelId: string = '';
+
+  userRole: string = '';
+  userHotelIds: string[] = [];
 
   constructor(
     private hotelService: HotelService,
@@ -26,97 +28,85 @@ export class Viewallroom {
   ) { }
 
   ngOnInit(): void {
+    this.getCurrentUserInfo();
     this.loadHotels();
   }
 
-  loadHotels() {
+  getCurrentUserInfo(): void {
+    const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.userRole = userData?.role || '';
+
+    // ✅ Ensure hotelid is string array
+    if (Array.isArray(userData?.hotelid)) {
+      this.userHotelIds = userData.hotelid.map((id: any) => String(id));
+    } else if (userData?.hotelid) {
+      this.userHotelIds = [String(userData.hotelid)];
+    } else {
+      this.userHotelIds = [];
+    }
+
+    console.log('User Role:', this.userRole);
+    console.log('User Hotel IDs:', this.userHotelIds);
+  }
+
+  loadHotels(): void {
     this.hotelService.getAllHotels().subscribe({
       next: (data) => {
-        this.hotels = data;
+        if (this.userRole === 'admin') {
+          this.hotels = data;
+          this.selectedHotelId = '';
+          this.rooms = [];
+        } else if (this.userRole === 'hoteladmin') {
+          // ✅ Filter hotels that match the user’s assigned IDs
+          this.hotels = data.filter(h => this.userHotelIds.includes(String(h.id)));
+          if (this.hotels.length > 0) {
+            this.selectedHotelId = this.hotels[0].id;
+            this.loadRoomsByHotelId(this.selectedHotelId);
+          }
+        }
         this.cdr.markForCheck();
-
       },
       error: (err) => {
-        console.error(err);
+        console.error('Error loading hotels', err);
       }
     });
   }
 
-  onHotelChange() {
+  onHotelChange(): void {
     if (this.selectedHotelId) {
-      this.roomService.getRoomsByHotelId(this.selectedHotelId).subscribe({
-        next: (data) => {
-          this.rooms = data,
-          this.cdr.markForCheck();
-        },
-        error: (err) => {
-
-          console.error(err)
-
-        }
-
-      });
-
-    }
-    else {
+      this.loadRoomsByHotelId(this.selectedHotelId);
+    } else {
       this.rooms = [];
     }
-
   }
 
-  loadRoom(): void {
-
-    this.roomService.getAllRoom().subscribe({
-
-      next: (res) => {
-
-        this.rooms = res;
-        console.log('rooms', this.rooms);
+  loadRoomsByHotelId(hotelId: string): void {
+    this.roomService.getRoomsByHotelId(hotelId).subscribe({
+      next: (data) => {
+        this.rooms = data;
         this.cdr.markForCheck();
       },
       error: (err) => {
-
-        console.error('Error loading rooms', err);
-
+        console.error('Error loading rooms by hotel', err);
       }
-
-
-    })
+    });
   }
 
   deleteRoom(id: string): void {
-
     this.roomService.deleteRoom(id).subscribe({
-      next: (res) => {
-
-        console.log('Room Successfully deleted');
-        this.loadRoom();
+      next: () => {
+        console.log('Room deleted');
+        const hotelIdToReload = this.selectedHotelId;
+        this.loadRoomsByHotelId(hotelIdToReload);
         this.cdr.markForCheck();
-        this.cdr.reattach();
-
       },
-
       error: (err) => {
-
-        console.log('delete Unsuccessfull', err);
+        console.error('Delete failed', err);
       }
-
-    })
+    });
   }
 
   getRoomById(id: string): void {
-
-    this.roomService.getRoomById(id).subscribe({
-      next: (res) => {
-
-        console.log(res);
-        this.router.navigate(['updateroom', id])
-      },
-      error: (err) => {
-        console.log(err);
-      }
-
-    })
+    this.router.navigate(['updateroom', id]);
   }
-
 }

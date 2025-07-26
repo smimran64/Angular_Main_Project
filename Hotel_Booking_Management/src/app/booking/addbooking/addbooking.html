@@ -9,14 +9,14 @@
       </div>
       <div class="col-md-6">
         <label class="form-label">Hotel Name</label>
-        <input class="form-control" type="text" [(ngModel)]="booking.hotelname" name="hotelname" readonly />
+        <input class="form-control" type="text" [(ngModel)]="booking.hotelName" name="hotelName" readonly />
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-6">
         <label class="form-label">Room Type</label>
-        <input class="form-control" type="text" [(ngModel)]="booking.roomtype" name="roomtype" readonly />
+        <input class="form-control" type="text" [(ngModel)]="booking.roomType" name="roomType" readonly />
       </div>
 
       <div class="col-md-6">
@@ -39,7 +39,7 @@
     <div class="row">
       <div class="col-md-6">
         <label class="form-label">Contact Person Name</label>
-        <input class="form-control" type="text" [(ngModel)]="booking.contractpersonname" name="contractpersonname" />
+        <input class="form-control" type="text" [(ngModel)]="booking.contractPersonName" name="contractPersonName" />
       </div>
 
       <div class="col-md-6">
@@ -70,24 +70,24 @@
     <div class="row">
       <div class="col-md-6">
         <label class="form-label">Total Amount</label>
-        <input class="form-control" type="number" [(ngModel)]="booking.totalamount" name="totalamount" readonly />
+        <input class="form-control" type="number" [(ngModel)]="booking.totalAmount" name="totalAmount" readonly />
       </div>
 
       <div class="col-md-6">
         <label class="form-label">Advance Amount</label>
-        <input class="form-control" type="number" [(ngModel)]="booking.advanceamount" name="advanceamount"
+        <input class="form-control" type="number" [(ngModel)]="booking.advanceAmount" name="advanceAmount"
           (input)="calculateDueAmount()" />
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
         <label class="form-label">Due Amount</label>
-        <input class="form-control" type="number" [(ngModel)]="booking.dueamount" name="dueamount" readonly />
+        <input class="form-control" type="number" [(ngModel)]="booking.dueAmount" name="dueAmount" readonly />
       </div>
 
       <div *ngIf="user" class="col-md-6">
         <label class="form-label">User ID</label>
-        <input class="form-control" type="text" [(ngModel)]="booking.userid" name="userid" readonly />
+        <input class="form-control" type="text" [(ngModel)]="booking.userId" name="userId" readonly />
       </div>
     </div>
 
@@ -100,7 +100,7 @@
       <div>
         <div class="col md 6">
           <label class="form-label">Hotel Id</label>
-          <input class="form-control" type="text" [(ngModel)]="booking.hotelid" name="hotelid" />
+          <input class="form-control" type="text" [(ngModel)]="booking.hotelId" name="hotelId" />
         </div>
       </div>
     </div>
@@ -126,11 +126,11 @@
     <table style="width: 100%; font-size: 14px; line-height: 1.6;">
       <tr>
         <td><strong>Hotel:</strong></td>
-        <td>{{ booking.hotelname }}</td>
+        <td>{{ booking.hotelName }}</td>
       </tr>
       <tr>
         <td><strong>Room Type:</strong></td>
-        <td>{{ booking.roomtype }}</td>
+        <td>{{ booking.roomType }}</td>
       </tr>
       <tr>
         <td><strong>Location:</strong></td>
@@ -138,7 +138,7 @@
       </tr>
       <tr>
         <td><strong>Contact Person:</strong></td>
-        <td>{{ booking.contractpersonname }}</td>
+        <td>{{ booking.contractPersonName }}</td>
       </tr>
       <tr>
         <td><strong>Cell:</strong></td>
@@ -158,15 +158,15 @@
       </tr>
       <tr>
         <td><strong>Total Amount:</strong></td>
-        <td>{{ booking.totalamount }}</td>
+        <td>{{ booking.totalAmount }}</td>
       </tr>
       <tr>
         <td><strong>Advance Amount:</strong></td>
-        <td>{{ booking.advanceamount }}</td>
+        <td>{{ booking.advanceAmount }}</td>
       </tr>
       <tr>
         <td><strong>Due Amount:</strong></td>
-        <td>{{ booking.dueamount }}</td>
+        <td>{{ booking.dueAmount }}</td>
       </tr>
       <tr>
         <td><strong>Booked By:</strong></td>

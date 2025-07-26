@@ -36,8 +36,9 @@ export class HotelService {
   //for hotel admin Profile 
 
   getHotelByUserId(userId: string): Observable<Hotel[]> {
-    return this.http.get<Hotel[]>(`${this.apiUrl}?userid=${userId}`);
+    return this.http.get<Hotel[]>(`http://localhost:3000/hotels?userId=${userId}`);
   }
+
 
 
 

@@ -63,15 +63,15 @@ export class Addbooking {
   loadRoomDetails(roomId: string): void {
     this.roomService.getRoomById(roomId).subscribe({
       next: (room: RoomModel) => {
-        this.booking.roomtype = room.roomtype;
+        this.booking.roomType = room.roomType;
         this.booking.adults = room.adults;
         this.booking.children = room.children;
         this.booking.roomimage = room.image;
 
         this.roomPrice = room.price; // Store price separately
-        this.booking.totalamount = room.price; // Default for 1 night
+        this.booking.totalAmount = room.price; // Default for 1 night
 
-        this.loadHotelDetails(room.hotel);
+        this.loadHotelDetails(room.hotelId);
 
       },
 
@@ -82,12 +82,12 @@ export class Addbooking {
     this.hotelService.getHotelById(hotelId).subscribe({
       next: (hotel: Hotel) => {
         console.log('Hotel:', hotel);
-        this.booking.hotelname = hotel.name;
-        this.booking.hotelid = hotel.id;
+        this.booking.hotelName = hotel.name;
+        this.booking.hotelId = hotel.id;
 
 
 
-        this.loadLocationDetails(hotel.location);
+        this.loadLocationDetails(hotel.locationId);
       },
       error: (err) => {
         console.error('Error loading hotel', err);
@@ -114,7 +114,7 @@ export class Addbooking {
   loadUserDetails(): void {
     this.user = this.userAuthService.getUserProfileFromStorage();
     if (this.user) {
-      this.booking.userid = this.user.id;
+      this.booking.userId = this.user.id;
     }
   }
 
@@ -122,7 +122,7 @@ export class Addbooking {
 
   submitBooking(): void {
     // justify the form
-    if (!this.booking.contractpersonname || !this.booking.cell || !this.booking.checkin || !this.booking.checkout) {
+    if (!this.booking.contractPersonName || !this.booking.cell || !this.booking.checkin || !this.booking.checkout) {
       alert('Please fill the all required field!');
       return;
     }
@@ -142,11 +142,11 @@ export class Addbooking {
 
         notifications.push({
 
-          contractPerson: this.booking.contractpersonname,
-          hotelName: this.booking.hotelname,
+          contractPerson: this.booking.contractPersonName,
+          hotelName: this.booking.hotelName,
           location: this.booking.location,
-          userId: this.booking.userid,
-          totalAmount: this.booking.totalamount,
+          userId: this.booking.userId,
+          totalAmount: this.booking.totalAmount,
           time: new Date().toLocaleString()
         });
 
@@ -179,30 +179,30 @@ export class Addbooking {
       const diffTime = checkoutDate.getTime() - checkinDate.getTime();
 
       if (diffTime < 0) {
-        this.booking.totalamount = 0;
+        this.booking.totalAmount = 0;
         return;
       }
 
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-      this.booking.totalamount = diffDays * this.roomPrice;
+      this.booking.totalAmount = diffDays * this.roomPrice;
 
-      console.log(`Nights: ${diffDays}, Total: ${this.booking.totalamount}`);
+      console.log(`Nights: ${diffDays}, Total: ${this.booking.totalAmount}`);
     } else {
-      this.booking.totalamount = 0;
+      this.booking.totalAmount = 0;
     }
   }
 
 
   calculateDueAmount(): void {
-    const total = this.booking.totalamount || 0;
-    const advance = this.booking.advanceamount || 0;
+    const total = this.booking.totalAmount || 0;
+    const advance = this.booking.advanceAmount || 0;
 
     const due = total - advance;
 
-    this.booking.dueamount = due >= 0 ? due : 0;
+    this.booking.dueAmount = due >= 0 ? due : 0;
 
-    console.log(`Total: ${total}, Advance: ${advance}, Due: ${this.booking.dueamount}`);
+    console.log(`Total: ${total}, Advance: ${advance}, Due: ${this.booking.dueAmount}`);
   }
 
   

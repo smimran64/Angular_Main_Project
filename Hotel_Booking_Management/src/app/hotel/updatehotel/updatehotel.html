@@ -32,7 +32,7 @@
 
             <div class="col-md-6">
                 <label for="location" class="form-label">Location</label>
-                <select id="location" name="location" class="form-select" [(ngModel)]="hotel.location"
+                <select id="location" name="location" class="form-select" [(ngModel)]="hotel.locationId"
                     [compareWith]="compareLocation">
                     <option *ngFor="let loc of locations" [ngValue]="loc">{{ loc.locationName }}</option>
                 </select>

@@ -3,9 +3,9 @@
 export class RoomModel {
     id!: string;
     image!: string;
-    roomtype!: string;
+    roomType!: string;
     adults!: number;
     children!: number;
     price!: number;
-    hotel!: string;  // as room Id  
+    hotelId!: string;  // as room Id  
 }

@@ -19,8 +19,8 @@ export class Addhotel implements OnInit {
 
   formGroup!: FormGroup;
   locations: Location[] = [];
-  hotels: Hotel =new Hotel();
-   user: User | null = null;
+  hotels: Hotel = new Hotel();
+  user: User | null = null;
 
   constructor(
     private hotelService: HotelService,
@@ -29,7 +29,7 @@ export class Addhotel implements OnInit {
     private router: Router,
     private cdr: ChangeDetectorRef,
     private userAuthService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     //  Your form control: location is a string, not an object
@@ -38,9 +38,9 @@ export class Addhotel implements OnInit {
       image: ['', Validators.required],
       address: ['', Validators.required],
       rating: ['', Validators.required],
-      location: ['', Validators.required],
-      userid:['',Validators.required]
-       
+      locationId: ['', Validators.required],
+      userId: ['', Validators.required]
+
     });
 
     this.loadLocations();
@@ -52,8 +52,8 @@ export class Addhotel implements OnInit {
   loadLocations(): void {
     this.locationService.getAllLocation().subscribe({
       next: (locations) => {
-        this.locations = locations;        
-        console.log( this.locations);
+        this.locations = locations;
+        console.log(this.locations);
         this.cdr.markForCheck();
       },
       error: (err) => console.error('Error loading locations', err)
@@ -67,14 +67,28 @@ export class Addhotel implements OnInit {
       return;
     }
 
-    const hotel: Hotel = { ...this.formGroup.value };
+    // 🟡 Get user from localStorage
+    const userData = localStorage.getItem('currentUser');
+    if (!userData) {
+      console.error('User not logged in');
+      return;
+    }
+
+    const user = JSON.parse(userData);
+    const userId = user.id;
+
+    // 🟢 Add userId into hotel object
+    const hotel: Hotel = {
+      ...this.formGroup.value,
+      userId: userId
+    };
+
     console.log('Saving hotel:', hotel);
 
     this.hotelService.saveHotel(hotel).subscribe({
       next: (res) => {
         console.log('Hotel saved', res);
         this.formGroup.reset();
-      
         this.router.navigate(['/viewhotel']);
         this.cdr.markForCheck();
       },
@@ -85,13 +99,14 @@ export class Addhotel implements OnInit {
   }
 
 
-   loadUserDetails(): void {
+
+  loadUserDetails(): void {
     this.user = this.userAuthService.getUserProfileFromStorage();
     if (this.user) {
-      this.hotels.userid = this.user.id;
+      this.hotels.userId = this.user.id;
     }
   }
-  
+
 
 }
 

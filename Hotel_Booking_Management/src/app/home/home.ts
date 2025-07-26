@@ -5,6 +5,7 @@ import { RoomService } from '../service/room.service';
 import { LocationService } from '../service/location.service';
 import { Hotel } from '../model/hotel.model';
 import { Router } from '@angular/router';
+import { Location } from '../model/location.model';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +15,9 @@ import { Router } from '@angular/router';
 })
 export class Home {
 
-   hotels: Hotel[] = [];
+  hotels: Hotel[] = [];
   rooms: RoomModel[] = [];
-  locations: any[] = [];
+  locations: Location[] = [];
 
   filteredHotels: Hotel[] = [];
 
@@ -29,7 +30,7 @@ export class Home {
     private locationService: LocationService,
     private router: Router,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadLocations();
@@ -40,11 +41,11 @@ export class Home {
   loadLocations() {
     this.locationService.getAllLocation().subscribe({
       next: (data) => {
-        (this.locations = data);
+        this.locations = data;
         this.cdr.markForCheck();
       },
-      error: (err) =>{
-         console.error(err);
+      error: (err) => {
+        console.error(err);
       }
     });
   }
@@ -72,14 +73,17 @@ export class Home {
 
   searchHotels() {
     this.filteredHotels = this.hotels.filter((hotel) => {
+      // Check location match safely
       const locationMatch = this.searchLocationId
-        ? hotel.location === this.searchLocationId
+        ? (typeof hotel.locationId === 'string'
+          ? hotel.locationId === this.searchLocationId
+          : typeof hotel.locationId === 'object' && hotel.locationId === this.searchLocationId)
         : true;
 
-      // Check if hotel has any room that fits guests
+      // Check guest capacity
       const hasRoomForGuests = this.rooms.some(
         (room) =>
-          room.hotel === hotel.id &&
+          room.hotelId === hotel.id &&
           (room.adults + room.children) >= this.searchGuests
       );
 
@@ -87,10 +91,9 @@ export class Home {
     });
   }
 
+
   viewHotel(hotel: Hotel) {
-  this.router.navigate(['/hotel-details', hotel.id]);
-
-
-}
+    this.router.navigate(['/hotel-details', hotel.id]);
+  }
 
 }

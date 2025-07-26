@@ -1,39 +1,42 @@
 <div class="container my-4">
     <h2 style="text-align: center;">Edit Room</h2>
-    <form *ngIf="room.id">
+
+    <form *ngIf="room.id" (ngSubmit)="onSubmit()">
         <div class="mb-3">
             <label>Image URL</label>
-            <input type="text" class="form-control" [(ngModel)]="room.image"> />
+            <input type="text" class="form-control" name="image" [(ngModel)]="room.image" />
         </div>
 
         <div class="mb-3">
             <label>Room Type</label>
-            <input type="text" class="form-control" [(ngModel)]="room.roomtype" />
+            <input type="text" class="form-control" name="roomtype" [(ngModel)]="room.roomType" />
         </div>
 
         <div class="mb-3">
             <label>Adults</label>
-            <input type="number" class="form-control"[(ngModel)]="room.adults" />
+            <input type="number" class="form-control" name="adults" [(ngModel)]="room.adults" />
         </div>
 
         <div class="mb-3">
             <label>Children</label>
-            <input type="number" class="form-control" [(ngModel)]="room.children" />
+            <input type="number" class="form-control" name="children" [(ngModel)]="room.children" />
         </div>
 
         <div class="mb-3">
             <label>Price</label>
-            <input type="number" class="form-control" [(ngModel)]="room.price" />
+            <input type="number" class="form-control" name="price" [(ngModel)]="room.price" />
         </div>
 
         <div class="mb-3">
             <label>Hotel</label>
-            <select class="form-select" formControlName="hotel" [(ngModel)]="room.hotel" [compareWith]="compareHotel">
+            <select class="form-select" name="hotelid" [(ngModel)]="room.hotelId">
                 <option value="" disabled>Select Hotel</option>
-                <option *ngFor="let h of hotels" [value]="h.id">{{ h.name }}</option>
+                <option *ngFor="let h of hotels" [value]="h.id">
+                    {{ h.name }}
+                </option>
             </select>
         </div>
 
-        <button type="submit" class="btn btn-success" (click)="onSubmit()">Save</button>
+        <button type="submit" class="btn btn-success">💾 Save</button>
     </form>
 </div>

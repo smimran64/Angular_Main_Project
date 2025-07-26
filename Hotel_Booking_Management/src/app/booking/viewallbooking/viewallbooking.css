@@ -1,0 +1,44 @@
+/* Container spacing */
+.container.mt-6 {
+    margin-top: 100px;
+    /* Adjust if navbar is fixed */
+}
+
+/* Card styles */
+.card {
+    padding: 5%;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* Image */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Card body */
+.card-body {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Card footer */
+.card-footer {
+    background-color: transparent;
+    border-top: none;
+}
+
+/* Responsive margin for rows */
+.row {
+    margin: 0 -8px;
+    background-color: rgb(212, 151, 71);
+    padding: 15px;
+    border-radius: 8px;
+}

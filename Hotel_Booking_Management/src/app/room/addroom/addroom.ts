@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Hotel } from '../../model/hotel.model';
 import { RoomService } from '../../service/room.service';
@@ -22,8 +22,9 @@ export class Addroom {
     private fb: FormBuilder,
     private roomService: RoomService,
     private hotelService: HotelService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
     this.roomForm = this.fb.group({
@@ -32,22 +33,33 @@ export class Addroom {
       adults: [0, [Validators.required, Validators.min(1)]],
       children: [0, [Validators.required, Validators.min(0)]],
       price: [0, [Validators.required, Validators.min(0)]],
-      hotel: ['', Validators.required]  // holds hotel ID
+      hotelId: ['', Validators.required]  // holds hotel ID
     });
 
     this.loadHotels();
   }
 
-  loadHotels(): void {
-    this.hotelService.getAllHotels().subscribe({
-      next: (data) => {
-        this.hotels = data;
-      },
-      error: (err) => {
-        console.error('Error loading hotels:', err);
-      }
-    });
+ loadHotels(): void {
+  const userData = localStorage.getItem('currentUser');
+  if (!userData) {
+    console.error('User not logged in');
+    return;
   }
+
+  const user = JSON.parse(userData);
+  const userId = user.id;
+
+  this.hotelService.getAllHotels().subscribe({
+    next: (data) => {
+      this.hotels = data.filter(hotel => hotel.userId === userId); // 👈 Filtering by userId
+      this.cdr.markForCheck();
+    },
+    error: (err) => {
+      console.error('Error loading hotels:', err);
+    }
+  });
+}
+
 
   addRoom(): void {
     if (this.roomForm.invalid) {

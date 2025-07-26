@@ -57,7 +57,7 @@ export class HotelDetails {
   loadRoomsForHotel(hotelId: string): void {
     this.roomService.getAllRoom().subscribe({
       next: (rooms: RoomModel[]) => {  // Specify type here
-        this.rooms = rooms.filter(room => room.hotel === hotelId);
+        this.rooms = rooms.filter(room => room.hotelId === hotelId);
         this.loading = false;
          this.cdr.markForCheck();
       },

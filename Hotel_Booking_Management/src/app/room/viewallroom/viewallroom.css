@@ -1,5 +1,104 @@
-.conatiner{
+/* viewallroom.css */
 
-    margin-top: 8%;   
+/* Container spacing */
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
+/* Heading styling */
+h2 {
+    font-weight: 600;
+    color: #502d83;
+}
+
+/* Label styling */
+label {
+    font-weight: 500;
+    color: #3a2c5a;
+}
+
+/* Hotel dropdown styling */
+.form-select {
+    max-width: 300px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #7b62b1;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: #3a2c5a;
+}
+
+/* Room cards container */
+.row {
+    margin-top: 15px;
+}
+
+/* Individual card styling */
+.card {
+    border: 2px solid #4f2c84;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgb(95 69 131 / 0.3);
+    transition: transform 0.2s ease;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgb(95 69 131 / 0.5);
+}
+
+/* Card image settings */
+.card-img-top {
+    border-radius: 12px 12px 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Card title styling */
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f0e9ff;
+}
+
+/* Card text */
+.card-text {
+    font-size: 1rem;
+    color: #dcd6f7;
+    line-height: 1.4;
+}
+
+/* Card footer */
+.card-footer {
+    background-color: transparent;
+    border-top: none;
+}
+
+/* Buttons styling */
+.btn-primary {
+    background-color: #6a4d9f;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #553d81;
+}
+
+.btn-danger {
+    background-color: #c75151;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #9e3d3d;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+    .col-md-4 {
+        margin-bottom: 20px;
+    }
 }

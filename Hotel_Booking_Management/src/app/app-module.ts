@@ -18,7 +18,7 @@ import { Registrationform } from './auth/registrationform/registrationform';
 import { Userprofile } from './profile/userprofile/userprofile';
 import { Adminprofile } from './profile/adminprofile/adminprofile';
 import { Addroom } from './room/addroom/addroom';
-import { Viewallroom } from './room/viewallroom/viewallroom';
+
 import { Home } from './home/home';
 import { HotelDetails } from './hotel/hotel-details/hotel-details';
 import { Addbooking } from './booking/addbooking/addbooking';
@@ -30,6 +30,7 @@ import { Navbar } from './layout/navbar/navbar';
 import { Footer } from './layout/footer/footer';
 import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/about-hotel-booking-system';
 import { ViewAllUsers } from './view-all-users/view-all-users';
+import { Viewallroom } from './room/viewallroom/viewallroom';
 
 
 
@@ -49,7 +50,8 @@ import { ViewAllUsers } from './view-all-users/view-all-users';
     Userprofile,
     Adminprofile,
     Addroom,
-    Viewallroom,
+    Viewallroom,   
+   
     Home,
     HotelDetails,
     Addbooking,
