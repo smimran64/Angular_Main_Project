@@ -166,11 +166,11 @@
     {
       "id": "1525",
       "image": "https://tinyurl.com/9ahsjh75",
-      "roomtype": "Premium",
+      "roomType": "Premium",
       "adults": 2,
       "children": 2,
       "price": 12000,
-      "hotel": "4910"
+      "hotelId": "4910"
     }
   ],
   "user": [

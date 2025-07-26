@@ -59,7 +59,7 @@ export class HotelDetails {
       next: (rooms: RoomModel[]) => {  // Specify type here
         this.rooms = rooms.filter(room => room.hotelId === hotelId);
         this.loading = false;
-         this.cdr.markForCheck();
+        this.cdr.markForCheck();
       },
       error: (err) => {
         console.error('Error loading rooms', err);
@@ -70,10 +70,10 @@ export class HotelDetails {
   }
 
 
- bookRoom(room: RoomModel): void {
-  console.log('Booking room:', room);
-  this.router.navigate(['/booking', room.id]);
-}
+  bookRoom(room: RoomModel): void {
+    console.log('Booking room:', room);
+    this.router.navigate(['/booking', room.id]);
+  }
 
 
 
