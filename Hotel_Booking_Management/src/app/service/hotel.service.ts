@@ -21,6 +21,8 @@ export class HotelService {
     return this.http.get<Hotel>(`${this.apiUrl}/${id}`);
   }
 
+
+
   saveHotel(hotel: Hotel): Observable<Hotel> {
     return this.http.post<Hotel>(this.apiUrl, hotel);
   }

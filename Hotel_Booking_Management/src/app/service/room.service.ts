@@ -49,5 +49,4 @@ export class RoomService {
     return this.http.get<RoomModel[]>(`${this.baseUrl}?hotelid=${hotelId}`);
 
   }
-
 }
