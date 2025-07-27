@@ -52,7 +52,7 @@ export class Login {
 
         this.authService.storeToken(res.token);
 
-        const role = this.authService.getUserRole();
+        const role = this.authService.getCurrentUserRole();
         
         console.log('User role:',role);  
 

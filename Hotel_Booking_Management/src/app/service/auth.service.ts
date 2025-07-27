@@ -154,7 +154,7 @@ export class AuthService {
 
   // log out end
 
-  getUserRole(): any {
+  getCurrentUserRole(): any {
 
     return this.currentUserValue?.role;
   }
@@ -202,16 +202,16 @@ export class AuthService {
   }
 
   isAdmin():boolean{
-    return this.getUserRole()==='admin';
+    return this.getCurrentUserRole()==='admin';
   }
 
   isHotelAdmin():boolean{
 
-    return this.getUserRole()==='hoteladmin';
+    return this.getCurrentUserRole()==='hoteladmin';
   }
 
   isUser():boolean{
-   return this.getUserRole()==='user';
+   return this.getCurrentUserRole()==='user';
   }
 
 

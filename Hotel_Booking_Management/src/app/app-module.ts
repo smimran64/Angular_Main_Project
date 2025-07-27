@@ -50,8 +50,8 @@ import { Viewallroom } from './room/viewallroom/viewallroom';
     Userprofile,
     Adminprofile,
     Addroom,
-    Viewallroom,   
-   
+    Viewallroom,
+
     Home,
     HotelDetails,
     Addbooking,
@@ -64,7 +64,7 @@ import { Viewallroom } from './room/viewallroom/viewallroom';
     Footer,
     AboutHotelBookingSystem,
     ViewAllUsers,
-    
+
 
 
   ],
