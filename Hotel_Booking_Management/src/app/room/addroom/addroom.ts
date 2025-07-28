@@ -29,7 +29,7 @@ export class Addroom {
   ngOnInit(): void {
     this.roomForm = this.fb.group({
       image: ['', Validators.required],
-      roomtype: ['', Validators.required],
+      roomType: ['', Validators.required],
       adults: [0, [Validators.required, Validators.min(1)]],
       children: [0, [Validators.required, Validators.min(0)]],
       price: [0, [Validators.required, Validators.min(0)]],
@@ -74,7 +74,7 @@ export class Addroom {
     this.roomService.addRoom(newRoom).subscribe({
       next: (res) => {
         console.log('Room added:', res);
-        this.router.navigate(['/roomview']); // Change route as needed
+        this.router.navigate(['/viewallroomforhoteladmin']); // Change route as needed
       },
       error: (err) => {
         console.error('Error adding room:', err);

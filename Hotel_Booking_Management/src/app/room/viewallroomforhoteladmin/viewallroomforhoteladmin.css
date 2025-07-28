@@ -1,0 +1,122 @@
+/* Container and font */
+.container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 5%;
+    margin-bottom: 3rem;
+}
+
+/* Heading */
+h2.text-center {
+    color: #5B2C6F;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 3rem;
+}
+
+/* Hotel dropdown container */
+.mb-5.d-flex {
+    justify-content: center;
+    margin-bottom: 3rem !important;
+}
+
+/* Hotel dropdown select */
+#hotelSelect {
+    max-width: 400px;
+    border-radius: 12px;
+    border: 2px solid #7D3C98;
+    transition: border-color 0.3s;
+    box-shadow: 0 4px 6px rgba(125, 60, 152, 0.3);
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    /* form-select-lg size */
+}
+
+#hotelSelect:focus {
+    border-color: #BB8FCE;
+    outline: none;
+    box-shadow: 0 0 8px 2px #BB8FCE;
+}
+
+/* No rooms available alert */
+.alert-warning {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #6C3483;
+    background: #F5EEF8;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(107, 52, 131, 0.2);
+}
+
+/* Rooms grid */
+.row.gy-4 {
+    margin-top: 1.5rem;
+}
+
+/* Card styling */
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(125, 60, 152, 0.2);
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Card image */
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Card body */
+.card-body {
+    background: #f9f6fc;
+    padding: 1.5rem;
+}
+
+/* Card title */
+.card-title {
+    font-weight: 700;
+    color: #7D3C98;
+    /* text-purple */
+}
+
+/* Card text */
+.card-text {
+    color: #5B2C6F;
+    font-size: 0.95rem;
+}
+
+/* Card footer */
+.card-footer {
+    background: #7D3C98;
+    border-top: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0 0 20px 20px;
+    text-align: right;
+}
+
+/* Buttons in footer */
+.card-footer .btn {
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+/* Edit button */
+.card-footer .btn.btn-light {
+    margin-right: 0.5rem;
+}
+
+/* Delete button */
+.card-footer .btn.btn-danger {
+    margin-left: 0;
+}

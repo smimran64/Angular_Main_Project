@@ -10,8 +10,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="roomtype" class="form-label">🏨 Room Type</label>
-                    <input type="text" id="roomtype" class="form-control" formControlName="roomType" />
+                    <label for="roomType" class="form-label">🏨 Room Type</label>
+                    <input type="text" id="roomType" class="form-control" formControlName="roomType" />
                 </div>
 
                 <div class="mb-3">
@@ -30,8 +30,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="hotel" class="form-label">🏢 Select Hotel</label>
-                    <select id="hotel" class="form-select" formControlName="hotelId">
+                    <label for="hotelId" class="form-label">🏢 Select Hotel</label>
+                    <select id="hotelId" class="form-select" formControlName="hotelId">
                         <option value="" disabled selected>-- Select Hotel --</option>
                         <option *ngFor="let h of hotels" [value]="h.id">{{ h.name }}</option>
                     </select>

@@ -31,6 +31,7 @@ import { Footer } from './layout/footer/footer';
 import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/about-hotel-booking-system';
 import { ViewAllUsers } from './view-all-users/view-all-users';
 import { Viewallroom } from './room/viewallroom/viewallroom';
+import { Viewallroomforhoteladmin } from './room/viewallroomforhoteladmin/viewallroomforhoteladmin';
 
 
 
@@ -63,7 +64,10 @@ import { Viewallroom } from './room/viewallroom/viewallroom';
     Navbar,
     Footer,
     AboutHotelBookingSystem,
-    ViewAllUsers,
+    ViewAllUsers
+    
+ 
+   
 
 
 
@@ -72,7 +76,10 @@ import { Viewallroom } from './room/viewallroom/viewallroom';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+     Viewallroomforhoteladmin,
+    
+
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

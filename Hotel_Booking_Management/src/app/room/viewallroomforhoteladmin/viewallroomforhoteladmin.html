@@ -1,0 +1,41 @@
+<div class="container my-7">
+    <h2 class="text-center">
+        🏨 View Rooms by Your Hotels
+    </h2>
+
+    <!-- Hotel Dropdown -->
+    <div class="mb-5 d-flex">
+        <select id="hotelSelect" class="form-select form-select-lg shadow-lg" [(ngModel)]="selectedHotelId"
+            (change)="onHotelChange()">
+            <option value="" disabled selected>-- Select Your Hotel --</option>
+            <option *ngFor="let hotel of hotels" [value]="hotel.id">{{ hotel.name }}</option>
+        </select>
+    </div>
+
+    <!-- No Rooms Message -->
+    <div *ngIf="selectedHotelId && rooms.length === 0" class="alert alert-warning shadow-sm">
+        🚫 No rooms available for this hotel.
+    </div>
+
+    <!-- Rooms Grid -->
+    <div class="row gy-4 mt-4">
+        <div *ngFor="let room of rooms" class="col-md-6 col-lg-4">
+            <div class="card shadow-lg h-100">
+                <img [src]="room.image || 'https://via.placeholder.com/400x250?text=No+Image'" class="card-img-top"
+                    alt="Room Image" />
+                <div class="card-body">
+                    <h5 class="card-title">{{ room.roomType }}</h5>
+                    <p class="card-text">
+                        👨‍👩‍👧 Adults: <strong>{{ room.adults }}</strong><br />
+                        🧒 Children: <strong>{{ room.children }}</strong><br />
+                        💲 Price: <strong>${{ room.price }}</strong>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-light btn-sm" (click)="getRoomById(room.id)">Edit</button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteRoom(room.id)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

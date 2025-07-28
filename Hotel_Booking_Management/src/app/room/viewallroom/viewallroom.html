@@ -1,7 +1,7 @@
-<div class="container my-4">
-  <h2>View Rooms by Hotel</h2>
+<div class="container">
+  <h2 class="mb-4">View Rooms by Hotel</h2>
 
-  <!-- Hotel Dropdown -->
+  <!-- Hotel Dropdown (all hotels shown) -->
   <div class="mb-4">
     <label for="hotelSelect" class="form-label">Select Hotel:</label>
     <select id="hotelSelect" class="form-select" [(ngModel)]="selectedHotelId" (change)="onHotelChange()">
@@ -12,7 +12,12 @@
     </select>
   </div>
 
-  <!-- Rooms Cards -->
+  <!-- 🚫 No Rooms Found -->
+  <div *ngIf="selectedHotelId && rooms.length === 0" class="alert alert-warning text-center">
+    🚫 No rooms available for the selected hotel.
+  </div>
+
+  <!-- ✅ Rooms -->
   <div class="row">
     <div *ngFor="let room of rooms" class="col-md-4 mb-4">
       <div class="card h-100" style="padding: 3%; border-color: black; background-color: rgb(128, 77, 170);">
@@ -24,7 +29,6 @@
             Children: {{ room.children }}<br />
             Price: ${{ room.price }}
           </p>
-
         </div>
         <div class="card-footer text-end">
           <button class="btn btn-primary btn-sm m-2" (click)="getRoomById(room.id)">Edit</button>

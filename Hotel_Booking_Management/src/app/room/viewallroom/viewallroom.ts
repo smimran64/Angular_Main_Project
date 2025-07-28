@@ -17,6 +17,7 @@ export class Viewallroom {
   hotels: Hotel[] = [];
   rooms: RoomModel[] = [];
   selectedHotelId: string = '';
+   allRooms: RoomModel[] = [];
 
   constructor(
     private hotelService: HotelService,
@@ -26,42 +27,36 @@ export class Viewallroom {
   ) { }
 
   ngOnInit(): void {
-    this.loadHotels();
+    this.loadAllHotelsAndRooms();
   }
 
-  loadHotels() {
+  loadAllHotelsAndRooms(): void {
     this.hotelService.getAllHotels().subscribe({
-      next: (data) => {
-        this.hotels = data;
+      next: (hotelData) => {
+        this.hotels = hotelData;
         this.cdr.markForCheck();
-
       },
       error: (err) => {
-        console.error(err);
+        console.error('Hotel load error:', err);
+      }
+    });
+
+    this.roomService.getAllRoom().subscribe({
+      next: (roomData) => {
+        this.allRooms = roomData;
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        console.error('Room load error:', err);
       }
     });
   }
-
-  onHotelChange() {
+  onHotelChange(): void {
+    this.rooms = [];
     if (this.selectedHotelId) {
-      this.roomService.getRoomsByHotelId(this.selectedHotelId).subscribe({
-        next: (data) => {
-          this.rooms = data,
-            this.cdr.markForCheck();
-        },
-        error: (err) => {
-
-          console.error(err)
-
-        }
-
-      });
-
+      this.rooms = this.allRooms.filter(room => room.hotelId === this.selectedHotelId);
+      this.cdr.markForCheck();
     }
-    else {
-      this.rooms = [];
-    }
-
   }
 
   loadRoom(): void {

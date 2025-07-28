@@ -32,8 +32,11 @@
                         <ng-container *ngIf="userRole === 'hoteladmin'">
                             <li><a class="dropdown-item" routerLink="addroom">Add Room</a></li>
                         </ng-container>
-                        <ng-container *ngIf="userRole === 'hoteladmin' || userRole === 'admin'">
+                        <ng-container *ngIf="userRole ==='admin'">
                             <li><a class="dropdown-item" routerLink="roomview">View All Room By Hotel</a></li>
+                        </ng-container>
+                        <ng-container *ngIf="userRole === 'hoteladmin'">
+                            <li><a class="dropdown-item" routerLink="viewallroomforhoteladmin">View Room For Hotel Admin</a></li>
                         </ng-container>
                     </ul>
                 </li>

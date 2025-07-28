@@ -27,6 +27,7 @@ import { UserGuard } from './guards/user-guard';
 import { AdminHotelAdminGuard } from './guards/adminhoteladmin-guard';
 import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/about-hotel-booking-system';
 import { ViewAllUsers } from './view-all-users/view-all-users';
+import { Viewallroomforhoteladmin } from './room/viewallroomforhoteladmin/viewallroomforhoteladmin';
 
 
 
@@ -46,6 +47,7 @@ const routes: Routes = [
   {path:'addroom', component: Addroom , canActivate:[HotelAdminGuard]},
   {path: 'roomview', component: Viewallroom , canActivate:[AdminHotelAdminGuard]},
   {path: 'updateroom/:id', component:Updateroom , canActivate:[HotelAdminGuard]},  
+  {path: 'viewallroomforhoteladmin', component:Viewallroomforhoteladmin , canActivate:[HotelAdminGuard]},  
 
   {path: 'reg', component: Registrationform},
   {path: 'login', component: Login},
