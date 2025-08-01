@@ -28,6 +28,8 @@ import { AdminHotelAdminGuard } from './guards/adminhoteladmin-guard';
 import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/about-hotel-booking-system';
 import { ViewAllUsers } from './view-all-users/view-all-users';
 import { Viewallroomforhoteladmin } from './room/viewallroomforhoteladmin/viewallroomforhoteladmin';
+import { HotelBasicInfo } from './hotelCridentials/hotel-basic-info/hotel-basic-info';
+import { ViewhotelbasicInfo } from './hotelCridentials/viewhotelbasic-info/viewhotelbasic-info';
 
 
 
@@ -63,7 +65,9 @@ const routes: Routes = [
 
   {path:'bookingalert',component:Bookingalert, canActivate:[AdminGuard]},
   {path:'',component:AboutHotelBookingSystem},
-  {path:'viewallusers',component:ViewAllUsers,canActivate:[AdminGuard] }
+  {path:'viewallusers',component:ViewAllUsers,canActivate:[AdminGuard] },
+  {path: 'cridentials' , component: HotelBasicInfo},
+  {path: 'viewcridentials' , component: ViewhotelbasicInfo},
  
  
 ];

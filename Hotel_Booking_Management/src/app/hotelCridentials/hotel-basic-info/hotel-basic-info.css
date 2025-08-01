@@ -1,0 +1,29 @@
+.custom-card {
+    background: #f8f9fa;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.1);
+}
+
+label {
+    color: #212529;
+}
+
+textarea,
+input,
+select {
+    border-radius: 10px !important;
+    border: 1px solid #ced4da !important;
+    transition: 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #0d6efd !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+.form-check-label {
+    font-weight: 500;
+    color: #495057;
+}

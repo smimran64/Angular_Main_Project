@@ -1,0 +1,71 @@
+<div class="container my-5">
+    <div class="card shadow-lg p-5 rounded-4 custom-card">
+        <h2 class="text-center mb-4 text-primary fw-bold">🏨 Add Hotel Credentials</h2>
+
+        <form [formGroup]="cridentialsForm" (ngSubmit)="onSubmit()">
+            <!-- Hotel Select -->
+            <div class="mb-4">
+                <label class="form-label fw-semibold">Select Hotel</label>
+                <select formControlName="hotelId" class="form-select shadow-sm">
+                    <option value="" disabled selected>-- Choose a hotel --</option>
+                    <option *ngFor="let hotel of hotels" [value]="hotel.id">
+                        {{ hotel.name }}
+                    </option>
+                </select>
+            </div>
+
+            <!-- Owner Info -->
+            <div class="mb-4">
+                <label class="form-label fw-semibold">Owner Info</label>
+                <input type="text" formControlName="OwnerInfo" class="form-control shadow-sm"
+                    placeholder="Owner name and contact" />
+            </div>
+
+            <!-- Description -->
+            <div class="mb-4">
+                <label class="form-label fw-semibold">Hotel Description</label>
+                <textarea formControlName="description" class="form-control shadow-sm" rows="3"
+                    placeholder="Write a short hotel description..."></textarea>
+            </div>
+
+            <!-- Policy -->
+            <div class="mb-4">
+                <label class="form-label fw-semibold">Hotel Policy</label>
+                <textarea formControlName="hotelPolicy" class="form-control shadow-sm" rows="3"
+                    placeholder="Write hotel rules or policies..."></textarea>
+            </div>
+
+            <!-- Facilities -->
+            <div formGroupName="facilities" class="mb-4">
+                <label class="form-label fw-semibold">Facilities</label>
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let facility of [
+            'FreeWifi', 'FreeParking', 'SwimmingPool', 'Gym', 'Restaurant',
+            'RoomService', 'AirConditioning', 'LaundryService', 'WheelchairAccessible', 'healthServices'
+          ]">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" [formControlName]="facility"
+                                [id]="facility">
+                            <!-- template -->
+                            <label class="form-check-label" [for]="facility">{{ getLabel(facility) }}</label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg px-5 shadow-sm"
+                    [disabled]="cridentialsForm.invalid">
+                    Save Info
+                </button>
+            </div>
+
+            <!-- Success Message -->
+            <div *ngIf="successMessage" class="alert alert-success mt-4 text-center">
+                {{ successMessage }}
+            </div>
+        </form>
+    </div>
+</div>

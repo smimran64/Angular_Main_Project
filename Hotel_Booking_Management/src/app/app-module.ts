@@ -32,6 +32,15 @@ import { AboutHotelBookingSystem } from './layout/about-hotel-booking-system/abo
 import { ViewAllUsers } from './view-all-users/view-all-users';
 import { Viewallroom } from './room/viewallroom/viewallroom';
 import { Viewallroomforhoteladmin } from './room/viewallroomforhoteladmin/viewallroomforhoteladmin';
+import { HotelBasicInfo } from './hotelCridentials/hotel-basic-info/hotel-basic-info';
+import { ViewhotelbasicInfo } from './hotelCridentials/viewhotelbasic-info/viewhotelbasic-info';
+import { UpdateHotelBasicInfo } from './hotelCridentials/update-hotel-basic-info/update-hotel-basic-info';
+import { AddFacilities } from './hotelFacilities/add-facilities/add-facilities';
+import { Viewfacilities } from './hotelFacilities/viewfacilities/viewfacilities';
+import { UpdateFacilities } from './hotelFacilities/update-facilities/update-facilities';
+import { AddHotelMedia } from './hotelMedia/add-hotel-media/add-hotel-media';
+import { ViewHotelMedia } from './hotelMedia/view-hotel-media/view-hotel-media';
+import { UpdateHotelMedia } from './hotelMedia/update-hotel-media/update-hotel-media';
 
 
 
@@ -64,7 +73,16 @@ import { Viewallroomforhoteladmin } from './room/viewallroomforhoteladmin/viewal
     Navbar,
     Footer,
     AboutHotelBookingSystem,
-    ViewAllUsers
+    ViewAllUsers,
+    HotelBasicInfo,
+    ViewhotelbasicInfo,
+    UpdateHotelBasicInfo,
+    AddFacilities,
+    Viewfacilities,
+    UpdateFacilities,
+    AddHotelMedia,
+    ViewHotelMedia,
+    UpdateHotelMedia
     
  
    

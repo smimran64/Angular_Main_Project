@@ -491,5 +491,45 @@
       "dueamount": 10000,
       "hotelid": "59b8"
     }
+  ],
+  "hotelCredentials": [
+    {
+      "id": "",
+      "hotelId": "4910",
+      "OwnerInfo": "sdfgafd",
+      "description": "dasffa",
+      "hotelPolicy": "adsfasfdasdf",
+      "facilities": {
+        "FreeWifi": true,
+        "FreeParking": false,
+        "SwimmingPool": false,
+        "Gym": true,
+        "Restaurant": false,
+        "RoomService": false,
+        "AirConditioning": true,
+        "LaundryService": false,
+        "WheelchairAccessible": false,
+        "healthServices": true
+      }
+    },
+    {
+      "id": "",
+      "hotelId": "5e95",
+      "OwnerInfo": "sdagsafg",
+      "description": "asdfgsdfg",
+      "hotelPolicy": "asdgfasdgf",
+      "facilities": {
+        "FreeWifi": true,
+        "FreeParking": false,
+        "SwimmingPool": true,
+        "Gym": false,
+        "Restaurant": false,
+        "RoomService": true,
+        "AirConditioning": false,
+        "LaundryService": true,
+        "WheelchairAccessible": false,
+        "healthServices": false
+      }
+    }
   ]
 }
