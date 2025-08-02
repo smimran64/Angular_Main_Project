@@ -66,8 +66,8 @@ const routes: Routes = [
   {path:'bookingalert',component:Bookingalert, canActivate:[AdminGuard]},
   {path:'',component:AboutHotelBookingSystem},
   {path:'viewallusers',component:ViewAllUsers,canActivate:[AdminGuard] },
-  {path: 'cridentials' , component: HotelBasicInfo},
-  {path: 'viewcridentials' , component: ViewhotelbasicInfo},
+  {path: 'addcridentials' , component: HotelBasicInfo, canActivate:[HotelAdminGuard]},
+  {path: 'viewcridentials' , component: ViewhotelbasicInfo, canActivate:[HotelAdminGuard]},
  
  
 ];
