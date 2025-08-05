@@ -1,1 +1,32 @@
-<p>view-hotel-media works!</p>
+<div class="container">
+    <h2 class="text-center mb-4">🏨 Hotel Media Gallery</h2>
+
+    <!-- Loading -->
+    <div *ngIf="loading" class="text-center">
+        <p>⏳ Loading media...</p>
+    </div>
+
+    <!-- Error -->
+    <div *ngIf="errorMessage" class="alert alert-danger text-center">
+        {{ errorMessage }}
+    </div>
+
+    <!-- No Media -->
+    <div *ngIf="!loading && mediaList.length === 0" class="text-center text-muted">
+        <p>😕 No media found!</p>
+    </div>
+
+    <!-- Media Cards -->
+    <div class="row" *ngIf="!loading && mediaList.length > 0">
+        <div class="col-md-6 mb-4" *ngFor="let media of mediaList">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Hotel: {{ getHotelName(media.hotelId) }}</h5>
+                    <div class="gallery-grid mt-3">
+                        <img *ngFor="let img of media.gallery" [src]="img" alt="Gallery Image" class="gallery-img" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

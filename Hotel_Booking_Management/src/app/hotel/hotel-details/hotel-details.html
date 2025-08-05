@@ -1,50 +1,138 @@
-<div class="container my-4" *ngIf="hotel">
-  <h2>{{ hotel.name }}</h2>
+<div class="container my-7" *ngIf="hotel">
+  <h2 class="text-center mb-4">{{ hotel.name }}</h2>
 
+  <!-- Hotel Basic Info -->
   <div class="row mb-4">
-    <div class="col-md-6"
-      style="padding: 1%; border-color: rgba(30, 7, 231, 0.849); background-color: rgb(208, 218, 72);">
-      <img [src]="hotel.image" alt="{{ hotel.name }}" class="img-fluid rounded" />
+    <div class="col-md-6 d-flex justify-content-center align-items-center"
+      style="padding: 1%; background-color: rgb(208, 218, 72); border: 2px solid rgba(30, 7, 231, 0.849);">
+      <img [src]="hotel.image" alt="{{ hotel.name }}" class="img-fluid rounded shadow" />
     </div>
+
     <div class="col-md-6" style="padding: 5%; background-color: rgb(188, 199, 39);">
-      <h4>Address:</h4>
+      <h4>📍 Address:</h4>
       <p>{{ hotel.address }}</p>
 
-      <h4>Rating:</h4>
+      <h4>⭐ Rating:</h4>
       <p>{{ hotel.rating }}</p>
 
-      <h4>Location ID:</h4>
-      <p>{{ hotel.locationId }}</p>
+      <h4>🗺️ Location ID:</h4>
+      <p>{{ locationName}}</p>
     </div>
   </div>
 
-  <h3>Rooms</h3>
+  <!-- Rooms Section -->
+  <h3 class="text-center mb-4">🏨 Available Rooms</h3>
+
   <div class="row">
     <div *ngFor="let room of rooms" class="col-md-4 mb-4">
-      <div class="card h-100"
-        style="padding: 5%; border-color: black ; border: width 2px; background-color: rgb(169, 202, 77);">
-        <img [src]="room.image" class="card-img-top" alt="Room Image" />
+      <div class="card h-100 shadow" style="background-color: rgb(169, 202, 77); border: 2px solid black;">
+        <img [src]="room.image || 'assets/default-room.jpg'" class="card-img-top" alt="Room Image" />
+
         <div class="card-body">
-          <h5 class="card-title">{{ room.roomType }}</h5>
+          <h5 class="card-title text-center">{{ room.roomType }}</h5>
           <p class="card-text">
-            Adults: {{ room.adults }} <br />
-            Children: {{ room.children }} <br />
-            Price: ${{ room.price }}
+            👨‍👩‍👧 Adults: {{ room.adults }} <br />
+            👶 Children: {{ room.children }} <br />
+            💰 Price: BDT {{ room.price }} <br />
+            🛏️ Available Rooms: {{ room.availableRooms ?? 0 }}
           </p>
-          <button class="btn btn-primary w-100" (click)="bookRoom(room)">
+
+          <!-- Book Now Button -->
+          <button class="btn btn-primary w-100" (click)="bookRoom(room)" [disabled]="(room.availableRooms ?? 0) <= 0">
             Book Now
           </button>
+
+          <!-- ❌ Not Available -->
+          <div *ngIf="(room.availableRooms ?? 0) <= 0" class="text-danger fw-bold mt-2 text-center">
+            ❌ Not Available
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 
 
-  <!-- Loading or not found -->
+  <div class="container my-5" *ngIf="hotelCridential">
+    <h2 class="text-center text-primary mb-5">🏨 Hotel Credentials</h2>
+
+    <!-- Owner Info -->
+    <!-- <div class="row align-items-center mb-4">
+      <div class="col-auto">
+        <span class="fs-4 text-secondary">👤</span>
+      </div>
+      <div class="col">
+        <h5 class="mb-1">Owner Information</h5>
+        <p class="text-muted">{{ hotelCridential.OwnerInfo }}</p>
+      </div>
+    </div> -->
+
+    <!-- Description -->
+    <div class="row align-items-center mb-4">
+      <div class="col-auto">
+        <span class="fs-4 text-secondary">📝</span>
+      </div>
+      <div class="col">
+        <h5 class="mb-1">Hotel Description</h5>
+        <p class="text-muted">{{ hotelCridential.description }}</p>
+      </div>
+    </div>
+
+    <!-- Policy -->
+    <div class="row align-items-center mb-4">
+      <div class="col-auto">
+        <span class="fs-4 text-secondary">📋</span>
+      </div>
+      <div class="col">
+        <h5 class="mb-1">Hotel Policy</h5>
+        <p class="text-muted">{{ hotelCridential.hotelPolicy }}</p>
+      </div>
+    </div>
+
+    <!-- Facilities Grid -->
+    <div class="mb-4">
+      <h5 class="mb-3">🏷️ Available Facilities</h5>
+      <div class="row g-3">
+        <div class="col-6 col-md-4" *ngIf="hotelCridential.facilities.FreeWifi">✔️ Free Wi-Fi</div>
+        <div class="col-6 col-md-4" *ngIf="hotelCridential.facilities.FreeParking">✔️ Free Parking</div>
+        <div class="col-6 col-md-4" *ngIf="hotelCridential.facilities.SwimmingPool">✔️ Swimming Pool</div>
+        <div class="col-6 col-md-4" *ngIf="hotelCridential.facilities.Gym">✔️ Gym</div>
+        <div class="col-6 col-md-4" *ngIf="hotelCridential.facilities.Restaurant">✔️ Restaurant</div>
+        <div class="col-6 col-md-4" *ngIf="hotelCridential.facilities.RoomService">✔️ Room Service</div>
+        <div class="col-6 col-md-4" *ngIf="hotelCridential.facilities.AirConditioning">✔️ Air Conditioning</div>
+        <div class="col-6 col-md-4" *ngIf="hotelCridential.facilities.LaundryService">✔️ Laundry Service</div>
+        <div class="col-6 col-md-4" *ngIf="hotelCridential.facilities.WheelchairAccessible">✔️ Wheelchair Access</div>
+        <div class="col-6 col-md-4" *ngIf="hotelCridential.facilities.healthServices">✔️ Health Services</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- // for hotel media -->
+
+  <div class="container my-5" *ngIf="hotelMedia && hotelMedia.gallery.length > 0">
+    <h2 class="text-center text-primary mb-4">🏞️ Hotel Gallery</h2>
+
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg-3" *ngFor="let imgUrl of hotelMedia.gallery">
+        <div class="gallery-img shadow-sm rounded overflow-hidden border">
+          <img [src]="imgUrl" alt="Hotel Image" class="img-fluid w-100" style="height: 180px; object-fit: cover;" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Not Found Message -->
   <div *ngIf="!hotel && !loading" class="text-center my-5">
     <p>Hotel not found.</p>
   </div>
 
+  <!-- Loading Message -->
   <div *ngIf="loading" class="text-center my-5">
-    <p>Loading hotel details...</p>
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-3">Loading hotel details...</p>
   </div>
+</div>

@@ -19,5 +19,7 @@ export class BookingModel {
     totalAmount!: number;
     dueAmount!: number;
     hotelId!:string;
+    roomId!: string; 
+    bookedRooms!: number;
 
 }

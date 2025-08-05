@@ -1,23 +1,49 @@
 <div class="col-md-4 mt-4">
     <div class="container">
 
-        <h3>📢 Booking notifications</h3>
+        <!-- Notification Header with Count -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="mb-0">📢 Booking Notifications</h4>
+            <div class="position-relative">
+                <i class="bi bi-bell fs-4 text-dark"></i>
+                <span *ngIf="unreadCount > 0"
+                    class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+                    {{ unreadCount }}
+                </span>
+            </div>
+        </div>
 
-        <div *ngIf="notifications.length === 0">
+        <!-- No notifications -->
+        <div *ngIf="notifications.length === 0" class="text-muted">
             No notifications found.
         </div>
 
-        <div *ngIf="notifications.length > 0" class="space-y-4">
-            <div *ngFor="let note of notifications" class="border p-3 rounded shadow">
+        <!-- Notification List -->
+        <div *ngIf="notifications.length > 0" class="d-flex flex-column gap-3">
+            <div *ngFor="let note of notifications" class="border p-3 rounded shadow-sm position-relative bg-light">
+
                 <p><strong>🧑 User ID:</strong> {{ note.userId }}</p>
                 <p><strong>👤 Contact Person:</strong> {{ note.contractPerson }}</p>
                 <p><strong>🏨 Hotel Name:</strong> {{ note.hotelName }}</p>
                 <p><strong>📍 Location:</strong> {{ note.location }}</p>
                 <p><strong>💰 Total Amount:</strong> {{ note.totalAmount }} TK</p>
-                <p class="text-sm text-gray-500">⏰ {{ note.time }}</p>
+                <p class="text-muted small">⏰ {{ note.time }}</p>
+
+                <span *ngIf="!note.read" class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">
+                    New
+                </span>
             </div>
         </div>
 
-        <button class="btn btn-sm btn-danger mt-3" (click)="clearNotifications()" *ngIf="notifications.length >0">Clear All</button>
+        <!-- Action Buttons -->
+        <div *ngIf="notifications.length > 0" class="mt-3 d-flex gap-2">
+            <button class="btn btn-sm btn-outline-success" (click)="markAllAsRead()" [disabled]="unreadCount === 0">
+                Mark all as read
+            </button>
+            <button class="btn btn-sm btn-outline-danger" (click)="clearNotifications()">
+                Clear All
+            </button>
+        </div>
+
     </div>
 </div>

@@ -52,7 +52,7 @@ export class Viewallbooking {
 
   OnHotelChange() {
     if (this.selectedHotelId) {
-      this.bookingService.viewAllBooking().subscribe({
+      this.bookingService.getAllBookings().subscribe({
         next: (data) => {
           this.bookings = data.filter( b => b.hotelId === this.selectedHotelId);
           console.log('Manually filtered bookings:', this.bookings);

@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID } from '@angu
 import { HotelCredentials } from '../../model/hotelCridentials.model';
 import { HotelCridentialService } from '../../service/hotel-cridential-service';
 import { isPlatformBrowser } from '@angular/common';
+import { Hotel } from '../../model/hotel.model';
+import { HotelService } from '../../service/hotel.service';
 
 @Component({
   selector: 'app-viewhotelbasic-info',
@@ -12,10 +14,15 @@ import { isPlatformBrowser } from '@angular/common';
 export class ViewhotelbasicInfo implements OnInit {
 
   hotelCridentials: HotelCredentials[] = [];
+  hotels: Hotel[] = [];
+  hotelMap = new Map<string, string>();
+  loading = false;
+  errorMessage = '';
 
   constructor(
     private cridentialService: HotelCridentialService,
     private cdr: ChangeDetectorRef,
+    private hotelService: HotelService,
 
     @Inject(PLATFORM_ID) private platformId: Object
 
@@ -31,17 +38,40 @@ export class ViewhotelbasicInfo implements OnInit {
   }
 
   loadCridentials(): void {
-    this.cridentialService.getAllHotelCredentials().subscribe({
-      next: (data) => {
-        console.log('Data from API:', data);  // Eta add koro
-        this.hotelCridentials = data;
-        this.cdr.markForCheck();
+    this.loading = true;
+    this.errorMessage = '';
+
+    this.hotelService.getAllHotels().subscribe({
+      next: hotels => {
+        this.hotels = hotels;
+        this.hotelMap.clear();
+        this.hotels.forEach(hotel => this.hotelMap.set(hotel.id, hotel.name));
+
+        this.cridentialService.getAllHotelCredentials().subscribe({
+
+          next: cridentials => {
+            this.hotelCridentials = cridentials;
+            this.loading = false;
+            this.cdr.markForCheck();
+          },
+          error: err => {
+            this.errorMessage = 'Error loading cridentials';
+            this.loading = false;
+          }
+        });
       },
-      error: (err) => {
-        console.error('Error loading hotel cridentials:', err);
+      error: err => {
+        this.errorMessage = 'Error loading hotels';
+        this.loading = false;
       }
     });
   }
+
+  getHotelName(hotelId: string): string {
+    return this.hotelMap.get(hotelId) || 'Unknown Hotel';
+  }
+
+
 
   getLabel(text: string): string {
     return text.replace(/([A-Z])/g, ' $1').trim();

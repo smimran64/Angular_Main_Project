@@ -15,7 +15,7 @@ export class Bookingservice {
     private http: HttpClient
   ) { }
 
-  viewAllBooking(): Observable<BookingModel[]> {
+ getAllBookings(): Observable<BookingModel[]> {
 
     return this.http.get<BookingModel[]>(this.baseUrl);
   }
@@ -58,6 +58,12 @@ export class Bookingservice {
   getBookingsByUserId(userId: string): Observable<BookingModel[]> {
     return this.http.get<BookingModel[]>(`${this.baseUrl}?userid=${userId}`);
   }
-  
+
+
+  getBookingsByRoomId(roomId: string): Observable<BookingModel[]> {
+    return this.http.get<BookingModel[]>(`${this.baseUrl}?roomId=${roomId}`);
+  }
+
+
 
 }

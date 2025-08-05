@@ -30,6 +30,7 @@ export class Addroom {
     this.roomForm = this.fb.group({
       image: ['', Validators.required],
       roomType: ['', Validators.required],
+      totalRooms:['',Validators.required],
       adults: [0, [Validators.required, Validators.min(1)]],
       children: [0, [Validators.required, Validators.min(0)]],
       price: [0, [Validators.required, Validators.min(0)]],

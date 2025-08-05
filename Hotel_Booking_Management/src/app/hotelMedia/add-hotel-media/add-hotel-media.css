@@ -1,0 +1,71 @@
+/* Card Design */
+.card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Titles */
+h2 {
+    font-weight: 700;
+    color: #007bff;
+}
+
+/* Labels */
+label.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Form Inputs */
+input.form-control {
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease;
+}
+
+input.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Buttons */
+button.btn {
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+button.btn-danger {
+    margin-left: 0.5rem;
+}
+
+/* Success Alert */
+.alert-success {
+    font-weight: 500;
+    border-radius: 0.75rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .input-group {
+        flex-direction: column;
+    }
+
+    .btn-danger {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+}
+
+.container{
+    margin-top: 6%;
+    margin-bottom: 2%;
+}

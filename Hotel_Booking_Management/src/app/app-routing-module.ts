@@ -30,6 +30,8 @@ import { ViewAllUsers } from './view-all-users/view-all-users';
 import { Viewallroomforhoteladmin } from './room/viewallroomforhoteladmin/viewallroomforhoteladmin';
 import { HotelBasicInfo } from './hotelCridentials/hotel-basic-info/hotel-basic-info';
 import { ViewhotelbasicInfo } from './hotelCridentials/viewhotelbasic-info/viewhotelbasic-info';
+import { AddHotelMedia } from './hotelMedia/add-hotel-media/add-hotel-media';
+import { ViewHotelMedia } from './hotelMedia/view-hotel-media/view-hotel-media';
 
 
 
@@ -68,6 +70,8 @@ const routes: Routes = [
   {path:'viewallusers',component:ViewAllUsers,canActivate:[AdminGuard] },
   {path: 'addcridentials' , component: HotelBasicInfo, canActivate:[HotelAdminGuard]},
   {path: 'viewcridentials' , component: ViewhotelbasicInfo, canActivate:[HotelAdminGuard]},
+  {path:'addGallery',component: AddHotelMedia, canActivate:[HotelAdminGuard]},
+  {path:'allGallery',component: ViewHotelMedia, canActivate:[HotelAdminGuard]}
  
  
 ];
