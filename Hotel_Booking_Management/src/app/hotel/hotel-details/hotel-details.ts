@@ -58,7 +58,7 @@ export class HotelDetails {
       this.loadHotelDetails(hotelId);
       this.loadHotelCridentials(hotelId);
       this.loadHotelMedia(hotelId);
-       this.loadAllLocations();
+      this.loadAllLocations();
     } else {
       this.loading = false;
       this.hotel = null;
@@ -83,28 +83,28 @@ export class HotelDetails {
 
 
   loadAllLocations(): void {
-  this.locationService.getAllLocation().subscribe({
-    next: (locs) => {
-      this.locations = locs;
+    this.locationService.getAllLocation().subscribe({
+      next: (locs) => {
+        this.locations = locs;
 
-      // Try setting location name if hotel is already loaded
-      if (this.hotel) {
-        this.setLocationName(this.hotel.locationId);
+        // Try setting location name if hotel is already loaded
+        if (this.hotel) {
+          this.setLocationName(this.hotel.locationId);
+        }
+      },
+      error: (err) => {
+        console.error('Error loading locations:', err);
+        this.locations = [];
       }
-    },
-    error: (err) => {
-      console.error('Error loading locations:', err);
-      this.locations = [];
-    }
-  });
-}
+    });
+  }
 
 
 
   setLocationName(locationId: string): void {
-  const matched = this.locations.find(loc => loc.id === locationId);
-  this.locationName = matched ? matched.locationName : 'Unknown';
-}
+    const matched = this.locations.find(loc => loc.id === locationId);
+    this.locationName = matched ? matched.locationName : 'Unknown';
+  }
 
 
 
@@ -112,22 +112,23 @@ export class HotelDetails {
   loadRoomsForHotel(hotelId: string): void {
     this.roomService.getAllRoom().subscribe({
       next: (rooms: RoomModel[]) => {
+        const filteredRooms = rooms.filter(room => room.hotelId === hotelId);
+
         this.bookingService.getAllBookings().subscribe((bookings: BookingModel[]) => {
-          this.rooms = rooms
-            .filter(room => room.hotelId === hotelId)
-            .map(room => {
-              const totalBooked = bookings
-                .filter(b => b.roomId === room.id)
-                .reduce((sum, b) => sum + (b.bookedRooms || 0), 0);
+          const hotelBookings = bookings.filter(b => b.hotelId === hotelId);
 
-              return {
-                ...room,
-                bookedRooms: totalBooked,
-                availableRooms: room.totalRooms - totalBooked
+          this.rooms = filteredRooms.map(room => {
+            const totalBooked = hotelBookings
+              .filter(b => b.roomId === room.id)
+              .reduce((sum, b) => sum + (b.bookedRooms || 0), 0);
 
-              };
-            });
-          this.calculateRoomAvailability();
+            return {
+              ...room,
+              bookedRooms: totalBooked,
+              availableRooms: room.totalRooms - totalBooked
+            };
+          });
+
           this.loading = false;
           this.cdr.markForCheck();
         });
@@ -140,16 +141,17 @@ export class HotelDetails {
     });
   }
 
-  calculateRoomAvailability(): void {
-    this.rooms.forEach(room => {
-      this.bookingService.getBookingsByRoomId(room.id).subscribe(bookings => {
-        const bookedCount = bookings.reduce((sum, b) => sum + (b.bookedRooms || 0), 0);
-        room.bookedRooms = bookedCount;
-        room.availableRooms = room.totalRooms - bookedCount;
-        this.cdr.markForCheck();
-      });
-    });
-  }
+
+  // calculateRoomAvailability(): void {
+  //   this.rooms.forEach(room => {
+  //     this.bookingService.getBookingsByRoomId(room.id).subscribe(bookings => {
+  //       const bookedCount = bookings.reduce((sum, b) => sum + (b.bookedRooms || 0), 0);
+  //       room.bookedRooms = bookedCount;
+  //       room.availableRooms = room.totalRooms - bookedCount;
+  //       this.cdr.markForCheck();
+  //     });
+  //   });
+  // }
 
   bookRoom(room: RoomModel): void {
     console.log('Booking room:', room);

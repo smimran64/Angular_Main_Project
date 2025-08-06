@@ -28,7 +28,7 @@ export class Addbooking {
   loading = true;
   roomPrice = 0; // Add this to your class
   // Default value for booked rooms
-  room: RoomModel | null = null;
+  room: RoomModel = new RoomModel();
   selectedRoom!: RoomModel;
 
 
@@ -142,8 +142,12 @@ export class Addbooking {
 
 
   submitBooking(): void {
+    console.log('Submit Booking Called');
+    console.log('Current Room:', this.room);
+    console.log('Booking data:', this.booking);
+
     if (!this.booking.contractPersonName || !this.booking.cell || !this.booking.checkin || !this.booking.checkout) {
-      alert('Please fill the all required fields!');
+      alert('Please fill all required fields!');
       return;
     }
 
@@ -152,51 +156,72 @@ export class Addbooking {
       return;
     }
 
-    // First, check how many rooms are already booked
+    // Step 1: Get existing bookings for this room
     this.bookingService.getBookingsByRoomId(this.room.id).subscribe(bookings => {
-      const alreadyBooked = bookings.reduce((sum, b) => sum + (b.bookedRooms || 0), 0);
-      const totalRooms = this.room!.totalRooms || 0;
-      const availableRooms = totalRooms - alreadyBooked;
+      console.log('Existing bookings for room:', bookings);
 
+      const alreadyBooked = bookings.reduce((sum, b) => sum + (b.bookedRooms || 0), 0);
+      const totalRooms = this.room.totalRooms || 0;
+      const availableRooms = totalRooms - alreadyBooked;
       const requestedRooms = this.booking.bookedRooms || 0;
+
+      console.log(`Total rooms: ${totalRooms}, Already booked: ${alreadyBooked}, Available: ${availableRooms}, Requested: ${requestedRooms}`);
 
       if (requestedRooms > availableRooms) {
         alert(`Only ${availableRooms} rooms are available. Please adjust your booking.`);
         return;
       }
 
-      // If all good, calculate due and proceed
+      // Step 2: Booking is valid — proceed
       this.calculateDueAmount();
 
       this.bookingService.createBooking(this.booking).subscribe({
         next: (response) => {
-          console.log('Booking saved successfully:', response);
-          // save notification + generate pdf
-          // ...
-          const notifications = this.localStorageService.getItem('bookingNotifications') || [];
+          console.log('Booking saved:', response);
 
-        notifications.push({
+          // Step 3: Recalculate availability after booking
+          const updatedAvailableRooms = availableRooms - requestedRooms;
+          this.room.availableRooms = updatedAvailableRooms;
 
-          contractPerson: this.booking.contractPersonName,
-          hotelName: this.booking.hotelName,
-          location: this.booking.location,
-          userId: this.booking.userId,
-          totalAmount: this.booking.totalAmount,
-          time: new Date().toLocaleString()
-        });
+          this.roomService.updateRoom(this.room.id, this.room).subscribe({
+            next: () => {
+              console.log('Room availability updated successfully:', updatedAvailableRooms);
 
+              // Optional: fetch fresh updated room if needed
+              // this.roomService.getRoomById(this.room.id).subscribe(updated => {
+              //   this.room = updated;
+              // });
 
-        this.localStorageService.setItem('bookingNotifications', notifications);
+              // Step 4: Save booking notification to localStorage
+              const notifications = this.localStorageService.getItem('bookingNotifications') || [];
+              notifications.push({
+                contractPerson: this.booking.contractPersonName,
+                hotelName: this.booking.hotelName,
+                location: this.booking.location,
+                userId: this.booking.userId,
+                totalAmount: this.booking.totalAmount,
+                time: new Date().toLocaleString()
+              });
+              this.localStorageService.setItem('bookingNotifications', notifications);
 
-         this.generateBookingPDF();
+              // Step 5: Generate Booking PDF
+              this.generateBookingPDF();
+            },
+            error: (err) => {
+              console.error('Room update error:', err);
+            }
+          });
         },
         error: (err) => {
-          console.error('Error saving booking:', err);
-          alert('Booking Cannot Completed');
+          console.error('Booking save error:', err);
+          alert('Booking cannot be completed.');
         }
       });
     });
   }
+
+
+
 
 
 

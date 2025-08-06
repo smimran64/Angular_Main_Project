@@ -14,8 +14,8 @@ export class RoomService {
 
   constructor(
     private http: HttpClient,
-  
-  
+
+
   ) { }
 
 
@@ -36,10 +36,10 @@ export class RoomService {
 
 
   updateRoom(id: string, room: RoomModel): Observable<any> {
-    console.log(room);
+    console.log('Updating room with ID:', id);
     return this.http.put(this.baseUrl + '/' + id, room);
-
   }
+
 
   getRoomById(id: string): Observable<any> {
     return this.http.get(this.baseUrl + '/' + id);
@@ -50,5 +50,5 @@ export class RoomService {
 
   }
 
-  
+
 }

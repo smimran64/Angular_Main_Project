@@ -10,6 +10,6 @@ export class RoomModel {
     price!: number;
     hotelId!: string;  // as room Id  
 
-    bookedRooms?: number;
-    availableRooms?: number;
+    bookedRooms!: number;
+    availableRooms!: number;
 }

@@ -34,18 +34,24 @@
             👨‍👩‍👧 Adults: {{ room.adults }} <br />
             👶 Children: {{ room.children }} <br />
             💰 Price: BDT {{ room.price }} <br />
-            🛏️ Available Rooms: {{ room.availableRooms ?? 0 }}
+            🛏️ Available Rooms:
+            <span [ngClass]="{ 'text-danger fw-bold': room.availableRooms <= 0 }">
+              {{ room.availableRooms }}
+            </span>
           </p>
 
+
           <!-- Book Now Button -->
-          <button class="btn btn-primary w-100" (click)="bookRoom(room)" [disabled]="(room.availableRooms ?? 0) <= 0">
+          <!-- This will now work cleanly -->
+          <button class="btn btn-primary w-100" (click)="bookRoom(room)" [disabled]="room.availableRooms <= 0">
             Book Now
           </button>
 
-          <!-- ❌ Not Available -->
-          <div *ngIf="(room.availableRooms ?? 0) <= 0" class="text-danger fw-bold mt-2 text-center">
+          <!-- Not Available message -->
+          <div *ngIf="room.availableRooms <= 0" class="text-danger fw-bold mt-2 text-center">
             ❌ Not Available
           </div>
+
 
         </div>
       </div>

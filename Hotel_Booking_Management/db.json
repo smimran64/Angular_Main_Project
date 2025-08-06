@@ -171,7 +171,8 @@
       "adults": 2,
       "children": 2,
       "price": 12000,
-      "hotelId": "4910"
+      "hotelId": "4910",
+      "availableRooms": 9
     },
     {
       "id": "f67d",
@@ -181,7 +182,8 @@
       "adults": 2,
       "children": 2,
       "price": 8000,
-      "hotelId": "9d08"
+      "hotelId": "9d08",
+      "availableRooms": 9
     },
     {
       "id": "071b",
@@ -191,7 +193,8 @@
       "adults": 2,
       "children": 2,
       "price": 10000,
-      "hotelId": "9d08"
+      "hotelId": "9d08",
+      "availableRooms": 0
     },
     {
       "id": "ccd9",
@@ -301,7 +304,8 @@
       "adults": 2,
       "children": 1,
       "price": 8000,
-      "hotelId": "48a9"
+      "hotelId": "48a9",
+      "availableRooms": 9
     }
   ],
   "user": [
@@ -420,24 +424,24 @@
   ],
   "bookings": [
     {
-      "id": "590d",
+      "id": "9c92",
       "userId": "ce4a",
-      "roomimage": "https://tinyurl.com/5n8ak3bz",
-      "hotelName": "Sunset serenity resort",
-      "roomType": "Delux",
-      "location": "Saint Martin",
+      "roomimage": "https://tinyurl.com/9ahsjh75",
+      "hotelName": "Rajendra eco resort limited",
+      "roomType": "Premium",
+      "location": "Gazipur",
       "contractPersonName": "atiqul Islam",
       "cell": "01936711060",
-      "address": "sdfhghgfsd",
+      "address": "zdfhgdhdgh",
       "adults": 2,
-      "children": 1,
-      "checkin": "2025-08-08",
-      "checkout": "2025-08-13",
-      "advanceAmount": 20000,
-      "totalAmount": 80000,
-      "dueAmount": 60000,
-      "hotelId": "48a9",
-      "bookedRooms": 2
+      "children": 2,
+      "checkin": "2025-08-07",
+      "checkout": "2025-08-08",
+      "advanceAmount": 5000,
+      "totalAmount": 12000,
+      "dueAmount": 7000,
+      "hotelId": "4910",
+      "bookedRooms": 1
     }
   ],
   "hotelCredentials": [
