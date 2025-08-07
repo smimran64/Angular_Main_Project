@@ -125,7 +125,7 @@ export class HotelDetails {
             return {
               ...room,
               bookedRooms: totalBooked,
-              availableRooms: room.totalRooms - totalBooked
+              availableRooms : room.totalRooms - totalBooked
             };
           });
 

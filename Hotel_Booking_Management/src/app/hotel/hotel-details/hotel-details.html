@@ -34,10 +34,8 @@
             👨‍👩‍👧 Adults: {{ room.adults }} <br />
             👶 Children: {{ room.children }} <br />
             💰 Price: BDT {{ room.price }} <br />
-            🛏️ Available Rooms:
-            <span [ngClass]="{ 'text-danger fw-bold': room.availableRooms <= 0 }">
-              {{ room.availableRooms }}
-            </span>
+            🛏️ Available Rooms:{{room.availableRooms}}
+           
           </p>
 
 

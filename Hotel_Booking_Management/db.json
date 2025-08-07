@@ -183,7 +183,7 @@
       "children": 2,
       "price": 8000,
       "hotelId": "9d08",
-      "availableRooms": 9
+      "availableRooms": 8
     },
     {
       "id": "071b",
@@ -194,7 +194,7 @@
       "children": 2,
       "price": 10000,
       "hotelId": "9d08",
-      "availableRooms": 0
+      "availableRooms": 9
     },
     {
       "id": "ccd9",
@@ -254,7 +254,8 @@
       "adults": 2,
       "children": 2,
       "price": 15000,
-      "hotelId": "156f"
+      "hotelId": "156f",
+      "availableRooms": 5
     },
     {
       "id": "1253",
@@ -294,7 +295,8 @@
       "adults": 2,
       "children": 2,
       "price": 12000,
-      "hotelId": "8f86"
+      "hotelId": "8f86",
+      "availableRooms": 8
     },
     {
       "id": "2bb8",
@@ -424,23 +426,43 @@
   ],
   "bookings": [
     {
-      "id": "9c92",
+      "id": "1ad8",
       "userId": "ce4a",
-      "roomimage": "https://tinyurl.com/9ahsjh75",
-      "hotelName": "Rajendra eco resort limited",
-      "roomType": "Premium",
-      "location": "Gazipur",
+      "roomimage": "https://tinyurl.com/4v8pwaxu",
+      "hotelName": "Sayeman Beach Resort",
+      "roomType": "Double Delux",
+      "location": "Cox's Bazar",
       "contractPersonName": "atiqul Islam",
       "cell": "01936711060",
-      "address": "zdfhgdhdgh",
+      "address": "ergadsf",
       "adults": 2,
       "children": 2,
-      "checkin": "2025-08-07",
-      "checkout": "2025-08-08",
+      "checkin": "2025-08-08",
+      "checkout": "2025-08-09",
       "advanceAmount": 5000,
-      "totalAmount": 12000,
-      "dueAmount": 7000,
-      "hotelId": "4910",
+      "totalAmount": 10000,
+      "dueAmount": 5000,
+      "hotelId": "9d08",
+      "bookedRooms": 1
+    },
+    {
+      "id": "add7",
+      "userId": "ce4a",
+      "roomimage": "https://tinyurl.com/2s3jfsmf",
+      "hotelName": "Sayeman Beach Resort",
+      "roomType": "Delux",
+      "location": "Cox's Bazar",
+      "contractPersonName": "atiqul Islam",
+      "cell": "01936711060",
+      "address": "dsafgasdf",
+      "adults": 2,
+      "children": 2,
+      "checkin": "2025-08-08",
+      "checkout": "2025-08-16",
+      "advanceAmount": 4000,
+      "totalAmount": 64000,
+      "dueAmount": 60000,
+      "hotelId": "9d08",
       "bookedRooms": 1
     }
   ],
