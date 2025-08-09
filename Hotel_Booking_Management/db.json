@@ -504,6 +504,24 @@
         "WheelchairAccessible": false,
         "healthServices": false
       }
+    },
+    {
+      "id": "",
+      "hotelId": "9d08",
+      "description": "In Cox’s Bazar–Bangladesh, After fifty years of glorious past, Sayeman Beach Resort revives its famed legacy of comfort, elegance and impeccable service. An eminent landmark constructed in 1964, this legendary first private hotel in Cox’s Bazar is reborn, infusing modern sophistication into this vintage-chic, iconic hotel at a new beachfront location of Marine Drive, Kolatoli, Cox’s Bazar.",
+      "hotelPolicy": "With its richly historic past, the Hotel Sayeman now fully becomes a part of the exciting and rapidly changing present with the addition of a modern, elegant luxury ocean front hotel in Cox’s Bazar. The beauty of Cox’s Bazar – the climate, the panoramic ocean views, the sandy beaches, plus the rich culture and history along with the warmth of the sun – is what attracts people here. And the Sayeman Beach Resort provides you exactly just that with extraordinary comfort, luxury and services.",
+      "facilities": {
+        "FreeWifi": true,
+        "FreeParking": true,
+        "SwimmingPool": true,
+        "Gym": true,
+        "Restaurant": true,
+        "RoomService": true,
+        "AirConditioning": true,
+        "LaundryService": true,
+        "WheelchairAccessible": true,
+        "healthServices": true
+      }
     }
   ],
   "hotelMedia": [
@@ -511,7 +529,7 @@
       "id": "ad33",
       "hotelId": "9d08",
       "gallery": [
-        "https://tinyurl.com/ycxf357b",
+        "https://tinyurl.com/23bkkfx8",
         "https://tinyurl.com/4ynu6at5",
         "https://tinyurl.com/4y7zvx88",
         "https://tinyurl.com/pmu9evmy"

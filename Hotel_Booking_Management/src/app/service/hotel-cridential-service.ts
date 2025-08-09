@@ -26,9 +26,9 @@ export class HotelCridentialService {
     return this.http.get<HotelCredentials>(`${this.baseUrl}/${id}`);
   }
 
-  addHotelCredentials(data: HotelCredentials): Observable<HotelCredentials> {
+  addHotelCredentials(data: HotelCredentials): Observable<any> {
 
-    return this.http.post<HotelCredentials>(this.baseUrl, data);
+    return this.http.post<any>(this.baseUrl, data);
   }
 
   updateHotelCredentials(id: string, data: HotelCredentials): Observable<HotelCredentials> {

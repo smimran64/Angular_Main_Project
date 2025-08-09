@@ -71,7 +71,8 @@ const routes: Routes = [
   {path: 'addcridentials' , component: HotelBasicInfo, canActivate:[HotelAdminGuard]},
   {path: 'viewcridentials' , component: ViewhotelbasicInfo, canActivate:[HotelAdminGuard]},
   {path:'addGallery',component: AddHotelMedia, canActivate:[HotelAdminGuard]},
-  {path:'allGallery',component: ViewHotelMedia, canActivate:[HotelAdminGuard]}
+  {path:'allGallery',component: ViewHotelMedia, canActivate:[HotelAdminGuard]},
+  
  
  
 ];

@@ -36,8 +36,7 @@ export class HotelBasicInfo implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cridentialsForm = this.fb.group({
-      id: [''],
+    this.cridentialsForm = this.fb.group({      
       hotelId: ['', Validators.required],
       OwnerInfo: ['', Validators.required],
       description: ['', Validators.required],
