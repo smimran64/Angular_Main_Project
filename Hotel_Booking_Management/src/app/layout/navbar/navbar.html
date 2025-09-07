@@ -31,6 +31,10 @@
                     <ul class="dropdown-menu" aria-labelledby="roomsDropdown">
                         <ng-container *ngIf="userRole === 'hoteladmin'">
                             <li><a class="dropdown-item" routerLink="addroom">Add Room</a></li>
+                            <li><a class="dropdown-item" routerLink="addcridentials">Add Hotel Basic Info</a></li>
+                            <li><a class="dropdown-item" routerLink="viewcridentials">View Hotel Basic Info</a></li>
+                            <li><a class="dropdown-item" routerLink="addGallery">Add Hotel Photo Gallery</a></li>
+                            <li><a class="dropdown-item" routerLink="allGallery">View Hotel Photo Gallery</a></li>
                         </ng-container>
                         <ng-container *ngIf="userRole ==='admin'">
                             <li><a class="dropdown-item" routerLink="roomview">View All Room By Hotel</a></li>
